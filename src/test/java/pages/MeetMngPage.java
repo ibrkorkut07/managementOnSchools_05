@@ -3,7 +3,7 @@
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class MeetMngPage {
+ public class MeetMngPage {
 
     public MeetMngPage() {
         PageFactory.initElements(Driver.getDriver(), this);

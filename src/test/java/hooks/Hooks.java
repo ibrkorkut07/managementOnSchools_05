@@ -12,13 +12,13 @@ public class Hooks {
      */
     @Before
     public void setUpScenario(){
-//        RUNS BEFORE EACH SCENARIO
-//       System.out.println("BEFORE METHODS");
+      //  RUNS BEFORE EACH SCENARIO
+       System.out.println("BEFORE METHODS");
     }
     @After
     public void tearDown(Scenario scenario){
 //        AFTER EACH SCENARIO
-//        System.out.println("AFTER METHOD");
+        System.out.println("AFTER METHOD");
 
         if (scenario.isFailed()) { // attach the report only if a scenario fails
             final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
