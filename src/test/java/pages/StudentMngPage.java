@@ -3,9 +3,9 @@ package pages;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class MosLoginPage {
+public class StudentMngPage {
 
-    public MosLoginPage() {
+    public StudentMngPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

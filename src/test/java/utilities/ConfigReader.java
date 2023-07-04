@@ -25,13 +25,5 @@ public class ConfigReader {
         String value = properties.getProperty(key);
         return value;
     }
-/*
-   TEST
-   public static void main(String[] args) {
-     System.out.println(ConfigReader.getProperty("amazon_regression_url"));//https://www.amazon.com
-     System.out.println(ConfigReader.getProperty("amazon_qa_url"));//https://www.qa-amazon-5226a.com
-     System.out.println(ConfigReader.getProperty("browser"));//chrome
-     System.out.println(ConfigReader.getProperty("abcde"));//null
-   }
- */
+
 }

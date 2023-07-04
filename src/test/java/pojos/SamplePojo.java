@@ -4,16 +4,16 @@ package pojos;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JsonPlaceHolderPojo {
+public class SamplePojo {
 
     private Integer userId;
     private String title;
     private Boolean completed;
 
-    public JsonPlaceHolderPojo() {
+    public SamplePojo() {
     }
 
-    public JsonPlaceHolderPojo(Integer userId, String title, Boolean completed) {
+    public SamplePojo(Integer userId, String title, Boolean completed) {
         this.userId = userId;
         this.title = title;
         this.completed = completed;
