@@ -18,7 +18,7 @@ Feature: US_04 Admin should be able to add Dean
     And user clicks on gender
     And  user enters date of birth
     And user enters phone number "<phone number>"
-    And user enters dean password "<password>"
+    And user enters Vice dean password "<password>"
     Then assert alert message
     And close the application
     Examples:
