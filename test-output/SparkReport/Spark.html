@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Smoke Test Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jul 5, 2023 01:39:37 AM</span></a>
+<a href="#"><span class="badge badge-primary">Jul 7, 2023 01:36:44 AM</span></a>
 </li>
 </ul>
 </div>
@@ -66,13 +66,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jul 5, 2023 01:39:37 AM</h3>
+<h3>Jul 7, 2023 01:36:44 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jul 5, 2023 01:39:48 AM</h3>
+<h3>Jul 7, 2023 01:37:00 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -143,7 +143,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>5</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>8</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -162,7 +162,7 @@
 </div></div>
 <script>
 var timeline = {
-"US_08 Vice Deans should be able to create a lesson":9.222
+"US_06 Dean should be able to create Vice Dean":15.589
 };
 </script>
 <div class="row">
@@ -172,7 +172,7 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@US_08</td>
+<td>@US_06</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -213,7 +213,7 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 5,
+passGrandChild: 8,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
@@ -238,7 +238,7 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@US_08</a>
+<a class="dropdown-item" href="#">@US_06</a>
 </ul>
 </li>
 </ul>
@@ -249,9 +249,9 @@ eventsCount: 5,
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">US_08  Vice Deans should be able to create a lesson</p>
+            <p class="name">US_06 Dean should be able to create Vice Dean</p>
             <p class="text-sm">
-              <span>1:39:39 AM</span> / <span>00:00:09:222</span>
+              <span>1:36:45 AM</span> / <span>00:00:15:589</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -259,10 +259,10 @@ eventsCount: 5,
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">US_08 Vice Deans should be able to create a lesson</h5>
-<span class='badge badge-success'>07.05.2023 1:39:39 AM</span>
-<span class='badge badge-danger'>07.05.2023 1:39:48 AM</span>
-<span class='badge badge-default'>00:00:09:222</span>
+<h5 class="test-status text-pass">US_06 Dean should be able to create Vice Dean</h5>
+<span class='badge badge-success'>07.07.2023 1:36:45 AM</span>
+<span class='badge badge-danger'>07.07.2023 1:37:00 AM</span>
+<span class='badge badge-default'>00:00:15:589</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -274,33 +274,48 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Vice Deans goes to lesson management page</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>TC_001 User can create Vice Dean by entering required credentials</div>
       </div>
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.US_08_StepDefs.vice_deans_navigates_to_login_link()">
-                <span>Given Vice Deans navigates to LoginLink</span>
+              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.user_goes_to(java.lang.String)">
+                <span>Given user goes to "https://managementonschools.com"</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepdefinitions.US_08_StepDefs.vice_deans_enter_user_name()">
-                <span>Then Vice Deans enter user name</span>
+              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.user_clicks_on_login_button()">
+                <span>When user clicks on login button</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepdefinitions.US_08_StepDefs.vice_deans_enter_password()">
-                <span>And Vice Deans enter password</span>
+              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.user_enters_username(java.lang.String)">
+                <span>And user enters username "deanNecminson01"</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepdefinitions.US_08_StepDefs.vice_deans_click_on_login_button()">
-                <span>And Vice Deans click on Login button</span>
+              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.user_enters_admin_password(java.lang.String)">
+                <span>And user enters admin password "87651234"</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepdefinitions.US_08_StepDefs.vice_deans_click_on_lesson_button()">
-                <span>And Vice Deans click on Lesson button</span>
+              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.userClicksOnLoginButtonForEnter()">
+                <span>And user clicks on login button for enter</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_06_AddViceDeanStepDefs.user_fills_all_required_credentials()">
+                <span>Given user fills all required credentials</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_06_AddViceDeanStepDefs.user_clicks_submit_button()">
+                <span>And user clicks submit button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.US_06_AddViceDeanStepDefs.verify_new_vice_dean_is_created()">
+                <span>Then verify new Vice Dean is created</span>
       <div>
       </div>
               </div>
@@ -332,12 +347,12 @@ eventsCount: 5,
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@US_08</p>
+<p class="name">@US_06</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@US_08</h4>
+<h4>@US_06</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -351,11 +366,11 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>01:39:39 AM</td>
+<td>01:36:45 AM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Vice Deans goes to lesson management page</a>
+<a href="#" class="linked" test-id='1' id='2'>TC_001 User can create Vice Dean by entering required credentials</a>
 <div class="">
-<span class="badge badge-default">US_08 Vice Deans should be able to create a lesson.Vice Deans goes to lesson management page</span>
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.TC_001 User can create Vice Dean by entering required credentials</span>
 </div>
 </td>
 </tr>
