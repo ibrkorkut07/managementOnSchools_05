@@ -249,4 +249,9 @@ public class ReusableMethods {
             }
         }
     }
+
+    public static void selectByValue(WebElement element, String value) {
+        Select objSelect = new Select(element);
+        objSelect.selectByValue(value);
+    }
 }

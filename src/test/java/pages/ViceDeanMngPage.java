@@ -74,6 +74,12 @@ public class ViceDeanMngPage {
     @FindBy(xpath = "//div[contains(text(),'Error: start time must not be greater than or equal to stop time')]")
     public WebElement startTimeStopTimeAlert;
 
+    @FindBy(xpath = "//input[@id='lessonProgramId' and @value='198']")
+    public WebElement lessonMondayJava;
+
+    @FindBy(xpath = "//div[contains(text(),'Lesson added to Teacher')]")
+    public WebElement lessonAddedTeacher;
+
 
 
 }
