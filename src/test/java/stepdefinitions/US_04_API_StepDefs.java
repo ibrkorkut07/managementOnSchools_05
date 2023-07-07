@@ -8,6 +8,7 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 import static junit.framework.TestCase.assertEquals;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 
 public class US_04_API_StepDefs extends ManagementonSchoolBaseUrl {
@@ -24,9 +25,6 @@ public class US_04_API_StepDefs extends ManagementonSchoolBaseUrl {
         spec.pathParams("first","dean","second","getManagerById" , "third",540);
 
 
-        //Set the expected data
-
-
         //Send the request and get the response
         response = given(spec).get("{first}/{second}/{third}");
         response.prettyPrint();
@@ -38,7 +36,18 @@ public class US_04_API_StepDefs extends ManagementonSchoolBaseUrl {
     public void validate_the_body() {
 
         //Do assertion
-        assertEquals(200, response.statusCode());
+        response.
+                then().
+                statusCode(200)
+//                .body("username", equalTo("DeanAlexx"),
+//                        "name",equalTo("Jhonson"),
+//                        "surname",equalTo("Brows"),
+//                        "birthDay",equalTo("1978-11-10"),
+//                        "ssn",equalTo("421-45-8563"),
+//                        "birthPlace", equalTo("France"),
+//                        "phoneNumber", equalTo("526-865-5854"),
+//                        "gender", equalTo("MALE"))
+        ;
 
 
     }
