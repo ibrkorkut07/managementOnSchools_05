@@ -240,5 +240,18 @@ public class ReusableMethods {
             Assert.fail("Element is not found: " + element);
         }
     }
+    public static void selectByVisibleText(WebElement element, String text){
+        Select select =new Select(element);
+        for (int i =0;i<select.getOptions().size();i++){
+            if(select.getOptions().get(i).getText().equalsIgnoreCase(text)){
+                select.getOptions().get(i).click();
+                break;
+            }
+        }
+    }
 
+    public static void selectByValue(WebElement element, String value) {
+        Select objSelect = new Select(element);
+        objSelect.selectByValue(value);
+    }
 }

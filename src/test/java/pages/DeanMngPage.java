@@ -1,6 +1,7 @@
 package pages;
 
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.*;
 import utilities.Driver;
 
 public class DeanMngPage {
@@ -9,10 +10,9 @@ public class DeanMngPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    /*  -- sample --
-    @FindBy(partialLinkText = "Login")
-    public WebElement homeLoginLink;
-     */
+
+
+
 
 
 
