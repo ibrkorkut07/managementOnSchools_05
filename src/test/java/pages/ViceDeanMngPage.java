@@ -59,7 +59,20 @@ public class ViceDeanMngPage {
     public WebElement chooseTeacher;
     @FindBy(xpath = "(//button[.='Submit'])[4]")
     public WebElement teacherAssignmentSubmitButton;
-
+    @FindBy(xpath = "//div[contains(text(),'Created Lesson Program')]")
+    public WebElement createdLessonProgramAlert;
+    @FindBy(xpath = "//div[contains(text(),'Full authentication is required to access this resource')]")
+    public WebElement fullAuthenticationErrorAlert;
+    @FindBy(xpath = "//div[.='lessons not must empty']")
+    public WebElement lessonEmptyAlert;
+    @FindBy(xpath = "//div[.='Please select education term']")
+    public WebElement educationTermAlert;
+    @FindBy(xpath = "//div[contains(text(),'You have entered an invalid value')]")
+    public WebElement dayAlert;
+    @FindBy(xpath = "//div[.='Required']")
+    public WebElement requiredMessage;
+    @FindBy(xpath = "//div[contains(text(),'Error: start time must not be greater than or equal to stop time')]")
+    public WebElement startTimeStopTimeAlert;
 
 
 
