@@ -16,7 +16,7 @@ public class US_04_AddDeanStepDefs {
     @Given("user goes to {string}")
     public void user_goes_to(String url) {
 
-        Driver.getDriver().get(url);
+        Driver.getDriver().get(ConfigReader.getProperty(url));
 
     }
     @When("user clicks on login button")
