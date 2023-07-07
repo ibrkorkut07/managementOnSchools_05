@@ -12,25 +12,21 @@ Feature: US_04 Admin should be able to add Dean
   Scenario Outline: Create Dean
     Given user clicks on menu
     Then user clicks on dean management option
-    And user enters dean name "<dean name>"
+    And user enters name "<name>"
     And user enters surname "<surname>"
     And user enters birth place "<birth place>"
     And user clicks on gender
     And  user enters date of birth "<date of birth>"
     And user enters phone number "<phone number>"
-
     And user enters ssn number "<ssn>"
     And user enters username for dean "<username for dean>"
     And user enters dean password "<password>"
     And user clicks submit button
-
-    And user enters Vice dean password "<password>"
-
     Then assert alert message
     And close the application
     Examples:
-      | dean name | surname | birth place | date of birth | phone number | ssn         | username for dean | password |
-      | Arslans   | arslans | France      | 10111978      | 526-865-5044 | 421-40-7563 | DeanArslans       | Al123456 |
+      | name | surname | birth place | date of birth | phone number  | ssn         | username for dean | password |
+      | Alex | Brown   | France      | 10111978      | 526-965-58545 | 521-45-8563 | DeanAlex          | Al123456 |
 
 
 
