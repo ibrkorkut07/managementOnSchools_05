@@ -63,6 +63,11 @@ public class US_04_AddDeanStepDefs {
         adminMngPage.deanManagementLink.click();
     }
 
+
+    @Then("user enters name {string}")
+    public void user_enters_name(String name) {
+
+
     @Then("user enters surname {string}")
     public void user_enters_surname(String surname) {
 
