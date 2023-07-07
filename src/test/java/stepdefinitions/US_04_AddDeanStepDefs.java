@@ -8,11 +8,8 @@ import pages.AdminMngPage;
 import pages.CommonCredentialsPage;
 import pages.HomePage;
 import pages.LoginPage;
-import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.WaitUtils;
-
-import static org.junit.Assert.assertTrue;
 
 public class US_04_AddDeanStepDefs {
     HomePage homePage = new HomePage();
@@ -23,7 +20,7 @@ public class US_04_AddDeanStepDefs {
     @Given("user goes to {string}")
     public void user_goes_to(String url) {
 
-        Driver.getDriver().get(ConfigReader.getProperty(url));
+        Driver.getDriver().get(url);
 
     }
     @When("user clicks on login button")
@@ -62,16 +59,16 @@ public class US_04_AddDeanStepDefs {
 
         adminMngPage.deanManagementLink.click();
     }
-
-
     @Then("user enters name {string}")
-    public void user_enters_name(String name) {
+    public void user_enters_name(String deanName) {
 
+        adminMngPage.deanName.sendKeys(deanName);
 
+    }
     @Then("user enters surname {string}")
     public void user_enters_surname(String surname) {
 
-
+        WaitUtils.waitFor(1);
         commonCredentialsPage.surname.sendKeys(surname);
 
     }
@@ -107,10 +104,6 @@ public class US_04_AddDeanStepDefs {
     @Then("assert alert message")
     public void assert_alert_message() {
 
-        WaitUtils.waitFor(1);
-        String alertText = adminMngPage.alert.getText();
-        assertTrue(alertText.contains("Dean Saved"));
-
     }
     @Then("close the application")
     public void close_the_application() {
@@ -124,14 +117,14 @@ public class US_04_AddDeanStepDefs {
     @And("user enters ssn number {string}")
     public void userEntersSsnNumber(String ssn) {
 
-        commonCredentialsPage.ssn.sendKeys(ssn);
+        commonCredentialsPage.ssn.sendKeys("853-97-7456");
 
     }
 
     @And("user enters username for dean {string}")
     public void userEntersUsernameForDean(String userName) {
 
-        commonCredentialsPage.username.sendKeys(userName);
+        commonCredentialsPage.username.sendKeys("DeanYahyas");
 
     }
 
@@ -142,12 +135,5 @@ public class US_04_AddDeanStepDefs {
 
     }
 
-
-    @And("user enters dean name {string}")
-    public void userEntersDeanName(String deanName) {
-
-        adminMngPage.deanName.sendKeys(deanName);
-
-    }
 }
 

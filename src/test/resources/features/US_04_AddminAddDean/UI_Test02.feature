@@ -1,9 +1,9 @@
-feaure file de
+@US04_TC02
 
 Feature: US_04 Admin should be able to add Dean
 
   Background: Sign in as admin
-    Given user goes to "MosUrl"
+    Given user goes to "https://managementonschools.com"
     When user clicks on login button
     And user enters username "AdminProject"
     And user enters admin password "12345678"
@@ -13,7 +13,7 @@ Feature: US_04 Admin should be able to add Dean
   Scenario Outline: Create Dean
     Given user clicks on menu
     Then user clicks on dean management option
-    And user enters dean name "<dean name>"
+    And user enters name "<name>"
     And user enters surname "<surname>"
     And user enters birth place "<birth place>"
     And user clicks on gender
@@ -26,6 +26,6 @@ Feature: US_04 Admin should be able to add Dean
     Then assert alert message
     And close the application
     Examples:
-      | dean name | surname | birth place | date of birth | phone number | ssn         | username for dean | password |
-      | Hamzas    | hamzas  | England     | 10111978      | 532-975-4953 | 521-45-8151 | DeanHamza         | 12345678 |
+      | name  | surname | birth place | date of birth | phone number  | ssn         | username for dean | password |
+      | Alexs | Browns  | France      | 10111978      | 526-975-58545 | 531-45-8563 | DeanAlex          | 12345678 |
 

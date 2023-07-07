@@ -7,9 +7,11 @@ import io.restassured.response.Response;
 
 
 import static io.restassured.RestAssured.given;
+import static junit.framework.TestCase.assertEquals;
 
 
 public class US_04_API_StepDefs extends ManagementonSchoolBaseUrl {
+    Response response;
 
 
     @Given("send the request by id")
@@ -26,7 +28,7 @@ public class US_04_API_StepDefs extends ManagementonSchoolBaseUrl {
 
 
         //Send the request and get the response
-        Response response = given(spec).get("{first}/{second}/{third}");
+        response = given(spec).get("{first}/{second}/{third}");
         response.prettyPrint();
 
 
@@ -36,6 +38,7 @@ public class US_04_API_StepDefs extends ManagementonSchoolBaseUrl {
     public void validate_the_body() {
 
         //Do assertion
+        assertEquals(200, response.statusCode());
 
 
     }
