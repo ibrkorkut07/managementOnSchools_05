@@ -9,14 +9,14 @@ import static utilities.Authentication.generateToken;
 
 public class ManagementonSchoolBaseUrl {
 
-    protected RequestSpecification spec;
+    protected static RequestSpecification spec;
 
     @Before//This method will run before each @Test methods.
     public void setUp() {
 
         spec = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
-                .setBaseUri("https://managementonschools.com/")
+                .setBaseUri("https://managementonschools.com/app/")
                 .addHeader("Authorization",""+generateToken())
                 .build();
 
