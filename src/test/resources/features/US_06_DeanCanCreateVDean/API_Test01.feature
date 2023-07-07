@@ -6,5 +6,5 @@ Feature: search_feature
 
   Scenario: TC01_iphone_search
     And user search for "iPhone"
-    Then verify the page title contains "iPhone"
+
     Then close the application

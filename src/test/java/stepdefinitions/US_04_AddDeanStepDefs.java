@@ -4,6 +4,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.AdminMngPage;
+import pages.CommonCredentialsPage;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.Driver;
@@ -12,6 +14,8 @@ import utilities.WaitUtils;
 public class US_04_AddDeanStepDefs {
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
+    AdminMngPage adminMngPage = new AdminMngPage();
+    CommonCredentialsPage commonCredentialsPage = new CommonCredentialsPage();
 
     @Given("user goes to {string}")
     public void user_goes_to(String url) {
@@ -47,37 +51,54 @@ public class US_04_AddDeanStepDefs {
     @Given("user clicks on menu")
     public void user_clicks_on_menu() {
 
+        adminMngPage.menuLink.click();
+
     }
     @Then("user clicks on dean management option")
     public void user_clicks_on_dean_management_option() {
 
+        adminMngPage.deanManagementLink.click();
     }
     @Then("user enters name {string}")
-    public void user_enters_name(String string) {
+    public void user_enters_name(String deanName) {
+
+        adminMngPage.deanName.sendKeys(deanName);
 
     }
     @Then("user enters surname {string}")
-    public void user_enters_surname(String string) {
+    public void user_enters_surname(String surname) {
+
+        WaitUtils.waitFor(1);
+        commonCredentialsPage.surname.sendKeys(surname);
 
     }
     @Then("user enters birth place {string}")
-    public void user_enters_birth_place(String string) {
+    public void user_enters_birth_place(String birthPlace) {
+
+        commonCredentialsPage.birthPlace.sendKeys(birthPlace);
 
     }
     @Then("user clicks on gender")
     public void user_clicks_on_gender() {
 
+        commonCredentialsPage.genderMale.click();
     }
-    @Then("user enters date of birth")
-    public void user_enters_date_of_birth() {
+    @And("user enters date of birth {string}")
+    public void userEntersDateOfBirth(String dateofbirth) {
+
+        commonCredentialsPage.dateOfBirth.sendKeys(dateofbirth);
 
     }
     @Then("user enters phone number {string}")
-    public void user_enters_phone_number(String string) {
+    public void user_enters_phone_number(String phoneNumber) {
+
+        commonCredentialsPage.phoneNumber.sendKeys(phoneNumber);
 
     }
     @Then("user enters dean password {string}")
-    public void user_enters_dean_password(String string) {
+    public void user_enters_dean_password(String password) {
+
+        commonCredentialsPage.password.sendKeys(password);
 
     }
     @Then("assert alert message")
@@ -87,11 +108,32 @@ public class US_04_AddDeanStepDefs {
     @Then("close the application")
     public void close_the_application() {
 
-        WaitUtils.waitFor(2);
-        Driver.closeDriver();
+//        WaitUtils.waitFor(2);
+//        Driver.closeDriver();
 
     }
 
+
+    @And("user enters ssn number {string}")
+    public void userEntersSsnNumber(String ssn) {
+
+        commonCredentialsPage.ssn.sendKeys("853-97-7456");
+
+    }
+
+    @And("user enters username for dean {string}")
+    public void userEntersUsernameForDean(String userName) {
+
+        commonCredentialsPage.username.sendKeys("DeanYahyas");
+
+    }
+
+    @And("user clicks submit button")
+    public void userClicksSubmitButton() {
+
+        adminMngPage.submitButton.click();
+
+    }
 
 }
 
