@@ -9,16 +9,22 @@ import static utilities.Authentication.generateToken;
 
 public class ManagementonSchoolBaseUrl {
 
-    protected RequestSpecification spec;
+    protected static RequestSpecification spec;
 
     @Before//This method will run before each @Test methods.
-    public void setUp() {
+    public static void setUp() {
 
         spec = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
                 .setBaseUri("https://managementonschools.com/")
                 .addHeader("Authorization",""+generateToken())
                 .build();
-
+/*
+        spec = new RequestSpecBuilder()
+                .setContentType(ContentType.JSON)
+                .setBaseUri("https://managementonschools.com/")
+                .addHeader("Authorization","token="+generateToken().replaceAll("[^0-9]",""))
+                .build();
+  */
     }
 }

@@ -6,12 +6,15 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
 
+import static base_urls.ManagementonSchoolBaseUrl.setUp;
+
 public class Hooks {
     /*
     HOOKS : is used to run BEFORE or AFTER each SCENARIO or SCENARIO OUTLINE
      */
     @Before
     public void setUpScenario(){
+        setUp();
       //  RUNS BEFORE EACH SCENARIO
        //System.out.println("BEFORE METHODS");
     }
@@ -25,5 +28,7 @@ public class Hooks {
             scenario.attach(screenshot, "image/png","screenshots");
             Driver.closeDriver();
         }
+
+
     }
 }
