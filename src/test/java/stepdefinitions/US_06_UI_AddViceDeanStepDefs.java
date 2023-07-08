@@ -2,7 +2,6 @@ package stepdefinitions;
 
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import pages.CommonCredentialsPage;
 import utilities.*;
@@ -10,7 +9,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
 
-public class US_06_AddViceDeanStepDefs {
+public class US_06_UI_AddViceDeanStepDefs {
  CommonCredentialsPage CCPage = new CommonCredentialsPage();
  public static String fakeUsername;
  public static String fakeSsn;
@@ -202,6 +201,7 @@ public class US_06_AddViceDeanStepDefs {
  public void user_enters_an_invalid(String password) {
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(password);
  }
+
  @Given("user sends post request with all required credentials")
  public void user_sends_post_request_with_all_required_credentials() {
 
@@ -210,7 +210,6 @@ public class US_06_AddViceDeanStepDefs {
  public void verify_that_new_vice_dean_is_created() {
 
  }
- 
 
 
 
