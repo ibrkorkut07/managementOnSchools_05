@@ -2,10 +2,10 @@ Feature: US01 TC02 Surname must contain any character and cannot be left blank
 
   Background: user goes to Managementonschools web page
     Given user goes to "MosUrl"
+    When user clicks on "RegisterLink"
 
   Scenario: TC_002 Surname cannot be left blank
 
-    When user clicks on "RegisterLink"
     And user clicks on Surname box
     And user leaves the Surname box blank
     And user clicks somewhere out of any Box
@@ -13,7 +13,6 @@ Feature: US01 TC02 Surname must contain any character and cannot be left blank
 
   Scenario: TC_002 Surname as only one space
 
-    When user clicks on "RegisterLink"
     And user clicks on Surname box
     And user enters a space as a surname
     And user clicks somewhere out of any Box
@@ -21,7 +20,6 @@ Feature: US01 TC02 Surname must contain any character and cannot be left blank
 
   Scenario Outline: TC_002 Surname as one or more characters
 
-    When user clicks on "RegisterLink"
     And user clicks on Surname box
     And user enters "<Surname>" as surname
     Then the Required text under the Surname box is NOT displayed
