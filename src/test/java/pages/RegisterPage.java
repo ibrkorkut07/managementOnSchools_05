@@ -56,7 +56,11 @@ public class RegisterPage {
     @FindBy(xpath = "(//button[@type='button'])[3]")
     public WebElement registerBox;
 
+    @FindBy(xpath = "//input[@value='FEMALE']")
+    public WebElement femaleRadioButton;
 
+    @FindBy(xpath = "//input[@value='MALE']")
+    public WebElement maleRadioButton;
 
 
 
