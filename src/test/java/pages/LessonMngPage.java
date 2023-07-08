@@ -41,18 +41,6 @@ public class LessonMngPage {
     @FindBy(id = "lessonName")
     public WebElement lessonNameButton;
 
-    @FindBy(id = "compulsory")
-    public WebElement compulsoryCheck;
-
-
-    @FindBy(id = "lessonName")
-    public WebElement lessonNameInput;
-    @FindBy(id = "creditScore")
-    public WebElement creditScoreInput;
-
-    @FindBy(xpath = "(//button[text()='Submit' and @type='button'])[2]")
-    public WebElement lessonSubmitButton;
-
     @FindBy(xpath = "//*[@id=\"controlled-tab-example-tabpane-lessonsList\"]/div[2]/div[2]/div/table/tbody")
     public WebElement lessonCompulsoryCreditScore;
     @FindBy(xpath = "(//li/a/span[@class='visually-hidden' and text()='Last'])[2]")
