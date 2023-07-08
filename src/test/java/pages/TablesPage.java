@@ -18,7 +18,4 @@ public class TablesPage {
     public static List<WebElement> UsernameList;
 
 
-
-
-
 }
