@@ -29,8 +29,14 @@ public class CommonCredentialsPage {
     public WebElement ssn;
     @FindBy(xpath ="//input[@id='username']")
     public WebElement username;
+
     @FindBy(xpath ="//input[@id='password']")
     public WebElement password;
+
+    @FindBy(xpath ="//button[text()='Submit']")
+    public WebElement submit;
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement alert;
 
 
 
