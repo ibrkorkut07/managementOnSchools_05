@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.HomePage;
 import pages.LoginPage;
+import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.WaitUtils;
 
