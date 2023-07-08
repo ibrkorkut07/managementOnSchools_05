@@ -29,12 +29,10 @@ Feature: US01 TC01 Birth Place must contain any character and cannot be left bla
       |i|
       |#|
       |1|
-      |11|
       |  |
       |i |
-      |iii|
-      | b|
-      |  r|
-      |i r|
-      |ibr|
-      |ibr can|
+      | t|
+      |  a|
+      |i a|
+      |it ly|
+      |italy|

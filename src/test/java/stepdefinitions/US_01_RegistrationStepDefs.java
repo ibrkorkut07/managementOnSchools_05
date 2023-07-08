@@ -146,20 +146,6 @@ public class US_01_RegistrationStepDefs {
         regPage.birthplaceBox.sendKeys(" ");
     }
 
-    @And("user clicks on Female Radio box")
-    public void userClicksOnFemaleRadioBox() {
-        regPage.femaleRadioButton.click();
-    }
-
-    @And("user scrolls into Gender section")
-    public void userScrollsIntoGenderSection() {
-        Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN);
-        ReusableMethods.scrollDownActions();
-        ReusableMethods.scrollDownActions();
-        WaitUtils.waitFor(2);
-
-    }
     @When("user scrolls into Gender section")
     public void user_scrolls_into_gender_section() {
         ReusableMethods.scrollDownActions();
