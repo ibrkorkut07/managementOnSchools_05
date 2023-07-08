@@ -1,4 +1,5 @@
-@US04_TC01
+@US04_TC02
+
 Feature: US_04 Admin should be able to add Dean
 
   Background: Sign in as admin
@@ -18,20 +19,13 @@ Feature: US_04 Admin should be able to add Dean
     And user clicks on gender
     And  user enters date of birth "<date of birth>"
     And user enters phone number "<phone number>"
-<<<<<<< HEAD
-    And user enters Vice dean password "<password>"
-=======
     And user enters ssn number "<ssn>"
     And user enters username for dean "<username for dean>"
     And user enters dean password "<password>"
     And user clicks submit button
->>>>>>> 8865d0374e6c8cdb29d31af2cc46a9713cd02f0d
     Then assert alert message
     And close the application
     Examples:
-      | name   | surname | birth place | date of birth | phone number | ssn         | username for dean | password |
-      | Alexxx | Brownss | France      | 10111979      | 519-965-5854 | 521-45-2063 | DenAlexx          | Al123456 |
-
-
-
+      | name  | surname | birth place | date of birth | phone number | ssn         | username for dean | password |
+      | Alexs | Browns  | France      | 10111978      | 526-975-5854 | 531-45-8563 | DeanAlex          | 12345678 |
 
