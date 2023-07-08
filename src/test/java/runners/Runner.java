@@ -8,13 +8,19 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                 "pretty",
-                "html:target/default-cucumber-reports.html",
+                "html:target/html-reports/cucumber.html",
                 "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml",
-                "rerun:target/failedRerun.txt",
+                "junit:target/xml-reports/cucumber.xml",
+                "rerun:target/failed_scenarios.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         monochrome = true,
+<<<<<<< HEAD
+        features = "./src/test/resources/features/",
+        glue = {"stepdefinitions", "hooks"},
+        dryRun = false,
+        tags = "@api_smoke_test"
+=======
         features = "./src/test/resources/features",//PATH OF FEATURES FOLDER
         glue = {"stepdefinitions","hooks"}, //PATH OF STEPDEFINITIONS FOLDER
         dryRun = false , //dryRun = true : RUNS AND GENERATES ONLY MISSING STEP DEFS.
@@ -24,7 +30,9 @@ import org.junit.runner.RunWith;
 
    
 
+>>>>>>> 8865d0374e6c8cdb29d31af2cc46a9713cd02f0d
 
 )
+
 public class Runner {
 }
