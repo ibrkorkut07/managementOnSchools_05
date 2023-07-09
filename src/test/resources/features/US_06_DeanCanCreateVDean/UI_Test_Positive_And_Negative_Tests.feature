@@ -10,7 +10,7 @@ Feature: US_06 Dean should be able to create Vice Dean
   @US_06_TC_001
   Scenario: TC_001 User can create Vice Dean by entering required credentials "Positive Test"
     Given  user fills all required credentials
-    And    user clicks submit button
+    And    user clicks on submit button
     Then   verify new Vice Dean is created
     And close the application
   @US_06_TC_002

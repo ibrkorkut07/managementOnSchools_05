@@ -28,8 +28,8 @@ public class US_06_UI_AddViceDeanStepDefs {
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys("Qa"+Faker.instance().number().digits(6));
   WaitUtils.waitFor(3);
  }
- @Given("user clicks submit button")
- public void user_clicks_submit_button() {
+ @Given("user clicks on submit button")
+ public void user_clicks_on_submit_button() {
   WaitUtils.waitForVisibility(CCPage.submit,10).submit();
 
  }
