@@ -168,11 +168,6 @@ public class US_01_RegistrationStepDefs {
         ReusableMethods.scrollIntoView(regPage.usernameBox);
     }
 
-    @And("user clicks on User Name box")
-    public void userClicksOnUserNameBox() {
-        regPage.usernameBox.click();
-    }
-
     @And("user enters a User Name")
     public void userEntersAUserName() {
         regPage.usernameBox.sendKeys("ibr");
@@ -187,4 +182,15 @@ public class US_01_RegistrationStepDefs {
     public void theRequiredTextUnderTheUserNameBoxIsDisplayed() {
         Assert.assertTrue(regPage.passwordBoxRequiredText.isDisplayed());
     }
+
+    @And("user enters a Password")
+    public void userEntersAPassword() {
+        regPage.passwordBox.sendKeys("1234567a");
+    }
+
+    @Then("the Required text under the Password box is NOT displayed")
+    public void theRequiredTextUnderThePasswordBoxIsNOTDisplayed() {
+        Assert.assertTrue(regPage.passwordBoxRequiredText.isDisplayed());
+    }
+
 }
