@@ -4,7 +4,7 @@ Feature: US01 TC09  User should enter Password with at least 8 characters
     Given user goes to "MosUrl"
     When user clicks on "RegisterLink"
 
-  Scenario: TC_009 User enters a Password with at least 8 characters Positive Senario 1
+  Scenario: TC_009 User enters a Password with at least 8 characters Positive Senario
 
     And user scrolls into User Name box
     And user enters a Password

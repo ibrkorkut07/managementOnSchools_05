@@ -217,4 +217,40 @@ public class US_01_RegistrationStepDefs {
     public void userEntersAPasswordWithLessThanCharacters(int arg0) {
         regPage.passwordBox.sendKeys("1234567");
     }
+
+    @And("user clicks on Phone box")
+    public void userClicksOnPhoneBox() {
+        regPage.phoneBox.click();
+    }
+
+    @And("user enters a valid {int}-character phone number")
+    public void userEntersAValidCharacterPhoneNumber(int arg0) {
+        regPage.phoneBox.sendKeys("123456789012");
+    }
+
+
+    @Then("the Required text under the Phone box is displayed")
+    public void theRequiredTextUnderThePhoneBoxIsDisplayed() {
+        Assert.assertTrue(regPage.phoneBoxRequiredText.isDisplayed());
+    }
+
+    @Then("the Required text under the Phone box is NOT displayed")
+    public void theRequiredTextUnderThePhoneBoxIsNOTDisplayed() {
+        Assert.assertFalse(regPage.phoneBoxRequiredText.isDisplayed());
+    }
+
+    @Then("Minimum_{int}_Character text under the Phone box is NOT displayed")
+    public void minimum__CharacterTextUnderThePhoneBoxIsNOTDisplayed(int arg0) {
+        Assert.assertFalse(regPage.minimum12CharacterText.isDisplayed());
+    }
+
+    @And("user enters a less than {int}-character invalid phone number")
+    public void userEntersALessThanCharacterInvalidPhoneNumber(int arg0) {
+        regPage.phoneBox.sendKeys("12345678901");
+    }
+
+    @Then("Minimum_{int}_Character text under the Phone box is displayed")
+    public void minimum__CharacterTextUnderThePhoneBoxIsDisplayed(int arg0) {
+        Assert.assertTrue(regPage.minimum12CharacterText.isDisplayed());
+    }
 }
