@@ -77,6 +77,12 @@ public class RegisterPage {
     @FindBy(linkText = "Minimum 12 character (XXX-XXX-XXXX)")
     public WebElement minimum12CharacterText;
 
+    @FindBy(id = "birthDay")
+    public WebElement birthdayBox;
+
+    @FindBy(id = "ssn")
+    public WebElement ssnBox;
+
 
 
 
