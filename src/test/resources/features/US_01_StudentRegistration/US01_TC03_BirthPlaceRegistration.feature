@@ -26,13 +26,13 @@ Feature: US01 TC01 Birth Place must contain any character and cannot be left bla
 
     Examples:
       |Birth Place|
-      |i|
+      |I|
       |#|
       |1|
       |  |
-      |i |
+      |I |
       | t|
       |  a|
-      |i a|
-      |it ly|
-      |italy|
+      |I a|
+      |It ly|
+      |Italy|

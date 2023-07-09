@@ -150,13 +150,11 @@ public class US_01_RegistrationStepDefs {
     public void user_scrolls_into_gender_section() {
         ReusableMethods.scrollDownActions();
         WaitUtils.waitFor(2);
-        throw new io.cucumber.java.PendingException();
     }
     @When("user clicks on Female Radio button and selects Female as a gender")
     public void user_clicks_on_female_radio_button_and_selects_female_as_a_gender() {
         regPage.femaleRadioButton.click();
         Assert.assertTrue(regPage.femaleRadioButton.isSelected());
-        throw new io.cucumber.java.PendingException();
     }
 
     @And("user clicks on Male Radio button and selects Male as a gender")
