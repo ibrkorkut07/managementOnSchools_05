@@ -297,7 +297,7 @@ public class US_01_RegistrationStepDefs {
 
     @And("user enters {string}, {string}, {string}  as a birth date")
     public void userEntersAsABirthDate(String mm, String dd, String yyyy) {
-        regPage.birthdayBox.sendKeys(mm + Keys.ARROW_RIGHT + dd + Keys.ARROW_RIGHT + yyyy);
+        regPage.birthdayBox.sendKeys(mm + dd + Keys.ARROW_RIGHT + yyyy);
         ReusableMethods.waitFor(2);
 
     }
@@ -332,5 +332,26 @@ public class US_01_RegistrationStepDefs {
     public void userEntersAnInvalidAsAnSsn(String ssn) {
         ReusableMethods.waitFor(2);
         regPage.ssnBox.sendKeys(ssn);
+    }
+
+    @And("user enters {string}  as a phone number")
+    public void userEntersAsAPhoneNumber(String phone) {
+        regPage.phoneBox.sendKeys(phone);
+    }
+
+
+    @And("user enters a {string} as an user name")
+    public void userEntersAAsAnUserName(String username) {
+        regPage.usernameBox.sendKeys(username);
+    }
+
+    @And("user enters a {string} as a password")
+    public void userEntersAAsAPassword(String password) {
+        regPage.passwordBox.sendKeys(password);
+    }
+
+    @And("user clicks on Register button")
+    public void userClicksOnRegisterButton() {
+        regPage.registerBox.click();
     }
 }
