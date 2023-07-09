@@ -83,6 +83,9 @@ public class RegisterPage {
     @FindBy(id = "ssn")
     public WebElement ssnBox;
 
+    @FindBy(xpath ="//button[text()='Register']")
+    public WebElement registerButton;
+
 
 
 
