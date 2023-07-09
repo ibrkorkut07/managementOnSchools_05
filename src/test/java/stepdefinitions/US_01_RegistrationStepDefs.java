@@ -193,4 +193,28 @@ public class US_01_RegistrationStepDefs {
         Assert.assertTrue(regPage.passwordBoxRequiredText.isDisplayed());
     }
 
+    @And("user clicks on Password box & leaves it blank")
+    public void userClicksOnPasswordBoxLeavesItBlank() {
+        regPage.passwordBox.click();
+    }
+
+    @Then("the Required text under the Password box is displayed")
+    public void theRequiredTextUnderThePasswordBoxIsDisplayed() {
+        Assert.assertTrue(regPage.passwordBoxRequiredText.isDisplayed());
+    }
+
+    @Then("Minimum {int} character text under the Password box is displayed")
+    public void minimumCharacterTextUnderThePasswordBoxIsDisplayed(int arg0) {
+        Assert.assertTrue(regPage.minimum8CharacterText.isDisplayed());
+    }
+
+    @And("user clicks User Name box")
+    public void userClicksUserNameBox() {
+        regPage.usernameBox.click();
+    }
+
+    @And("user enters a Password with less than {int} characters")
+    public void userEntersAPasswordWithLessThanCharacters(int arg0) {
+        regPage.passwordBox.sendKeys("1234567");
+    }
 }

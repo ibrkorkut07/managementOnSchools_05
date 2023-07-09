@@ -68,6 +68,10 @@ public class RegisterPage {
     @FindBy(xpath = "//input[@placeholder='Password']")
     public WebElement passwordBox;
 
+    @FindBy(linkText="Minimum 8 character")
+    public WebElement minimum8CharacterText;
+
+
 
 
 
