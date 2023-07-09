@@ -182,4 +182,9 @@ public class US_01_RegistrationStepDefs {
     public void theRequiredTextUnderTheUserNameBoxIsNOTDisplayed() {
         Assert.assertFalse(regPage.surnameBoxRequiredText.isDisplayed());
     }
+
+    @Then("the Required text under the User Name box is displayed")
+    public void theRequiredTextUnderTheUserNameBoxIsDisplayed() {
+        Assert.assertTrue(regPage.passwordBoxRequiredText.isDisplayed());
+    }
 }
