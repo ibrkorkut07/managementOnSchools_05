@@ -55,7 +55,7 @@ public class LessonMngPage {
     public WebElement invalidCreditScore;
     @FindBy(xpath = "//div[@class='mb-4 form-floating']//div[@class='invalid-feedback'][normalize-space()='Required']")
     public WebElement nullOfLessonName;
-    @FindBy(xpath = "//div[contains(@role,'tabpanel')]//div//div//div//div//form//div[2]//div[1]//div[1]")
+    @FindBy(xpath = "//*[@id=\"controlled-tab-example-tabpane-lessonsList\"]/div[2]/div[1]/div/div/form/div/div[3]/div/div")
     public WebElement nullOfCreditScore;
     @FindBy(xpath = "//div[contains(text(),'Lesson Created')]")
     public WebElement createdLessonAlert;
