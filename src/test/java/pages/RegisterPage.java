@@ -74,7 +74,7 @@ public class RegisterPage {
     @FindBy(id = "phoneNumber")
     public WebElement phoneBox;
 
-    @FindBy(linkText = "Minimum 12 character (XXX-XXX-XXXX)")
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[4]")
     public WebElement minimum12CharacterText;
 
     @FindBy(id = "birthDay")
