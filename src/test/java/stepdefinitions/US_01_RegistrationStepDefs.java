@@ -162,4 +162,24 @@ public class US_01_RegistrationStepDefs {
         regPage.maleRadioButton.click();
         Assert.assertTrue(regPage.maleRadioButton.isSelected());
     }
+
+    @And("user scrolls into User Name box")
+    public void userScrollsIntoUserNameBox() {
+        ReusableMethods.scrollIntoView(regPage.usernameBox);
+    }
+
+    @And("user clicks on User Name box")
+    public void userClicksOnUserNameBox() {
+        regPage.usernameBox.click();
+    }
+
+    @And("user enters a User Name")
+    public void userEntersAUserName() {
+        regPage.usernameBox.sendKeys("ibr");
+    }
+
+    @Then("the Required text under the User Name box is NOT displayed")
+    public void theRequiredTextUnderTheUserNameBoxIsNOTDisplayed() {
+        Assert.assertFalse(regPage.surnameBoxRequiredText.isDisplayed());
+    }
 }

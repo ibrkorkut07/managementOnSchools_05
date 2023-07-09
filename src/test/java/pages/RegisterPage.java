@@ -62,7 +62,11 @@ public class RegisterPage {
     @FindBy(xpath = "//input[@value='MALE']")
     public WebElement maleRadioButton;
 
+    @FindBy(xpath = "//input[@placeholder='username']")
+    public WebElement usernameBox;
 
+    @FindBy(xpath = "//input[@placeholder='Password']")
+    public WebElement passwordBox;
 
 
 
