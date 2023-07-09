@@ -6,6 +6,7 @@ import pages.LessonMngPage;
 import pages.LoginPage;
 import pages.ViceDeanMngPage;
 import utilities.Driver;
+import utilities.JSUtils;
 import utilities.ReusableMethods;
 import utilities.WaitUtils;
 
@@ -14,8 +15,10 @@ public class US_12_StepDefs {
 
     @Given("vice dean select a lesson to assign")
     public void vice_dean_select_a_lesson_to_assign() {
-     viceDeanMngPage.lessonMondayJava.click();
-
+   //  viceDeanMngPage.lessonMondayJava.click();
+       // ReusableMethods.scrollIntoView(viceDeanMngPage.lessonProgramId);
+        ReusableMethods.waitForClickablility(viceDeanMngPage.lessonProgramId, 5);
+        JSUtils.clickWithTimeoutByJS(viceDeanMngPage.lessonProgramId);
    //  ReusableMethods.scrollIntoView(viceDeanMngPage.chooseTeacher);
     viceDeanMngPage.chooseTeacher.click();
      WaitUtils.waitFor(5);
