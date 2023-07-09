@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Smoke Test Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jul 7, 2023 01:36:44 AM</span></a>
+<a href="#"><span class="badge badge-primary">Jul 9, 2023 06:31:05 AM</span></a>
 </li>
 </ul>
 </div>
@@ -57,6 +57,11 @@
 <span class="ico"><i class="fa fa-tag"></i></span>
 </a>
 </li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
 </ul>
 </div>
 </div>      <div class="vcontainer">
@@ -66,25 +71,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jul 7, 2023 01:36:44 AM</h3>
+<h3>Jul 9, 2023 06:31:05 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jul 7, 2023 01:37:00 AM</h3>
+<h3>Jul 9, 2023 06:32:39 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -100,12 +105,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>1</b> features passed
+<div><small data-tooltip='0%'>
+<b>0</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> features failed,
+<small data-tooltip='100%'><b>1</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -123,9 +128,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>1</b> scenarios passed</small></div>
+<div><small data-tooltip='28%'><b>2</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> scenarios failed,
+<small data-tooltip='71%'><b>5</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -143,10 +148,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>8</b> steps passed</small></div>
+<div><small data-tooltip='49%'><b>37</b> steps passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> steps failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='6%'><b>5</b> steps failed,
+<b>33</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -162,7 +167,7 @@
 </div></div>
 <script>
 var timeline = {
-"US_06 Dean should be able to create Vice Dean":15.589
+"US_06 Dean should be able to create Vice Dean":92.293
 };
 </script>
 <div class="row">
@@ -172,12 +177,20 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@US_06</td>
-<td>1</td>
+<td>@US_06_UI</td>
+<td>2</td>
+<td>5</td>
 <td>0</td>
 <td>0</td>
+<td>28.571%</td>
+</tr>
+<tr>
+<td>@US_06_TC_010</td>
+<td>2</td>
+<td>5</td>
 <td>0</td>
-<td>100%</td>
+<td>0</td>
+<td>28.571%</td>
 </tr>
 </tbody>
 </table></div>
@@ -202,21 +215,21 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 1,
-failParent: 0,
+passParent: 0,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 1,
-failChild: 0,
+passChild: 2,
+failChild: 5,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 8,
-failGrandChild: 0,
+passGrandChild: 37,
+failGrandChild: 5,
 warningGrandChild: 0,
-skipGrandChild: 0,
+skipGrandChild: 33,
 infoGrandChild: 0,
 eventsCount: 5,
 };
@@ -230,7 +243,7 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -238,31 +251,31 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@US_06</a>
+<a class="dropdown-item" href="#">@US_06_UI</a><a class="dropdown-item" href="#">@US_06_TC_010</a>
 </ul>
 </li>
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">US_06 Dean should be able to create Vice Dean</p>
             <p class="text-sm">
-              <span>1:36:45 AM</span> / <span>00:00:15:589</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>6:31:06 AM</span> / <span>00:01:32:293</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">US_06 Dean should be able to create Vice Dean</h5>
-<span class='badge badge-success'>07.07.2023 1:36:45 AM</span>
-<span class='badge badge-danger'>07.07.2023 1:37:00 AM</span>
-<span class='badge badge-default'>00:00:15:589</span>
+<h5 class="test-status text-fail">US_06 Dean should be able to create Vice Dean</h5>
+<span class='badge badge-success'>07.09.2023 6:31:06 AM</span>
+<span class='badge badge-danger'>07.09.2023 6:32:38 AM</span>
+<span class='badge badge-default'>00:01:32:293</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -274,52 +287,625 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>TC_001 User can create Vice Dean by entering required credentials</div>
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
       </div>
     </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.user_goes_to(java.lang.String)">
-                <span>Given user goes to "https://managementonschools.com"</span>
+        <div class="scenario_outline ">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user goes to "MosUrl"</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.user_clicks_on_login_button()">
-                <span>When user clicks on login button</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user clicks on login button</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.user_enters_username(java.lang.String)">
-                <span>And user enters username "deanNecminson01"</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user enters username "deanNecminson01"</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.user_enters_admin_password(java.lang.String)">
-                <span>And user enters admin password "87651234"</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user enters admin password "87651234"</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.US_04_AddDeanStepDefs.userClicksOnLoginButtonForEnter()">
-                <span>And user clicks on login button for enter</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks on login button for enter</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.US_06_AddViceDeanStepDefs.user_fills_all_required_credentials()">
-                <span>Given user fills all required credentials</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given user fills all required credentials except password</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.US_06_AddViceDeanStepDefs.user_clicks_submit_button()">
-                <span>And user clicks submit button</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user enters an invalid  ""</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.US_06_AddViceDeanStepDefs.verify_new_vice_dean_is_created()">
-                <span>Then verify new Vice Dean is created</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks submit button</span>
       <div>
       </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then verify new Vice Dean is not created</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And close the application</span>
+      <div>
+      </div>
+                  </div>
               </div>
-          </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="16"><span class="badge log pass-bg mr-2">Pass</span>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user goes to "MosUrl"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user clicks on login button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user enters username "deanNecminson01"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user enters admin password "87651234"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks on login button for enter</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given user fills all required credentials except password</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user enters an invalid  "Qa38"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks submit button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then verify new Vice Dean is not created</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And close the application</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="29"><span class="badge log fail-bg mr-2">Fail</span>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</div>
+                    <div class="status-avatar float-right">
+                      <i class="fa fa-paperclip"></i>
+                    </div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given user goes to "MosUrl"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user clicks on login button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user enters username "deanNecminson01"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user enters admin password "87651234"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks on login button for enter</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given user fills all required credentials except password</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user enters an invalid  "q3843646"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user clicks submit button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>Then verify new Vice Dean is not created</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at stepdefinitions.US_06_UI_AddViceDeanStepDefs.verify_new_vice_dean_is_not_created(US_06_UI_AddViceDeanStepDefs.java:69)
+	at ✽.verify new Vice Dean is not created(file:///D:/Java%20Dersleri/TimeToLearnJava/managementOnSchools_05/./src/test/resources/features/US_06_DeanCanCreateVDean/UI_Test_Positive_And_Negative_Tests.feature:80)
+</textarea>
+      
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And close the application</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>screenshots
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../embedded1.png' src="../embedded1.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="42"><span class="badge log fail-bg mr-2">Fail</span>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</div>
+                    <div class="status-avatar float-right">
+                      <i class="fa fa-paperclip"></i>
+                    </div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given user goes to "MosUrl"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>When user clicks on login button</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@href='/login']"}
+  (Session info: chrome=114.0.5735.199)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.10.0', revision: 'c14d967899'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e2dd3bdc122f891e596ccb1954afd0ee, findElement {using=xpath, value=//a[@href='/login']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\necme\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54195}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54195/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2dd3bdc122f891e596ccb1954afd0ee
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy33.click(Unknown Source)
+	at stepdefinitions.US_04_AddDeanStepDefs.user_clicks_on_login_button(US_04_AddDeanStepDefs.java:31)
+	at ✽.user clicks on login button(file:///D:/Java%20Dersleri/TimeToLearnJava/managementOnSchools_05/./src/test/resources/features/US_06_DeanCanCreateVDean/UI_Test_Positive_And_Negative_Tests.feature:6)
+</textarea>
+      
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters username "deanNecminson01"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters admin password "87651234"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user clicks on login button for enter</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Given user fills all required credentials except password</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters an invalid  "Q3843646"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user clicks submit button</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then verify new Vice Dean is not created</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And close the application</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>screenshots
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../embedded2.png' src="../embedded2.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="55"><span class="badge log fail-bg mr-2">Fail</span>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</div>
+                    <div class="status-avatar float-right">
+                      <i class="fa fa-paperclip"></i>
+                    </div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given user goes to "MosUrl"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>When user clicks on login button</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@href='/login']"}
+  (Session info: chrome=114.0.5735.199)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.10.0', revision: 'c14d967899'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e2dd3bdc122f891e596ccb1954afd0ee, findElement {using=xpath, value=//a[@href='/login']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\necme\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54195}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54195/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2dd3bdc122f891e596ccb1954afd0ee
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy33.click(Unknown Source)
+	at stepdefinitions.US_04_AddDeanStepDefs.user_clicks_on_login_button(US_04_AddDeanStepDefs.java:31)
+	at ✽.user clicks on login button(file:///D:/Java%20Dersleri/TimeToLearnJava/managementOnSchools_05/./src/test/resources/features/US_06_DeanCanCreateVDean/UI_Test_Positive_And_Negative_Tests.feature:6)
+</textarea>
+      
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters username "deanNecminson01"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters admin password "87651234"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user clicks on login button for enter</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Given user fills all required credentials except password</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters an invalid  "38436467"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user clicks submit button</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then verify new Vice Dean is not created</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And close the application</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>screenshots
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../embedded3.png' src="../embedded3.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="68"><span class="badge log fail-bg mr-2">Fail</span>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</div>
+                    <div class="status-avatar float-right">
+                      <i class="fa fa-paperclip"></i>
+                    </div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given user goes to "MosUrl"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>When user clicks on login button</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@href='/login']"}
+  (Session info: chrome=114.0.5735.199)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.10.0', revision: 'c14d967899'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e2dd3bdc122f891e596ccb1954afd0ee, findElement {using=xpath, value=//a[@href='/login']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\necme\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54195}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54195/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2dd3bdc122f891e596ccb1954afd0ee
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy33.click(Unknown Source)
+	at stepdefinitions.US_04_AddDeanStepDefs.user_clicks_on_login_button(US_04_AddDeanStepDefs.java:31)
+	at ✽.user clicks on login button(file:///D:/Java%20Dersleri/TimeToLearnJava/managementOnSchools_05/./src/test/resources/features/US_06_DeanCanCreateVDean/UI_Test_Positive_And_Negative_Tests.feature:6)
+</textarea>
+      
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters username "deanNecminson01"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters admin password "87651234"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user clicks on login button for enter</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Given user fills all required credentials except password</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters an invalid  "hkskaksk"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user clicks submit button</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then verify new Vice Dean is not created</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And close the application</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>screenshots
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../embedded4.png' src="../embedded4.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="81"><span class="badge log fail-bg mr-2">Fail</span>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</div>
+                    <div class="status-avatar float-right">
+                      <i class="fa fa-paperclip"></i>
+                    </div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given user goes to "MosUrl"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>When user clicks on login button</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@href='/login']"}
+  (Session info: chrome=114.0.5735.199)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.10.0', revision: 'c14d967899'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e2dd3bdc122f891e596ccb1954afd0ee, findElement {using=xpath, value=//a[@href='/login']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\necme\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54195}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54195/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2dd3bdc122f891e596ccb1954afd0ee
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy33.click(Unknown Source)
+	at stepdefinitions.US_04_AddDeanStepDefs.user_clicks_on_login_button(US_04_AddDeanStepDefs.java:31)
+	at ✽.user clicks on login button(file:///D:/Java%20Dersleri/TimeToLearnJava/managementOnSchools_05/./src/test/resources/features/US_06_DeanCanCreateVDean/UI_Test_Positive_And_Negative_Tests.feature:6)
+</textarea>
+      
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters username "deanNecminson01"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters admin password "87651234"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user clicks on login button for enter</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Given user fills all required credentials except password</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user enters an invalid  "HKSKAKSK"</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And user clicks submit button</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then verify new Vice Dean is not created</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And close the application</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
+      <div>screenshots
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../embedded5.png' src="../embedded5.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
         </div>
   </div>
 </div>
@@ -338,22 +924,24 @@ eventsCount: 5,
 <div class="test-list">
 <div class="test-list-tools">
 <ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>1</span>
+<span class='badge log pass-bg'>2</span>
+<span class='badge log badge-danger'>5</span>
 </span>
-<p class="name">@US_06</p>
-<p class="duration text-sm">1 tests</p>
+<p class="name">@US_06_UI</p>
+<p class="duration text-sm">7 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@US_06</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
+<h4>@US_06_UI</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+<span status="fail" class='badge log badge-danger'>5 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -366,11 +954,287 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>01:36:45 AM</td>
+<td>06:31:06 AM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>TC_001 User can create Vice Dean by entering required credentials</a>
+<a href="#" class="linked" test-id='1' id='3'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
 <div class="">
-<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.TC_001 User can create Vice Dean by entering required credentials</span>
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>06:31:25 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='16'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:31:41 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='29'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:31:54 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='42'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:32:05 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='55'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:32:17 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='68'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:32:27 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='81'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>2</span>
+<span class='badge log badge-danger'>5</span>
+</span>
+<p class="name">@US_06_TC_010</p>
+<p class="duration text-sm">7 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@US_06_TC_010</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+<span status="fail" class='badge log badge-danger'>5 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>06:31:06 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='3'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>06:31:25 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='16'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:31:41 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='29'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:31:54 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='42'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:32:05 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='55'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:32:17 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='68'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:32:27 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='81'>: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test"</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:31:50 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='39'>Then verify new Vice Dean is not created</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test".Then verify new Vice Dean is not created</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>4</span>
+</span>
+<p class="name">org.openqa.selenium.NoSuchElementException</p>
+<p class="duration text-sm">4 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.NoSuchElementException</h4>
+<span status="fail" class='badge log badge-danger'>4 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:31:54 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='45'>When user clicks on login button</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test".When user clicks on login button</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:32:06 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='58'>When user clicks on login button</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test".When user clicks on login button</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:32:17 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='71'>When user clicks on login button</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test".When user clicks on login button</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>06:32:28 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='84'>When user clicks on login button</a>
+<div class="">
+<span class="badge badge-default">US_06 Dean should be able to create Vice Dean.: TC_010 User can NOT create Vice Dean by entering required credentials except and invalid "Password" "Negative Test".When user clicks on login button</span>
 </div>
 </td>
 </tr>
