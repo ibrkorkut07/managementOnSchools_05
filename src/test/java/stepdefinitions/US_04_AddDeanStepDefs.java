@@ -53,6 +53,7 @@ public class US_04_AddDeanStepDefs {
     @Given("user clicks on menu")
     public void user_clicks_on_menu() {
 
+
         adminMngPage.menuLink.click();
 
     }
