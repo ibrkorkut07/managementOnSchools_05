@@ -150,18 +150,36 @@ public class US_01_RegistrationStepDefs {
     public void user_scrolls_into_gender_section() {
         ReusableMethods.scrollDownActions();
         WaitUtils.waitFor(2);
-        throw new io.cucumber.java.PendingException();
     }
     @When("user clicks on Female Radio button and selects Female as a gender")
     public void user_clicks_on_female_radio_button_and_selects_female_as_a_gender() {
         regPage.femaleRadioButton.click();
         Assert.assertTrue(regPage.femaleRadioButton.isSelected());
-        throw new io.cucumber.java.PendingException();
     }
 
     @And("user clicks on Male Radio button and selects Male as a gender")
     public void userClicksOnMaleRadioButtonAndSelectsMaleAsAGender() {
         regPage.maleRadioButton.click();
         Assert.assertTrue(regPage.maleRadioButton.isSelected());
+    }
+
+    @And("user scrolls into User Name box")
+    public void userScrollsIntoUserNameBox() {
+        ReusableMethods.scrollIntoView(regPage.usernameBox);
+    }
+
+    @And("user clicks on User Name box")
+    public void userClicksOnUserNameBox() {
+        regPage.usernameBox.click();
+    }
+
+    @And("user enters a User Name")
+    public void userEntersAUserName() {
+        regPage.usernameBox.sendKeys("ibr");
+    }
+
+    @Then("the Required text under the User Name box is NOT displayed")
+    public void theRequiredTextUnderTheUserNameBoxIsNOTDisplayed() {
+        Assert.assertFalse(regPage.surnameBoxRequiredText.isDisplayed());
     }
 }
