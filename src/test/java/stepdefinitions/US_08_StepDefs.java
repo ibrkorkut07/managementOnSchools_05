@@ -65,7 +65,9 @@ public class US_08_StepDefs {
     }
     @Then("Verify enter the credit score of lesson")
     public void verify_enter_the_credit_score_of_lesson() {
-        Assert.assertEquals("Required",lessonMngPage.nullOfCreditScore.getText());
+        String message=lessonMngPage.nullOfCreditScore.getText();
+        Assert.assertEquals("Required",message);
+
     }
     @Then("Vice Deans input invalid {string}")
     public void vice_deans_input_invalid(String string) {
@@ -75,6 +77,7 @@ public class US_08_StepDefs {
     public void verify_input_invalid_credit_score() {
         Assert.assertTrue(WaitUtils.waitForVisibility(lessonMngPage.invalidCreditScore,10).isDisplayed());
     }
+
     }
 
 
