@@ -57,6 +57,8 @@ public class LessonMngPage {
     public WebElement nullOfLessonName;
     @FindBy(xpath = "//div[contains(@role,'tabpanel')]//div//div//div//div//form//div[2]//div[1]//div[1]")
     public WebElement nullOfCreditScore;
+    @FindBy(xpath = "//div[contains(text(),'Lesson Created')]")
+    public WebElement createdLessonAlert;
 }
 
 
