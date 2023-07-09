@@ -301,4 +301,36 @@ public class US_01_RegistrationStepDefs {
         ReusableMethods.waitFor(2);
 
     }
+
+    @And("user clicks on Ssn box")
+    public void userClicksOnSsnBox() {
+        regPage.ssnBox.click();
+    }
+
+    @And("user enters a valid {int}-digit Ssn")
+    public void userEntersAValidDigitSsn(int arg0) {
+        regPage.ssnBox.sendKeys("987-65-4321");
+    }
+
+    @Then("the Required text under the Ssn box is NOT displayed")
+    public void theRequiredTextUnderTheSsnBoxIsNOTDisplayed() {
+        Assert.assertFalse(regPage.ssnBoxRequiredText.isDisplayed());
+    }
+
+    @And("user clicks out of Ssn box \\(User Name box)")
+    public void userClicksOutOfSsnBoxUserNameBox() {
+        regPage.usernameBox.click();
+        // ReusableMethods.waitFor(2);
+    }
+
+    @Then("the Required text under the Ssn box is displayed")
+    public void theRequiredTextUnderTheSsnBoxIsDisplayed() {
+        Assert.assertTrue(regPage.ssnBoxRequiredText.isDisplayed());
+    }
+
+    @And("user enters an invalid {string} as an Ssn")
+    public void userEntersAnInvalidAsAnSsn(String ssn) {
+        ReusableMethods.waitFor(2);
+        regPage.ssnBox.sendKeys(ssn);
+    }
 }
