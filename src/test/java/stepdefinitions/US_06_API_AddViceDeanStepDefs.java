@@ -2,79 +2,69 @@ package stepdefinitions;
 
 
 import base_urls.ManagementonSchoolBaseUrl;
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
-import pojos.PostRequestPersonnelPojo;
-import pojos.PostResponsePersonnelPojo;
-import utilities.ObjectMapperUtils;
+import pojos.ObjectPojo;
+import pojos.ResponsePersonnelPojo;
+
+import java.util.List;
+import java.util.Objects;
 
 import static io.restassured.RestAssured.*;
 import static junit.framework.TestCase.*;
+import static org.junit.Assert.assertEquals;
+import static stepdefinitions.US_06_DB_AddViceDeanStepDefs.id;
+import static utilities.ObjectMapperUtils.convertJsonToJava;
 
 
 public class US_06_API_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
- String birthDay;
- String birthPlace;
- String gender;
- String name;
- String password;
- String phoneNumber;
- String ssn;
- String surname;
- String username;
 
- Response response;
- PostRequestPersonnelPojo expectedData;
- Integer userId;
- @Given("user sends post request with all required credentials")
- public void user_sends_post_request_with_all_required_credentials() {
+
+  Response response; // 10.07.2023
+ ResponsePersonnelPojo actualData; // 10.07.2023
+
+
+ @Given("user sends get request by existing id") // 10.07.2023
+ public void user_sends_get_request_by_existing_id() {
   setUp();
-  birthDay = "1998-09-02";
-  birthPlace = Faker.instance().address().city();
-  gender = Faker.instance().demographic().sex();
-  name = Faker.instance().name().firstName();
-  password = "Qa"+Faker.instance().number().digits(6);
-  phoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
-  ssn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
-  surname = Faker.instance().name().lastName();
-  username = Faker.instance().name().username();
-
-  expectedData = new PostRequestPersonnelPojo(birthDay,birthPlace,gender,name,password,phoneNumber,ssn,surname,username);
-  System.out.println("expectedData = " + expectedData);
-  /*
-  spec.pathParams("1st","dean","2nd","save");
-  response = given(spec).body(expectedData).post("{1st}/{2nd}");
-  */
-   spec.pathParams("1st","dean","2nd","getManagerById","3rd",723);
-   response = given(spec).get("{1st}/{2nd}/{3rd}");
+  spec.pathParams("1st","dean","2nd","getManagerById","3rd",38);
+  response = given(spec).get("{1st}/{2nd}/{3rd}");
 
   response.prettyPrint();
- }
- @Then("verify that new Vice Dean is created")
- public void verify_that_new_vice_dean_is_created() {
- PostResponsePersonnelPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), PostResponsePersonnelPojo.class);
- userId = actualData.getObject().getUserId();
- assertEquals(200,response.statusCode());
- assertEquals(expectedData.getBirthDay(),actualData.getObject().getBirthDay());
- assertEquals(expectedData.getBirthPlace(),actualData.getObject().getBirthPlace());
- assertEquals(expectedData.getGender(),actualData.getObject().getGender());
- assertEquals(expectedData.getName(),actualData.getObject().getName());
- assertEquals(expectedData.getPhoneNumber(),actualData.getObject().getPhoneNumber());
- assertEquals(expectedData.getSsn(),actualData.getObject().getSsn());
- assertEquals(expectedData.getSurname(),actualData.getObject().getSurname());
- assertEquals(expectedData.getUsername(),actualData.getObject().getUsername());
-  System.out.println("actualData = " + actualData);
-  System.out.println("userId = " + userId);
- }
- @Given("user sends post request with all required credentials except name")
- public void user_sends_post_request_with_all_required_credentials_except_name() {
+ } // 10.07.2023
+ @Given("user sends get request by non existing id")  // 10.07.2023
+ public void user_sends_get_request_non_by_existing_id() {
+  setUp();
+  spec.pathParams("1st","dean","2nd","getManagerById","3rd",39);
+  response = given(spec).get("{1st}/{2nd}/{3rd}");
 
- }
- @Then("verify that new Vice Dean is not created")
- public void verify_that_new_vice_dean_is_not_created() {
+  response.prettyPrint();
+ } // 10.07.2023
 
- }
+ @Then("body should contain birth_day {string}, birth_place {string}, gender {string}, name {string}, phone_number {string}, ssn {string}, surname {string}, username {string}") // 10.07.2023
+ public void body_should_contain_birth_day_birth_place_gender_name_phone_number_ssn_surname_username(String birth_day, String birth_place, String gender, String name, String phone_number, String ssn, String surname, String username) {
+
+  ObjectPojo expectedData = new ObjectPojo(id,username,name,surname,birth_day,ssn,birth_place,phone_number,gender);
+  ResponsePersonnelPojo actualData = convertJsonToJava(response.asString(),ResponsePersonnelPojo.class);
+
+  assertEquals(200, response.statusCode());
+  assertEquals(expectedData.getBirthDay(),actualData.getObject().getBirthDay());
+  assertEquals(expectedData.getBirthPlace(),actualData.getObject().getBirthPlace());
+  assertEquals(expectedData.getSsn(),actualData.getObject().getSsn());
+  assertEquals(expectedData.getName(),actualData.getObject().getName());
+  assertEquals(expectedData.getGender(),actualData.getObject().getGender());
+  assertEquals(expectedData.getPhoneNumber(),actualData.getObject().getPhoneNumber());
+  assertEquals(expectedData.getUsername(),actualData.getObject().getUsername());
+
+
+ } // 10.07.2023
+
+ @Then("body must be empty with non existing username {string}") // 10.07.2023
+ public void bodyMustBeEmptyWithNonExistingUsername(String username) {
+
+  List<Objects> dataList = response.jsonPath().getList("content.findAll{it.username=='" + username + "'}");
+  assertTrue(dataList.isEmpty());
+ } // 10.07.2023
 
 
 }

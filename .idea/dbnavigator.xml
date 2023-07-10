@@ -12,8 +12,8 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="921787f7-8ac6-490a-95e1-bfe6908d9165">
-      <console name="MOS" type="STANDARD" schema="public" session="Main"><![CDATA[select * from guest_user]]></console>
+    <connection id="480a7317-2128-4931-9ece-9ef593769cff">
+      <console name="MOS" type="STANDARD" schema="public" session="Main"><![CDATA[select * from vice_dean where id = '38']]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -42,10 +42,10 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="921787f7-8ac6-490a-95e1-bfe6908d9165" active="true" signed="true">
+      <connection id="480a7317-2128-4931-9ece-9ef593769cff" active="true" signed="true">
         <database>
           <name value="MOS" />
-          <description value="managementonschools.com" />
+          <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
           <database-version value="14.8" />

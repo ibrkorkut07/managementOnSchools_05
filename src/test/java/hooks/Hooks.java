@@ -26,7 +26,7 @@ public class Hooks {
         if (scenario.isFailed()) { // attach the report only if a scenario fails
             final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png","screenshots");
-           // Driver.closeDriver();
+            //Driver.closeDriver();
         }
 
 

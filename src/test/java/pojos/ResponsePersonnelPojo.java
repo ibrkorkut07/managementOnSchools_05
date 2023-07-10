@@ -5,17 +5,17 @@ package pojos;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 //import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PostResponsePersonnelPojo {
+public class ResponsePersonnelPojo {
     private ObjectPojo object;
     private String message;
     private String httpStatus;
 
 
 
-    public PostResponsePersonnelPojo() {
+    public ResponsePersonnelPojo() {
     }
 
-    public PostResponsePersonnelPojo(ObjectPojo object,String message,String httpStatus) {
+    public ResponsePersonnelPojo(ObjectPojo object, String message, String httpStatus) {
         this.httpStatus = httpStatus;
         this.message = message;
         this.object = object;
