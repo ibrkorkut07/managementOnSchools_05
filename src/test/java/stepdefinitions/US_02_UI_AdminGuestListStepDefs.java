@@ -9,6 +9,7 @@ import pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.WaitUtils;
 
 public class US_02_UI_AdminGuestListStepDefs {
 
@@ -23,21 +24,31 @@ public class US_02_UI_AdminGuestListStepDefs {
 
     @And("admin click Guest User on pop-up")
     public void adminClickGuestUserOnPopUp() {
-        homePage.guestuserlink.click();
+        guestList.guestuserlink.click();
 
     }
 
-    @Then("assert the title contains guest-user")
-    public void assertTheTitleContainsGuestUser() {
-        Assert.assertTrue(homePage.guestlisttext.isDisplayed());
+    @Then("assert the list contains guest-user")
+    public void assertTheListContainsGuestUser() {
+        Assert.assertTrue(guestList.guestlisttext.isDisplayed());
 
     }
 
+    @And("go to second page")
+    public void goToSecondPage() {
+        WaitUtils.waitFor(3);
+        ReusableMethods.waitForClickablility(guestList.Secondpage,5);
+      //  guestList.Secondpage.click();
+    }
+    @Then("assert the list contains User Name")
+    public void assertTheListContainsUserName() {
+        Assert.assertTrue(guestList.Usernametext.isDisplayed());
+
+    }
     @Then("close the app")
     public void close_the_app() {
         Driver.closeDriver();
 
     }
-
 
 }
