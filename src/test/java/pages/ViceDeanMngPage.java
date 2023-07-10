@@ -81,6 +81,9 @@ public class ViceDeanMngPage {
     @FindBy(xpath = "//div[contains(text(),'Lesson added to Teacher')]")
     public WebElement lessonAddedTeacher;
 
+    @FindBy(id = "lessonProgramId")
+    public WebElement lessonProgramId;
+
 
 
 }
