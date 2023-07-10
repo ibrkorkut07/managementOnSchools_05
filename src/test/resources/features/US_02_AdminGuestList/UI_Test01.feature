@@ -13,7 +13,7 @@ Feature: US_02 Admin should be able to see the Guest User List
 
       Given admin click on Menu section
       And admin click Guest User on pop-up
-      Then assert the title contains guest-user
+      Then assert the list contains guest-user
       And close the app
 
 
