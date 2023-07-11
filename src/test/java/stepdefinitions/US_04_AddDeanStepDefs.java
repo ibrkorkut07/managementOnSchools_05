@@ -22,6 +22,7 @@ public class US_04_AddDeanStepDefs {
 
     @Given("user goes to {string}")
     public void user_goes_to(String url) {
+
         Driver.getDriver().get(ConfigReader.getProperty(url));
 
     }
@@ -62,7 +63,6 @@ public class US_04_AddDeanStepDefs {
         adminMngPage.deanManagementLink.click();
     }
     @Then("user enters name {string}")
-
     public void user_enters_name(String deanName) {
 
         adminMngPage.deanName.sendKeys(deanName);
@@ -143,4 +143,3 @@ public class US_04_AddDeanStepDefs {
     }
 
 }
-
