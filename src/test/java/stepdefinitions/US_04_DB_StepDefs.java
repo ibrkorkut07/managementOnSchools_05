@@ -17,8 +17,8 @@ public class US_04_DB_StepDefs {
     public void connect_to_database() throws SQLException {
 
         //Create connection
-       connection =  DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user","43w5ijfso");
-       //Create Statement
+        connection =  DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user","43w5ijfso");
+        //Create Statement
         statement = connection.createStatement();
 
     }
