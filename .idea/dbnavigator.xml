@@ -5,12 +5,15 @@
     <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
+  <component name="DBNavigator.Project.DatabaseBrowserManager">
+    <autoscroll-to-editor value="false" />
+    <autoscroll-from-editor value="true" />
+    <show-object-properties value="false" />
+    <loaded-nodes />
+  </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="cb1aff6d-5ab4-4f43-8ead-4acbfc15f423">
-      <console name="Managementon Schools" type="STANDARD" schema="school_management" session="Main" />
-    </connection>
-    <connection id="b1e79989-c162-4fbb-8983-0ada349958a0">
-      <console name="ManagementOnSchool" type="STANDARD" schema="school_management" session="Main" />
+    <connection id="921787f7-8ac6-490a-95e1-bfe6908d9165">
+      <console name="MOS" type="STANDARD" schema="school_management" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -19,98 +22,30 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="cb1aff6d-5ab4-4f43-8ead-4acbfc15f423" dataset="public.advisor_teacher" active-filter-id="" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.MethodExecutionManager">
+    <method-browser />
+    <execution-history>
+      <group-entries value="true" />
+      <execution-inputs />
+    </execution-history>
+    <argument-values-cache />
+  </component>
+  <component name="DBNavigator.Project.ObjectQuickFilterManager">
+    <last-used-operator value="EQUAL" />
+    <filters />
+  </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="cb1aff6d-5ab4-4f43-8ead-4acbfc15f423" active="true" signed="true">
+      <connection id="921787f7-8ac6-490a-95e1-bfe6908d9165" active="true" signed="true">
         <database>
-          <name value="Managementon Schools" />
-          <description value="" />
-          <database-type value="POSTGRES" />
-          <config-type value="BASIC" />
-          <database-version value="14.8" />
-          <driver-source value="BUNDLED" />
-          <driver-library value="" />
-          <driver value="" />
-          <url-type value="DATABASE" />
-          <host value="managementonschools.com" />
-          <port value="5432" />
-          <database value="school_management" />
-          <tns-folder value="" />
-          <tns-profile value="" />
-          <type value="USER_PASSWORD" />
-          <user value="select_user" />
-          <deprecated-pwd value="NDN3NWlqZnNv" />
-        </database>
-        <properties>
-          <auto-commit value="true" />
-        </properties>
-        <ssh-settings>
-          <active value="false" />
-          <proxy-host value="managementonschools.com" />
-          <proxy-port value="22" />
-          <proxy-user value="select_user " />
-          <deprecated-proxy-pwd value="NDN3NWlqZnNv" />
-          <auth-type value="PASSWORD" />
-          <key-file value="" />
-          <key-passphrase value="" />
-        </ssh-settings>
-        <ssl-settings>
-          <active value="false" />
-          <certificate-authority-file value="" />
-          <client-certificate-file value="" />
-          <client-key-file value="" />
-        </ssl-settings>
-        <details>
-          <charset value="UTF-8" />
-          <session-management value="true" />
-          <ddl-file-binding value="true" />
-          <database-logging value="true" />
-          <connect-automatically value="true" />
-          <restore-workspace value="true" />
-          <restore-workspace-deep value="false" />
-          <environment-type value="default" />
-          <connectivity-timeout value="30" />
-          <idle-time-to-disconnect value="30" />
-          <idle-time-to-disconnect-pool value="5" />
-          <credential-expiry-time value="10" />
-          <max-connection-pool-size value="7" />
-          <alternative-statement-delimiter value="" />
-        </details>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
-          <object-type-filter>
-            <object-type name="SCHEMA" enabled="true" />
-            <object-type name="USER" enabled="true" />
-            <object-type name="ROLE" enabled="true" />
-            <object-type name="PRIVILEGE" enabled="true" />
-            <object-type name="CHARSET" enabled="true" />
-            <object-type name="TABLE" enabled="true" />
-            <object-type name="VIEW" enabled="true" />
-            <object-type name="MATERIALIZED_VIEW" enabled="true" />
-            <object-type name="NESTED_TABLE" enabled="true" />
-            <object-type name="COLUMN" enabled="true" />
-            <object-type name="INDEX" enabled="true" />
-            <object-type name="CONSTRAINT" enabled="true" />
-            <object-type name="DATASET_TRIGGER" enabled="true" />
-            <object-type name="DATABASE_TRIGGER" enabled="true" />
-            <object-type name="SYNONYM" enabled="true" />
-            <object-type name="SEQUENCE" enabled="true" />
-            <object-type name="PROCEDURE" enabled="true" />
-            <object-type name="FUNCTION" enabled="true" />
-            <object-type name="PACKAGE" enabled="true" />
-            <object-type name="TYPE" enabled="true" />
-            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
-            <object-type name="ARGUMENT" enabled="true" />
-            <object-type name="DIMENSION" enabled="true" />
-            <object-type name="CLUSTER" enabled="true" />
-            <object-type name="DBLINK" enabled="true" />
-          </object-type-filter>
-          <object-name-filters />
-        </object-filters>
-      </connection>
-      <connection id="b1e79989-c162-4fbb-8983-0ada349958a0" active="true" signed="true">
-        <database>
-          <name value="ManagementOnSchool" />
-          <description value="" />
+          <name value="MOS" />
+          <description value="managementonschools.com" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
           <database-version value="14.8" />
@@ -591,5 +526,8 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
   </component>
 </project>

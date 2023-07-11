@@ -1,5 +1,5 @@
 @US02_TC02
-Feature: US_02 Admin should be able to see the Guest User List details
+Feature: US_02 TC_02 Admin should be able to see the Guest User List contains 'User Name on other page.
 
   Background: Sign in as admin
     Given user goes to "MosUrl"
@@ -14,4 +14,3 @@ Feature: US_02 Admin should be able to see the Guest User List details
     And admin click Guest User on pop-up
     And go to second page
     Then assert the list contains User Name
-    And close the app
