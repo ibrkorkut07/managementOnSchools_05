@@ -254,4 +254,9 @@ public class ReusableMethods {
         Select objSelect = new Select(element);
         objSelect.selectByValue(value);
     }
+
+    //    ACTIONS_SCROLL_DOWN
+    public static void scrollDownActions(){
+        new Actions(Driver.getDriver()).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).perform();
+    }
 }

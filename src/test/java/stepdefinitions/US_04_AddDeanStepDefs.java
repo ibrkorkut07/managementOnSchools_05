@@ -8,8 +8,11 @@ import pages.AdminMngPage;
 import pages.CommonCredentialsPage;
 import pages.HomePage;
 import pages.LoginPage;
+import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.WaitUtils;
+
+import static org.junit.Assert.assertTrue;
 
 public class US_04_AddDeanStepDefs {
     HomePage homePage = new HomePage();
@@ -20,7 +23,7 @@ public class US_04_AddDeanStepDefs {
     @Given("user goes to {string}")
     public void user_goes_to(String url) {
 
-        Driver.getDriver().get(url);
+        Driver.getDriver().get(ConfigReader.getProperty(url));
 
     }
     @When("user clicks on login button")
@@ -104,12 +107,16 @@ public class US_04_AddDeanStepDefs {
     @Then("assert alert message")
     public void assert_alert_message() {
 
+        WaitUtils.waitFor(1);
+        String alertText = adminMngPage.alert.getText();
+        assertTrue(alertText.contains("Dean Saved"));
+
     }
     @Then("close the application")
     public void close_the_application() {
 
-//        WaitUtils.waitFor(2);
-//        Driver.closeDriver();
+        WaitUtils.waitFor(2);
+        Driver.closeDriver();
 
     }
 
@@ -117,14 +124,14 @@ public class US_04_AddDeanStepDefs {
     @And("user enters ssn number {string}")
     public void userEntersSsnNumber(String ssn) {
 
-        commonCredentialsPage.ssn.sendKeys("853-97-7456");
+        commonCredentialsPage.ssn.sendKeys(ssn);
 
     }
 
     @And("user enters username for dean {string}")
     public void userEntersUsernameForDean(String userName) {
 
-        commonCredentialsPage.username.sendKeys("DeanYahyas");
+        commonCredentialsPage.username.sendKeys(userName);
 
     }
 
@@ -136,4 +143,3 @@ public class US_04_AddDeanStepDefs {
     }
 
 }
-
