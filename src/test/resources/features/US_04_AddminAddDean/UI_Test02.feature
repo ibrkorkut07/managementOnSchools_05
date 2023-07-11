@@ -5,7 +5,7 @@ Feature: US_04 Admin should be able to add Dean
   Background: Sign in as admin
     Given user goes to "MosUrl"
     When user clicks on login button
-    And user enters username "AdminProject"
+    And user enters username "Admin05"
     And user enters admin password "12345678"
     And user clicks on login button for enter
 
