@@ -22,8 +22,7 @@ public class ConfigReader {
     }
     //    Create method that accepts KEY and returns VALUE
     public static String getProperty(String key){
-        String value = properties.getProperty(key);
-        return value;
+        return properties.getProperty(key);
     }
 
 }

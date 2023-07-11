@@ -1,30 +1,31 @@
 package runners;
 
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {
-               // "pretty",
-                "html:target/default-cucumber-reports.html",
+        plugin={"html:target\\cucumber-reports.html",
                 "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml",
-                "rerun:target/failedRerun.txt",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-        },
-        monochrome = true,
-        features = "./src/test/resources/features",//PATH OF FEATURES FOLDER
-        glue = {"stepdefinitions","hooks"}, //PATH OF STEPDEFINITIONS FOLDER
-        dryRun = false , //dryRun = true : RUNS AND GENERATES ONLY MISSING STEP DEFS.
-        // dryRun = false: RUN NORMAL. THIS IS DEFAULT VALUE
-
-        tags = "@US04_TC01_ApiTest"
-
-   
-
-
+                "junit:target/xml-report/cucumber.xml"},
+        features="src/test/resources/features",
+        glue = "stepdefinitions",
+        tags="@Dinamik",
+        dryRun = false
 )
+
 public class Runner {
+    // Runner class'inin body'sine hic bir kod yazmiyoruz
+    // bu class icin onemli olan kullanacagimiz 2 adet notasyon
+
+    // dryRun=false yazildiginda belirlenen tag'la etiketlenen tum scenario'lari sirasiyla calistirir
+    // dryRun=true dedigimizde ise kodlari calistirmadan eksik stepler olup olmadigini kontrol eder
+    // ve varsa bize eksik stepleri rapor eder
+
+    // features ve glue olarak spesifik bir class veya feature dosyasini degil
+    // tum klasor ve package'i sectik
+    // dolayisiyla stepdefinitions package'i icerisinde hangi class'da olursa olsun
+    // isimize yarayan bir stepdefition varsa rahatlikla kullanabiliriz
 }
