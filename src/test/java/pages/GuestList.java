@@ -21,4 +21,11 @@ public class GuestList {
     @FindBy(xpath = "(//a[@class='page-link'])[3]")
     public WebElement Secondpage;
 
+    @FindBy(xpath = "(//button[@type='button'])[5]")
+    public WebElement Deletebutton;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement alert;
+
+
 }
