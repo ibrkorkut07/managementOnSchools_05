@@ -23,8 +23,8 @@ import org.junit.runner.RunWith;
 
 
 
-        tags = "@US_08_UI"
 
+        tags = "@US02_TC02"
 
 
 )
