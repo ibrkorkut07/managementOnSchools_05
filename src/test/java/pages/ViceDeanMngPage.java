@@ -84,6 +84,11 @@ public class ViceDeanMngPage {
     @FindBy(id = "lessonProgramId")
     public WebElement lessonProgramId;
 
+    @FindBy(xpath = " (//*[text()='Submit'])[4]")
+    public WebElement submitButtonTeacherAssignment;
+
+
+
 
 
 }
