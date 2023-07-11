@@ -59,6 +59,7 @@ public class ViceDeanMngPage {
     public WebElement chooseTeacher;
     @FindBy(xpath = "(//button[.='Submit'])[4]")
     public WebElement teacherAssignmentSubmitButton;
+
     @FindBy(xpath = "//div[contains(text(),'Created Lesson Program')]")
     public WebElement createdLessonProgramAlert;
     @FindBy(xpath = "//div[contains(text(),'Full authentication is required to access this resource')]")
@@ -79,6 +80,9 @@ public class ViceDeanMngPage {
 
     @FindBy(xpath = "//div[contains(text(),'Lesson added to Teacher')]")
     public WebElement lessonAddedTeacher;
+
+    @FindBy(id = "lessonProgramId")
+    public WebElement lessonProgramId;
 
 
 

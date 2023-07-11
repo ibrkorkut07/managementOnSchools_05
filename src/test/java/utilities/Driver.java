@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 public class Driver {
     //create a driver instance
-    private static WebDriver driver;
+    public static WebDriver driver;
     private static int timeout = 5;
     //What?=>It is just to create, initialize the driver instance.(Singleton driver)
     //Why?=>We don't want to create and initialize the driver when we don't need
