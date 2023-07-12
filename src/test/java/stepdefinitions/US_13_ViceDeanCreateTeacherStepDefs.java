@@ -56,7 +56,6 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
     public void vice_dean_click_on_the_submit_button() {
 
 
-
     }
 
     @Then("verify teacher saved successfully")
