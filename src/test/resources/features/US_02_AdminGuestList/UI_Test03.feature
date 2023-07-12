@@ -1,5 +1,5 @@
-@US02 @US02_TC01
-Feature: US_02 TC_01 Admin should be able to see the Guest User List
+@US02_TC03
+Feature: US_02 TC_03 Admin should be able to delete information of Guest User List.
 
   Background: Sign in as admin
     Given user goes to "MosUrl"
@@ -12,6 +12,6 @@ Feature: US_02 TC_01 Admin should be able to see the Guest User List
 
     Given admin click on Menu section
     And admin click Guest User on pop-up
-    Then assert the list contains guest-user
-
+    And Click the delete button
+    Then Assert the pop-up contains Guest User deleted
 

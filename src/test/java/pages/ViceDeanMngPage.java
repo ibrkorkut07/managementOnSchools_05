@@ -81,6 +81,106 @@ public class ViceDeanMngPage {
     @FindBy(xpath = "//div[contains(text(),'Lesson added to Teacher')]")
     public WebElement lessonAddedTeacher;
 
+    @FindBy(id = "lessonProgramId")
+    public WebElement lessonProgramId;
+
+    @FindBy(xpath = " (//*[text()='Submit'])[4]")
+    public WebElement submitButtonTeacherAssignment;
+
+    @FindBy(xpath = "//div[@class=' css-1xc3v61-indicatorContainer']")
+    public WebElement addTeacherChooseLesson;
+
+    @FindBy(id = "name")
+    public WebElement addTeacherNameBox;
+
+    @FindBy(id = "surname")
+    public WebElement addTeacherSurnameBox;
+
+    @FindBy(id = "birthPlace")
+    public WebElement addTeacherBirthPlaceBox;
+
+    @FindBy(id = "email")
+    public WebElement addTeacherEmailbox;
+
+    @FindBy(id = "phoneNumber")
+    public WebElement addTeacherPhoneNumberBox;
+
+    @FindBy(xpath = "//input[@value='FEMALE']")
+    public WebElement addTeacherGenderFemale;
+
+    @FindBy(id = "birthDay")
+    public WebElement addTeacherBirthdayBox;
+
+    @FindBy(id = "ssn")
+    public WebElement ssnBox;
+
+    @FindBy(id = "username")
+    public WebElement usernameBox;
+
+    @FindBy(id = "password")
+    public WebElement passwordBox;
+
+    @FindBy(xpath = "//button[text()='Submit']")
+    public WebElement addTeacherSubmitButton;
+
+    @FindBy(xpath = "//div[@class='Toastify__toast-body']")
+    public WebElement alertChooseLesson;
+
+    @FindBy(xpath = "//div[text()='Teacher saved successfully']")
+    public WebElement SuccessfullSaving;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[1]")
+    public WebElement RequiredTextforName;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[2]")
+    public WebElement RequiredTextforSurname;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[3]")
+    public WebElement RequiredTextforBirthPlace;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[4]")
+    public WebElement RequiredTextforEmail;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[5]")
+    public WebElement RequiredTextforPhoneNumber;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[5]")
+    public WebElement MinimumCharacterTextforPhoneNumber;
+
+    @FindBy(id = "isAdvisorTeacher")
+    public WebElement isAdvisorTeacherCheckBox;
+
+    @FindBy(xpath = "//input[@value='MALE']")
+    public WebElement genderMale;
+
+    @FindBy(xpath = "//div[text()='Required']")
+    public WebElement textofRequired;
+
+    @FindBy(xpath = "//div[text()='Minimum 11 character (XXX-XX-XXXX)']")
+    public WebElement textofMinChar;
+
+    @FindBy(xpath = "//div[text()='Minimum 8 character']")
+    public WebElement textofMinpassword;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[6]")
+    public WebElement RequiredTextforDateofBirth;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[7]")
+    public WebElement RequiredTextforSsn;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[8]")
+    public WebElement RequiredTextforUsername;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[9]")
+    public WebElement RequiredTextforPassword;
+
+    @FindBy(xpath = "//*[text()='Minimum 8 character']")
+    public WebElement PasswordAlert;
+
+
+
+
+
 
 
 }

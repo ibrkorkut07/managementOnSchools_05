@@ -1,5 +1,5 @@
-@US02 @US02_TC01
-Feature: US_02 TC_01 Admin should be able to see the Guest User List
+@US02_TC02
+Feature: US_02 TC_02 Admin should be able to see the Guest User List contains 'User Name on other page.
 
   Background: Sign in as admin
     Given user goes to "MosUrl"
@@ -12,6 +12,5 @@ Feature: US_02 TC_01 Admin should be able to see the Guest User List
 
     Given admin click on Menu section
     And admin click Guest User on pop-up
-    Then assert the list contains guest-user
-
-
+    And go to second page
+    Then assert the list contains User Name
