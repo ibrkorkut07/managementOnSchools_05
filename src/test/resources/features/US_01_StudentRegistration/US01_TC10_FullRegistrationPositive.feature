@@ -38,7 +38,7 @@ Feature: US01 TC01 Prospective students should be able to register in the system
     And user enters "<Phone>"  as a phone number
     Then user scrolls into User Name box
     And user clicks on Male Radio button and selects Male as a gender
-    # Then user scrolls down to Date of Birth box
+    Then user scrolls down to Date of Birth box
     And user enters "<month>", "<day>", "<year>"  as a birth date
     # And user clicks on Ssn box
     And user enters an invalid "<Ssn>" as an Ssn
