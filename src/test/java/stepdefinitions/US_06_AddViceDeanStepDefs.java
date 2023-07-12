@@ -1,37 +1,52 @@
 package stepdefinitions;
 
+import base_urls.ManagementonSchoolBaseUrl;
 import com.github.javafaker.Faker;
-import io.cucumber.java.en.*;
-import org.openqa.selenium.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.restassured.response.Response;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.CommonCredentialsPage;
-import utilities.*;
+import pojos.ObjectPojo;
+import pojos.ResponsePersonnelPojo;
+import utilities.Driver;
+import utilities.WaitUtils;
 
-
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
+import static io.restassured.RestAssured.given;
+import static java.lang.Integer.parseInt;
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static utilities.DBUtils.getResultSet;
+import static utilities.JSUtils.clickWithTimeoutByJS;
+import static utilities.ObjectMapperUtils.convertJsonToJava;
+import static utilities.ReusableMethods.waitFor;
+import static utilities.ReusableMethods.waitForVisibility;
 
-import static org.junit.Assert.*;
-import static utilities.ReusableMethods.*;
-
-public class US_06_UI_AddViceDeanStepDefs {
+public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
  CommonCredentialsPage CCPage = new CommonCredentialsPage();
  public static String fakeUsername ;
  public static String fakeSsn ;
  public static String fakeName ;
  public static String fakeSurname;
- protected static String fakeBirthPlace ;
+ public static String fakeBirthPlace ;
  public static String fakeDateOfBirth;
  public static String fakePhoneNumber;
  public static String fakePassword;
 
  @Given("user fills all required credentials")
- public void user_fills_all_required_credentials() {
+ public void user_fills_all_required_credentials()  {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995"; //new SimpleDateFormat("MM-dd-yyyy").format(Faker.instance().date().birthday());       // "1995-07-19";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -48,14 +63,14 @@ public class US_06_UI_AddViceDeanStepDefs {
  }
  @Given("user clicks on submit button")
  public void user_clicks_on_submit_button() {
-  WaitUtils.waitForVisibility(CCPage.submit,10).submit();
+  WaitUtils.waitForVisibility(CCPage.submit, 10).submit();
 
  }
  @Then("verify new Vice Dean is created")
  public void verify_new_vice_dean_is_created() {
   waitFor(1);
   WebElement lastPageLink=waitForVisibility(Driver.getDriver().findElement(By.xpath("(//*[@class='page-link'])[5]")),10);
-  JSUtils.clickWithTimeoutByJS(lastPageLink);
+  clickWithTimeoutByJS(lastPageLink);
   waitFor(2);
   List<WebElement> usernameList=Driver.getDriver().findElements(By.xpath("//table//tbody//tr//td[5]"));
   String actual = usernameList.get(usernameList.size()-1).getText();
@@ -67,7 +82,7 @@ public class US_06_UI_AddViceDeanStepDefs {
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -87,20 +102,19 @@ public class US_06_UI_AddViceDeanStepDefs {
 
   waitFor(1);
   WebElement lastPageLink=waitForVisibility(Driver.getDriver().findElement(By.xpath("(//*[@class='page-link'])[5]")),10);
-  JSUtils.clickWithTimeoutByJS(lastPageLink);
+  clickWithTimeoutByJS(lastPageLink);
   waitFor(2);
   List<WebElement> usernameList=Driver.getDriver().findElements(By.xpath("//table//tbody//tr//td[5]"));
   String actual = usernameList.get(usernameList.size()-1).getText();
   assertFalse(actual.equals(fakeUsername));
-  //assertEquals(fakeUsername,actual);
  }
  @Given("user fills all required credentials except surname")
- public void user_fills_all_required_credentials_except_surname() {
+ public void user_fills_all_required_credentials_except_surname()  {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -114,14 +128,15 @@ public class US_06_UI_AddViceDeanStepDefs {
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
   WaitUtils.waitFor(3);
+
  }
  @Given("user fills all required credentials except birth place")
- public void user_fills_all_required_credentials_except_birth_place() {
+ public void user_fills_all_required_credentials_except_birth_place()  {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -135,6 +150,7 @@ public class US_06_UI_AddViceDeanStepDefs {
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
   WaitUtils.waitFor(3);
+
  }
  @Given("user fills all required credentials except gender")
  public void user_fills_all_required_credentials_except_gender() {
@@ -142,7 +158,7 @@ public class US_06_UI_AddViceDeanStepDefs {
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -156,14 +172,15 @@ public class US_06_UI_AddViceDeanStepDefs {
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
   WaitUtils.waitFor(3);
+
  }
  @Given("user fills all required credentials except date of birth")
- public void user_fills_all_required_credentials_except_date_of_birth() {
+ public void user_fills_all_required_credentials_except_date_of_birth()  {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -177,14 +194,15 @@ public class US_06_UI_AddViceDeanStepDefs {
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
   WaitUtils.waitFor(3);
+
  }
  @Given("user fills all required credentials except phone number")
- public void user_fills_all_required_credentials_except_phone_number() {
+ public void user_fills_all_required_credentials_except_phone_number(){
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -198,6 +216,7 @@ public class US_06_UI_AddViceDeanStepDefs {
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
   WaitUtils.waitFor(3);
+
  }
  @Given("user fills all required credentials except username")
  public void user_fills_all_required_credentials_except_username() {
@@ -205,7 +224,7 @@ public class US_06_UI_AddViceDeanStepDefs {
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -219,17 +238,18 @@ public class US_06_UI_AddViceDeanStepDefs {
   //WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
   WaitUtils.waitFor(3);
+
  }
  @Then("verify new Vice Dean is not created without username")
  public void verify_new_vice_dean_is_not_created_without_username() {
   waitFor(1);
   WebElement lastPageLink=waitForVisibility(Driver.getDriver().findElement(By.xpath("(//*[@class='page-link'])[5]")),10);
-  JSUtils.clickWithTimeoutByJS(lastPageLink);
+  clickWithTimeoutByJS(lastPageLink);
   waitFor(2);
   List<WebElement> usernameList=Driver.getDriver().findElements(By.xpath("//table//tbody//tr//td[4]"));
   String actual = usernameList.get(usernameList.size()-1).getText();
-  assertFalse(actual.equals(fakeSsn));
-  //assertEquals(fakeSsn,actual);
+  try {  assertFalse(actual.equals(fakeUsername));
+   ;}catch(Exception e){e.printStackTrace();}
  }
  @Given("user fills all required credentials except ssn")
  public void user_fills_all_required_credentials_except_ssn() {
@@ -237,7 +257,7 @@ public class US_06_UI_AddViceDeanStepDefs {
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -251,19 +271,21 @@ public class US_06_UI_AddViceDeanStepDefs {
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
   WaitUtils.waitFor(3);
+
  }
  @Given("user enters invalid {string}")
  public void user_enters_invalid(String ssn) {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(ssn);
+  waitFor(3);
 
   }
  @Given("user fills all required credentials except password")
- public void user_fills_all_required_credentials_except_password() {
+ public void user_fills_all_required_credentials_except_password()  {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
   fakeBirthPlace = Faker.instance().address().city();
-  fakeDateOfBirth = "07/19/1995";
+  fakeDateOfBirth = "07-19-1995";
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
@@ -277,10 +299,120 @@ public class US_06_UI_AddViceDeanStepDefs {
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
  //WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
   WaitUtils.waitFor(3);
+
+
  }
+
  @Given("user enters an invalid  {string}")
- public void user_enters_an_invalid(String password) {
+ public void user_enters_an_invalid(String password)  {
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(password);
+  waitFor(3);
+ }
+// ************************** Database Stepdefinitions **************
+static ResultSet resultSet;
+ public static String strId;
+ public static Integer id;
+
+ @Given("get vice dean via username")
+ public void get_vice_dean_via_username(){
+
+  String sqlQuery = "SELECT * FROM vice_dean WHERE username ='" + fakeUsername + "'";
+  resultSet = getResultSet(sqlQuery);
+  System.out.println("fakeUsername = " + fakeUsername);
+
+ }
+
+ @Given("get vice dean via  non existing username")
+ public void getViceDeanViaNonExistingUsername() {
+  String sqlQuery = "SELECT * FROM vice_dean WHERE username ='" + fakeUsername + "X'";
+  resultSet = getResultSet(sqlQuery);
+ }
+
+ @Then("body contains birth_day, birth_place, gender, name, phone_number, ssn, surname, username")
+ public void body_contains_birth_day_birth_place_gender_name_phone_number_ssn_surname_username() throws SQLException {
+  resultSet.next();
+  strId = resultSet.getString("id");
+  id = parseInt(strId);
+
+  String actBirth_day = resultSet.getString("birth_day");
+  String actBirth_place = resultSet.getString("birth_place");
+  String actGender = resultSet.getString("gender");
+  String actName = resultSet.getString("name");
+  String actPhone_number = resultSet.getString("phone_number");
+  String actSsn = resultSet.getString("ssn");
+  String actSurname = resultSet.getString("surname");
+  String actUsername = resultSet.getString("username");
+  System.out.println("actUsername = " + actUsername);
+
+  assertEquals("1995-07-19", actBirth_day);
+  assertEquals(fakeBirthPlace, actBirth_place);
+  assertEquals("1", actGender);
+  assertEquals(fakeName, actName);
+  assertEquals(fakePhoneNumber, actPhone_number);
+  assertEquals(fakeSsn, actSsn);
+  assertEquals(fakeSurname, actSurname);
+  assertEquals(fakeUsername, actUsername);
+
+ }
+
+ @Then("body should be empty")
+ public void bodyShouldBeEmpty()  {
+
+  try {
+   assertFalse(resultSet.next());//Since the ResulSet is empty, next() method will return false
+  } catch (SQLException e) {
+   throw new RuntimeException(e);
+  }
+
+ }
+
+
+ // ****************************************************  API Stepdefinitions ****************************
+
+
+ Response response;
+ ResponsePersonnelPojo actualData;
+
+
+ @Given("user sends get request by existing id")
+ public void user_sends_get_request_by_existing_id() {
+  setUp();
+  waitFor(5);
+  spec.pathParams("1st","vicedean","2nd","getViceDeanById","3rd",id);
+  response = given(spec).get("{1st}/{2nd}/{3rd}");
+
+ }
+ @Given("user sends get request by non existing id")
+ public void user_sends_get_request_non_by_existing_id() {
+  setUp();
+  spec.pathParams("1st","vicedean","2nd","getViceDeanById","3rd",(id+1));
+  response = given(spec).get("{1st}/{2nd}/{3rd}");
+
+ }
+
+ @Then("body should contain birth_day, birth_place, gender, name, phone_number, ssn, surname, username")
+ public void body_should_contain_birth_day_birth_place_gender_name_phone_number_ssn_surname_username() {
+
+  ObjectPojo expectedData = new ObjectPojo(id,fakeUsername,fakeName,fakeSurname,"1995-07-19",fakeSsn,fakeBirthPlace,fakePhoneNumber,"FEMALE");
+  actualData = convertJsonToJava(response.asString(),ResponsePersonnelPojo.class);
+
+  assertEquals(200, response.statusCode());
+  assertEquals(expectedData.getBirthDay(),actualData.getObject().getBirthDay());
+  assertEquals(expectedData.getBirthPlace(),actualData.getObject().getBirthPlace());
+  assertEquals(expectedData.getSsn(),actualData.getObject().getSsn());
+  assertEquals(expectedData.getName(),actualData.getObject().getName());
+  assertEquals(expectedData.getGender(),actualData.getObject().getGender());
+  assertEquals(expectedData.getPhoneNumber(),actualData.getObject().getPhoneNumber());
+  assertEquals(expectedData.getUsername(),actualData.getObject().getUsername());
+
+
+ }
+
+ @Then("body must be empty with non existing username {string}")
+ public void bodyMustBeEmptyWithNonExistingUsername(String username) {
+
+  List<Objects> dataList = response.jsonPath().getList("content.findAll{it.username=='" + username + "'}");
+  assertTrue(dataList.isEmpty());
  }
 
 

@@ -71,6 +71,21 @@ public class RegisterPage {
     @FindBy(linkText="Minimum 8 character")
     public WebElement minimum8CharacterText;
 
+    @FindBy(id = "phoneNumber")
+    public WebElement phoneBox;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[4]")
+    public WebElement minimum12CharacterText;
+
+    @FindBy(id = "birthDay")
+    public WebElement birthdayBox;
+
+    @FindBy(id = "ssn")
+    public WebElement ssnBox;
+
+    @FindBy(xpath ="//button[text()='Register']")
+    public WebElement registerButton;
+
 
 
 

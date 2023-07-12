@@ -51,6 +51,14 @@ public class LessonMngPage {
 
     @FindBy(xpath = "((//tbody[@class='table-group-divider'])[2]/tr/td[1])[last()]")
     public WebElement lastCreatedLesson;
+    @FindBy(xpath = "//div[contains(text(),'JSON parse error: Cannot deserialize value of type')]")
+    public WebElement invalidCreditScore;
+    @FindBy(xpath = "//div[@class='mb-4 form-floating']//div[@class='invalid-feedback'][normalize-space()='Required']")
+    public WebElement nullOfLessonName;
+    @FindBy(xpath = "//*[@id=\"controlled-tab-example-tabpane-lessonsList\"]/div[2]/div[1]/div/div/form/div/div[3]/div/div")
+    public WebElement nullOfCreditScore;
+    @FindBy(xpath = "//div[contains(text(),'Lesson Created')]")
+    public WebElement createdLessonAlert;
 }
 
 

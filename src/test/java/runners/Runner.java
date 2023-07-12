@@ -23,7 +23,9 @@ import org.junit.runner.RunWith;
 
 
 
-        tags = "@smoke_test"
+
+        tags = "@US_06_DB_API"
+
 
 )
 

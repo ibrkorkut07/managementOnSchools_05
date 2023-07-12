@@ -8,11 +8,10 @@ import static io.restassured.RestAssured.given;
 public class Authentication {
 
     public static String generateToken() {
-        String stringBody = "{ \"password\": \"12345678\", \"username\": \"Project09Admin\"}";
-        Response response = given().contentType(ContentType.JSON)
-                                   .body(stringBody)
-                                   .post("https://managementonschools.com/app/auth/login");
+        String stringBody = "{ \"password\": \"485424698\", \"username\": \"Admin\"}";
+        Response response = given().contentType(ContentType.JSON).accept("application/json").accept("*/*").body(stringBody).post("https://managementonschools.com/app/auth/login");
         return response.jsonPath().getString("token");
     }
+
 
 }
