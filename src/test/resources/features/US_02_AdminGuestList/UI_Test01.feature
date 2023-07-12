@@ -1,4 +1,4 @@
-@US02_TC01
+@US02 @US02_TC01
 Feature: US_02 TC_01 Admin should be able to see the Guest User List
 
   Background: Sign in as admin
