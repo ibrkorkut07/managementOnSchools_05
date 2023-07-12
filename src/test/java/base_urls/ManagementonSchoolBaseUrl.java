@@ -16,15 +16,11 @@ public class ManagementonSchoolBaseUrl {
 
         spec = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
-                .setBaseUri("https://managementonschools.com/app/")
-                .addHeader("Authorization",""+generateToken())
+                .setBaseUri("https://managementonschools.com/app")
+                .addHeader("Authorization",generateToken())
                 .build();
-/*
-        spec = new RequestSpecBuilder()
-                .setContentType(ContentType.JSON)
-                .setBaseUri("https://managementonschools.com/")
-                .addHeader("Authorization","token="+generateToken().replaceAll("[^0-9]",""))
-                .build();
-  */
+
     }
+
+
 }
