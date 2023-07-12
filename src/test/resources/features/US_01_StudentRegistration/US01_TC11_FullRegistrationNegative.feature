@@ -13,7 +13,7 @@ Feature: US01 TC01 Prospective students should be able to register in the system
     And user enters "<Phone>"  as a phone number
     Then user scrolls into User Name box
     And user clicks on Male Radio button and selects Male as a gender
-    # Then user scrolls down to Date of Birth box
+    Then user scrolls down to Date of Birth box
     And user enters "<month>", "<day>", "<year>"  as a birth date
     #And user clicks on Ssn box
     And user enters an invalid "<Ssn>" as an Ssn
@@ -23,4 +23,4 @@ Feature: US01 TC01 Prospective students should be able to register in the system
 
     Examples:
       |Name|Surname|Birth Place|Phone|month|day|year|Ssn|User Name|Password|
-      |ibr|can|UK|(555)3331234|11|11|2011|187-65-4321|ibrcan|ibrcan07|
+      |i|c|U|(555)33312|11|11|2222|187-65-432|i|ibrcan|
