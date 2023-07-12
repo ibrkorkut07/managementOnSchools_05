@@ -60,6 +60,10 @@ public class ViceDeanMngPage {
     @FindBy(xpath = "(//button[.='Submit'])[4]")
     public WebElement teacherAssignmentSubmitButton;
 
+    @FindBy(id = "react-select-3-input")
+    public WebElement addTeacherSelectLesson;
+
+
     @FindBy(xpath = "//div[contains(text(),'Created Lesson Program')]")
     public WebElement createdLessonProgramAlert;
     @FindBy(xpath = "//div[contains(text(),'Full authentication is required to access this resource')]")
@@ -87,8 +91,11 @@ public class ViceDeanMngPage {
     @FindBy(xpath = " (//*[text()='Submit'])[4]")
     public WebElement submitButtonTeacherAssignment;
 
-    @FindBy(xpath = "//div[@class=' css-1xc3v61-indicatorContainer']")
+    @FindBy(xpath = "//*[@class='css-8mmkcg']")
     public WebElement addTeacherChooseLesson;
+
+    @FindBy(id = "react-select-3-input")
+    public WebElement addTeacherSelectLessons;
 
     @FindBy(id = "name")
     public WebElement addTeacherNameBox;
