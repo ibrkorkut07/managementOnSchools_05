@@ -33,10 +33,10 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
        // JSUtils.setValueByJS(viceDeanMngPage.addTeacherSelectLesson,lesson);
 
 
-       JSUtils.scrollIntoViewJS(viceDeanMngPage.addTeacherSelectLessons);
+     //  JSUtils.scrollIntoViewJS(viceDeanMngPage.addTeacherSelectLessons);
 
 
-       viceDeanMngPage.addTeacherSelectLessons.sendKeys(lesson + Keys.ENTER);
+      // viceDeanMngPage.addTeacherSelectLessons.sendKeys(lesson + Keys.ENTER);
 
 
 
