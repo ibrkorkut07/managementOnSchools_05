@@ -16,6 +16,14 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
 
     }
 
+    @When("vice dean choose a lesson")
+    public void vice_dean_choose_a_lesson() {
+
+
+
+    }
+
+
     @When("vice dean enter {string}")
     public void vice_dean_enter(String string) {
 
@@ -39,6 +47,13 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
 
     @When("vice dean enter {string} and {string}")
     public void vice_dean_enter_and(String string, String string2) {
+
+
+
+    }
+
+    @When("vice dean click on the Submit button")
+    public void vice_dean_click_on_the_submit_button() {
 
 
 
