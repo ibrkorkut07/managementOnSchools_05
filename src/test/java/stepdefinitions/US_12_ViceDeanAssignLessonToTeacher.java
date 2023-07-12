@@ -2,15 +2,13 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import pages.LessonMngPage;
-import pages.LoginPage;
 import pages.ViceDeanMngPage;
 import utilities.Driver;
 import utilities.JSUtils;
 import utilities.ReusableMethods;
 import utilities.WaitUtils;
 
-public class US_12_StepDefs {
+public class US_12_ViceDeanAssignLessonToTeacher {
     ViceDeanMngPage viceDeanMngPage =  new ViceDeanMngPage();
 
     @Given("vice dean select a lesson to assign")
