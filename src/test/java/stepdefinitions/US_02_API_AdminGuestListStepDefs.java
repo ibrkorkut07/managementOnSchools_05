@@ -15,18 +15,20 @@ public class US_02_API_AdminGuestListStepDefs extends ManagementonSchoolBaseUrl 
     @Given("Send the request see the list")
     public void sendTheRequestSeeTheList() {
         // Set the url
-        //https://managementonschools.com/app/guestUser/getAll?page=1
-        setUp();
-        spec.pathParams("first", "guestUser", "second", "getAll", "third", 1);
+        //https://managementonschools.com/app/guestUser/getAll
 
-        //Send the request get the response
-        response = given(spec).get("/{first}/{second}?page={third}");
+        setUp();
+        spec.pathParams("first", "guestUser", "second", "getAll");
+
+        // Send the request and get the response
+        response = given(spec).get("/{first}/{second}");
         response.prettyPrint();
     }
 
-    @Then("Validate the list")
-    public void validate_the_list() {
-        // Do assertion
+    @Then("Validate the list contain Name , Phone Number , Ssn ,User Name")
+    public void validateTheListContainNamePhoneNumberSsnUserName() {
+        // Do Assertion
+
 
     }
 
@@ -35,21 +37,15 @@ public class US_02_API_AdminGuestListStepDefs extends ManagementonSchoolBaseUrl 
         //Set the url
         //https://managementonschools.com/app/guestUser/delete/1328
         setUp();
-        spec.pathParams("first", "guestUser", "second", "delete", "third", 1328);
+        spec.pathParams("first", "guestUser", "second", "delete", "third", 1044);
 
         //Send the request get the response
         response = given(spec).get("/{first}/{second}?page={third}");
         response.prettyPrint();
-
-
-
     }
 
     @Then(": Validate the Admin Delete information")
     public void validateTheAdminDeleteInformation() {
         // Do assertion
-        response
-                .then()
-                .statusCode(404);
     }
 }

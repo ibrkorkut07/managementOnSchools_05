@@ -3,4 +3,4 @@ Feature: Get the Guest User List
 
     Scenario: Send the get request
       Given Send the request see the list
-      Then Validate the list
+      Then Validate the list contain Name , Phone Number , Ssn ,User Name
