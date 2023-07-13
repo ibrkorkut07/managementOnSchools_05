@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import pages.ContactMessagePage;
 import pages.ViceDeanMngPage;
 import utilities.ConfigReader;
@@ -15,6 +16,8 @@ import utilities.ReusableMethods;
 
 
 public class US_07UI_StepDefs {
+
+    JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
 
     HomePage homePage= new HomePage();
     LoginPage loginPage= new LoginPage();
@@ -38,14 +41,14 @@ public class US_07UI_StepDefs {
         homePage.loginHome.click();
     }
 
-    @And("Dean enters {string} on login page")
-    public void deanEntersOnLoginPage(String arg0) {
 
-        loginPage.userName.sendKeys(arg0);
+    @And("Dean enters user name")
+    public void deanEntersUserName() {
+        contactMessagePage.loginUserName.sendKeys("DeanHacer");
     }
-    @And("Dean enters {string} on the login page")
-    public void deanEntersOnTheLoginPage(String arg0) {
-        loginPage.password.sendKeys(arg0);
+    @And("Dean enters password")
+    public void deanEntersPassword() {
+        contactMessagePage.loginPassword.sendKeys("12345678");
     }
 
     @And("Dean clicks the loginBlue button")
@@ -55,15 +58,13 @@ public class US_07UI_StepDefs {
 
     @And("Dean clicks the menu option on the page that opens")
     public void deanClicksTheMenuOptionOnThePageThatOpens() {
-        viceDeanMngPage.menuButton.click();
+        executor.executeScript("arguments[0].click();", viceDeanMngPage.menuButton);
     }
-
 
     @And("Dean clicks {string}option from main menu")
     public void deanClicksOptionFromMainMenu(String arg0) {
         viceDeanMngPage.contactGetAllLink.click();
     }
-
 
     @Then("Dean verifies that authors are displayed on the page")
     public void deanVerifiesThatAuthorsAreDisplayedOnThePage() {
@@ -107,6 +108,8 @@ public class US_07UI_StepDefs {
         Driver.closeDriver();
     }
 
-
-
+    @And("Wait for second")
+    public void waitForSecond() {
+       ReusableMethods.waitFor(15);
+    }
 }

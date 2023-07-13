@@ -31,6 +31,13 @@ public class ContactMessagePage {
     @FindBy(xpath = "//table/tbody/tr/td")
     public WebElement nameFirstCreated;
 
+    @FindBy(xpath = "//input[@id='username']")
+    public WebElement loginUserName;
+
+    @FindBy(xpath = "//input[@id='password']")
+    public WebElement loginPassword;
+
+
 }
 
 
