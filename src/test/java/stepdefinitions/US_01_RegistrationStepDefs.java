@@ -15,12 +15,11 @@ import utilities.WaitUtils;
 
 import java.sql.*;
 
+import static junit.framework.TestCase.assertEquals;
+
 public class US_01_RegistrationStepDefs {
 
     RegisterPage regPage = new RegisterPage();
-    Connection connection;
-    Statement statement;
-    ResultSet resultSet;
 
     /*
     @When("user clicks on Register link")
@@ -351,40 +350,5 @@ public class US_01_RegistrationStepDefs {
     public void userClicksOnRegisterButton() {
         regPage.registerBox.click();
     }
-
-    @Given("Get registered user via {string}")
-    public void getRegisteredUserVia(String username) throws SQLException {
-        connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
-        statement = connection.createStatement();
-        String sqlQuery = "select * from guest_user where name = '"+username+"'";
-        resultSet = statement.executeQuery(sqlQuery);
-        // resultSet.next();
-    }
-
-    @Then("Body contains birth_day {string}, birth_place {string}, gender {string}, name {string}, phone_number {string}, ssn {string}, surname {string}, username {string}")
-    public void bodyContainsBirth_dayBirth_placeGenderNamePhone_numberSsnSurnameUsername(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) throws SQLException {
-        resultSet.next();
-        System.out.println(resultSet.getString("phone_number"));
-    }
-
-
-   /*
-    @Given("Get registered user via {string}")
-    public void getRegisteredUserVia(String username) throws SQLException {
-        connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
-        statement = connection.createStatement();
-        String sqlQuery = "select * from guest_user where name = '"+username+"'";
-        resultSet = statement.executeQuery(sqlQuery);
-        // resultSet.next();
-    }
-
-    @Then("Body contains birth_day {string}, birth_place {string}, gender {string}, name {string}, phone_number {string}, ssn {string}, surname {string}, username {string}")
-    public void bodyContainsBirth_dayBirth_placeGenderNamePhone_numberSsnSurnameUsername(String birth_day, String birth_place, String gender, String name, String phone_number, String ssn, String surname, String username) throws SQLException {
-
-        resultSet.next();
-        System.out.println(resultSet.getString("phone_number"));
-    }
-
-    */
 
 }
