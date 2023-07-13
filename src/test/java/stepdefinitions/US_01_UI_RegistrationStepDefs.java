@@ -1,23 +1,19 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import pages.HomePage;
 import pages.RegisterPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.WaitUtils;
 
-import java.sql.*;
-
 import static junit.framework.TestCase.assertEquals;
 
-public class US_01_RegistrationStepDefs {
+public class US_01_UI_RegistrationStepDefs {
 
     RegisterPage regPage = new RegisterPage();
 
