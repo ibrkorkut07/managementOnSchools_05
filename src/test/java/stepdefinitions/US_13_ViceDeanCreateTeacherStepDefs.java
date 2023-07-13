@@ -28,17 +28,20 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
 
     @When("vice dean enter {string}")
     public void viceDeanEnter(String lesson ) {
-        WaitUtils.waitFor(1);
+        WaitUtils.waitFor(2);
 
        // JSUtils.setValueByJS(viceDeanMngPage.addTeacherSelectLesson,lesson);
 
+     // JSUtils.clickWithTimeoutByJS(viceDeanMngPage.addTeacherSelectLesson);
 
      //  JSUtils.scrollIntoViewJS(viceDeanMngPage.addTeacherSelectLessons);
 
 
       // viceDeanMngPage.addTeacherSelectLessons.sendKeys(lesson + Keys.ENTER);
 
+      // viceDeanMngPage.addTeacherChooseLesson.sendKeys(lesson,Keys.ENTER);
 
+       viceDeanMngPage.addTeacherSelectLesson.sendKeys(lesson,Keys.ENTER);
 
         WaitUtils.waitFor(1);
 
@@ -104,7 +107,11 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
     }
 
 
+    @Then("verify required message is displayed")
+    public void verifyRequiredMessageIsDisplayed() {
 
+
+    }
 }
 
 
