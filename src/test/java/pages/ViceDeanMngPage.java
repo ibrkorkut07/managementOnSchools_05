@@ -177,6 +177,9 @@ public class ViceDeanMngPage {
     @FindBy(xpath = "//*[text()='Minimum 8 character']")
     public WebElement PasswordAlert;
 
+    @FindBy(xpath = "//input[@role='combobox']")
+    public WebElement addTeacherSelectLesson;
+
 
 
 
