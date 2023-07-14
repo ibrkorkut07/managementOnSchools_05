@@ -31,8 +31,4 @@ public class AdminMngPage {
     @FindBy(xpath = "//div[@role='alert']")
     public WebElement alert;
 
-
-
-
-
 }
