@@ -1,28 +1,20 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-import pages.HomePage;
-import pages.LoginPage;
 import pages.RegisterPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.WaitUtils;
 
-import javax.swing.*;
+import static junit.framework.TestCase.assertEquals;
 
-import static utilities.Driver.driver;
+public class US_01_UI_RegistrationStepDefs {
 
-public class US_01_RegistrationStepDefs {
-
-    HomePage homePage = new HomePage();
     RegisterPage regPage = new RegisterPage();
 
     /*
@@ -354,4 +346,5 @@ public class US_01_RegistrationStepDefs {
     public void userClicksOnRegisterButton() {
         regPage.registerBox.click();
     }
+
 }

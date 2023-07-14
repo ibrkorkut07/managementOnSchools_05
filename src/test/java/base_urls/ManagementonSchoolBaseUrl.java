@@ -6,25 +6,33 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
 import static utilities.Authentication.generateToken;
+import static utilities.Authentication.generateTokenViceDean;
 
 public class ManagementonSchoolBaseUrl {
 
     protected static RequestSpecification spec;
+    protected static RequestSpecification spec2;
 
     @Before//This method will run before each @Test methods.
     public static void setUp() {
 
         spec = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
-                .setBaseUri("https://managementonschools.com/app/")
-                .addHeader("Authorization",""+generateToken())
+                .setBaseUri("https://managementonschools.com/app")
+                .addHeader("Authorization",generateToken())
                 .build();
-/*
-        spec = new RequestSpecBuilder()
-                .setContentType(ContentType.JSON)
-                .setBaseUri("https://managementonschools.com/")
-                .addHeader("Authorization","token="+generateToken().replaceAll("[^0-9]",""))
-                .build();
-  */
+
     }
+    //    @Before//This method will run before each @Test methods.
+    public void setUpViceDean() {
+
+        spec2 = new RequestSpecBuilder()
+                .setContentType(ContentType.JSON)
+                .setBaseUri("https://managementonschools.com/app")
+                .addHeader("Authorization",generateTokenViceDean())
+                .build();
+
+    }
+
+
 }
