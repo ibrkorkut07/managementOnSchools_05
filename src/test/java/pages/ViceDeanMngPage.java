@@ -159,9 +159,6 @@ public class ViceDeanMngPage {
     @FindBy(xpath = "//div[text()='Minimum 11 character (XXX-XX-XXXX)']")
     public WebElement textofMinChar;
 
-    @FindBy(xpath = "//div[text()='Minimum 8 character']")
-    public WebElement textofMinpassword;
-
     @FindBy(xpath = "(//div[@class='invalid-feedback'])[6]")
     public WebElement RequiredTextforDateofBirth;
 
