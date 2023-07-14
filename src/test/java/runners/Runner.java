@@ -21,7 +21,7 @@ import org.junit.runner.RunWith;
         // dryRun = false: RUN NORMAL. THIS IS DEFAULT VALUE
 
 
-        tags = "@US04_TC01_ApiTest"
+        tags = "@US_03"
 
 
 

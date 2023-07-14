@@ -254,4 +254,7 @@ public class ReusableMethods {
         Select objSelect = new Select(element);
         objSelect.selectByValue(value);
     }
+
+    public static void fullpageScreenshot() {
+    }
 }
