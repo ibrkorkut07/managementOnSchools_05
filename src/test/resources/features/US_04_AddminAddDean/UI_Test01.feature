@@ -1,4 +1,4 @@
-@US04_TC01
+
 Feature: US_04 Admin should be able to add Dean
 
   Background: Sign in as admin

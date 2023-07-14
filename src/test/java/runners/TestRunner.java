@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         glue = {"stepdefinitions"}, //PATH OF STEPDEFINITIONS FOLDER
         dryRun = false , //dryRun = true : RUNS AND GENERATES ONLY MISSING STEP DEFS.
         // dryRun = false: RUN NORMAL. THIS IS DEFAULT VALUE
-        tags = "@test_runner"
+        tags = "@my_test"
 
 )
 public class TestRunner {
