@@ -23,8 +23,11 @@ import org.junit.runner.RunWith;
 
 
 
+        tags = "@US_05_DB_TC01"
 
-        tags = "@US_06_DB_API"
+
+
+
 
 
 )
