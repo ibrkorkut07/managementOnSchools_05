@@ -18,6 +18,7 @@ import pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.WaitUtils;
 
 import static utilities.Driver.driver;
 
@@ -67,20 +68,17 @@ public class US_05_AdminsSeeDeleteUpdateDeans {
     Assert.assertTrue(deanMngPage.firstUserNameOnDeanList.isDisplayed());
 
     }
-
-
-
-    @Then("Click on {string} button")
-    public void clickOnButton(String arg0) {
-
+    @Then("Click on Delete button")
+    public void click_on_delete_button() {
 
     }
+
 
     @Then("Admin verify that Dean was deleted")
     public void adminVerifyThatDeanWasDeleted() {
 
 
-        
+
     }
 
     @Then("click the {string} button")
@@ -120,12 +118,15 @@ public class US_05_AdminsSeeDeleteUpdateDeans {
     public void clickTheSubmitButtonInTheEditWindow() {
 
         deanMngPage.maleButtonOnEditDean.click();
-Driver.wait(2);
+
+        WaitUtils.waitFor(3);
         deanMngPage.passwordBox.sendKeys("12345678");
 
         deanMngPage.submitButtonOnEditDean.click();
 
-        ReusableMethods.waitFor(3);
+        WaitUtils.waitFor(3);
+
+
 
     }
 
