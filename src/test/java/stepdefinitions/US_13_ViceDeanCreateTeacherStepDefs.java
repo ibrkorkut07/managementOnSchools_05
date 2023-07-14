@@ -125,10 +125,11 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
 
     }
 
-    @And("vice dean click on the submit button")
-    public void viceDeanClickOnTheSubmitButton() {
+    @And("vice dean click on the submitt button")
+    public void viceDeanClickOnTheSubmittButton() {
         WaitUtils.waitFor(1);
         viceDeanMngPage.addTeacherSubmitButton.click();
+
     }
 }
 

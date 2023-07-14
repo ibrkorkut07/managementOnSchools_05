@@ -15,7 +15,7 @@ Feature: Vice Dean should be able to create teacher
     And vice dean enter "<birthplace>" , "<email>" , "<phonenumber>"
     And vice dean choose gender
     And vice dean enter "<dateofbirth>", "<ssn>", "<username>" and "<password>"
-    And vice dean click on the submit button
+    And vice dean click on the submitt button
     Then verify teacher saved successfully
     Then close the application
     Examples:
