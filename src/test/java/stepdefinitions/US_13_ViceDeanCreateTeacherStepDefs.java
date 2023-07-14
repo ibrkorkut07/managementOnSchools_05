@@ -92,8 +92,7 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
     @When("vice dean click on the Submit button")
     public void vice_dean_click_on_the_submit_button() {
 
-        WaitUtils.waitFor(3);
-   viceDeanMngPage.addTeacherSubmitButton.click();
+    ReusableMethods.waitForClickablility(viceDeanMngPage.addTeacherSubmitButton,3);
 
     }
 
@@ -107,8 +106,20 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
     }
 
 
-    @Then("verify required message is displayed")
-    public void verifyRequiredMessageIsDisplayed() {
+
+    @And("vice dean verify the required texts displayed")
+    public void viceDeanVerifyTheRequiredTextsDisplayed() {
+
+    viceDeanMngPage.RequiredTextforName.isDisplayed();
+    viceDeanMngPage.RequiredTextforSurname.isDisplayed();
+    viceDeanMngPage.RequiredTextforEmail.isDisplayed();
+    viceDeanMngPage.RequiredTextforBirthPlace.isDisplayed();
+    viceDeanMngPage.RequiredTextforPhoneNumber.isDisplayed();
+    viceDeanMngPage.RequiredTextforSsn.isDisplayed();
+    viceDeanMngPage.RequiredTextforDateofBirth.isDisplayed();
+    viceDeanMngPage.RequiredTextforUsername.isDisplayed();
+    viceDeanMngPage.RequiredTextforPassword.isDisplayed();
+
 
     }
 }
