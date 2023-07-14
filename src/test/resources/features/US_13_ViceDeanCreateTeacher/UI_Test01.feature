@@ -15,11 +15,11 @@ Feature: Vice Dean should be able to create teacher
     And vice dean enter "<birthplace>" , "<email>" , "<phonenumber>"
     And vice dean choose gender
     And vice dean enter "<dateofbirth>", "<ssn>", "<username>" and "<password>"
-    And vice dean click on the Submit button
+    And vice dean click on the submit button
     Then verify teacher saved successfully
     Then close the application
     Examples:
-      | lesson   | name  | surname | birthplace | email           | phonenumber  | dateofbirth | ssn         | username    | password |
-      | Calculus | fatma | naz     | ulubey     | email12@email12 | 576-586-5484 | 09-04-1970  | 227-99-8933 | fatmanaz099 | 12345678 |
+      | lesson   | name  | surname | birthplace | email            | phonenumber  | dateofbirth | ssn         | username   | password |
+      | Calculus | fatma | naz     | ulubey     | email102@email02 | 706-536-5584 | 02-10-1976  | 444-99-3373 | fatmanaz79 | 12345678 |
 
 
