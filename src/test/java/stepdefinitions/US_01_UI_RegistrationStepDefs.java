@@ -1,28 +1,20 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-import pages.HomePage;
-import pages.LoginPage;
 import pages.RegisterPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.WaitUtils;
 
-import javax.swing.*;
+import static junit.framework.TestCase.assertEquals;
 
-import static utilities.Driver.driver;
+public class US_01_UI_RegistrationStepDefs {
 
-public class US_01_RegistrationStepDefs {
-
-    HomePage homePage = new HomePage();
     RegisterPage regPage = new RegisterPage();
 
     /*
@@ -253,4 +245,106 @@ public class US_01_RegistrationStepDefs {
     public void minimum__CharacterTextUnderThePhoneBoxIsDisplayed(int arg0) {
         Assert.assertTrue(regPage.minimum12CharacterText.isDisplayed());
     }
+
+    @And("user clicks on Date of Birth box")
+    public void userClicksOnDateOfBirthBox() {
+        regPage.birthdayBox.click();
+    }
+
+    @And("user enters {int}-digit mmddyyyy Birth Date")
+    public void userEntersDigitMmddyyyyBirthDate(int arg0) {
+        regPage.birthdayBox.sendKeys("11223333");
+    }
+
+    @Then("the Required text under the Date of Birth box is NOT displayed")
+    public void theRequiredTextUnderTheDateOfBirthBoxIsNOTDisplayed() {
+        Assert.assertFalse(regPage.dateofbirthBoxRequiredText.isDisplayed());
+    }
+
+    @Then("the Required text under the Date of Birth box is displayed")
+    public void theRequiredTextUnderTheDateOfBirthBoxIsDisplayed() {
+        Assert.assertTrue(regPage.dateofbirthBoxRequiredText.isDisplayed());
+    }
+
+    @And("user enters {string}  as a birth date")
+    public void userEntersAsABirthDate(String birthDate) {
+        regPage.birthdayBox.sendKeys(birthDate);
+    }
+
+    @And("user scrolls down to Date of Birth box")
+    public void userScrollsDownToDateOfBirthBox() {
+        // ReusableMethods.scrollIntoView(regPage.birthdayBox);
+        ReusableMethods.scrollDownActions();
+        ReusableMethods.scrollDownActions();
+        ReusableMethods.scrollDownActions();
+        ReusableMethods.scrollDownActions();
+        ReusableMethods.waitFor(1);
+
+    }
+
+    @And("user clicks out of Date of Birth box \\(ssn box)")
+    public void userClicksOutOfDateOfBirthBoxSsnBox() {
+        regPage.ssnBox.click();
+    }
+
+    @And("user enters {string}, {string}, {string}  as a birth date")
+    public void userEntersAsABirthDate(String mm, String dd, String yyyy) {
+        regPage.birthdayBox.sendKeys(mm + dd + Keys.ARROW_RIGHT + yyyy);
+        ReusableMethods.waitFor(2);
+
+    }
+
+    @And("user clicks on Ssn box")
+    public void userClicksOnSsnBox() {
+        regPage.ssnBox.click();
+    }
+
+    @And("user enters a valid {int}-digit Ssn")
+    public void userEntersAValidDigitSsn(int arg0) {
+        regPage.ssnBox.sendKeys("987-65-4321");
+    }
+
+    @Then("the Required text under the Ssn box is NOT displayed")
+    public void theRequiredTextUnderTheSsnBoxIsNOTDisplayed() {
+        Assert.assertFalse(regPage.ssnBoxRequiredText.isDisplayed());
+    }
+
+    @And("user clicks out of Ssn box \\(User Name box)")
+    public void userClicksOutOfSsnBoxUserNameBox() {
+        regPage.usernameBox.click();
+        // ReusableMethods.waitFor(2);
+    }
+
+    @Then("the Required text under the Ssn box is displayed")
+    public void theRequiredTextUnderTheSsnBoxIsDisplayed() {
+        Assert.assertTrue(regPage.ssnBoxRequiredText.isDisplayed());
+    }
+
+    @And("user enters an invalid {string} as an Ssn")
+    public void userEntersAnInvalidAsAnSsn(String ssn) {
+        ReusableMethods.waitFor(2);
+        regPage.ssnBox.sendKeys(ssn);
+    }
+
+    @And("user enters {string}  as a phone number")
+    public void userEntersAsAPhoneNumber(String phone) {
+        regPage.phoneBox.sendKeys(phone);
+    }
+
+
+    @And("user enters a {string} as an user name")
+    public void userEntersAAsAnUserName(String username) {
+        regPage.usernameBox.sendKeys(username);
+    }
+
+    @And("user enters a {string} as a password")
+    public void userEntersAAsAPassword(String password) {
+        regPage.passwordBox.sendKeys(password);
+    }
+
+    @And("user clicks on Register button")
+    public void userClicksOnRegisterButton() {
+        regPage.registerBox.click();
+    }
+
 }

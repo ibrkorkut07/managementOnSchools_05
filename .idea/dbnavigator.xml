@@ -8,11 +8,11 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="false" />
+    <show-object-properties value="true" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="921787f7-8ac6-490a-95e1-bfe6908d9165">
+    <connection id="480a7317-2128-4931-9ece-9ef593769cff">
       <console name="MOS" type="STANDARD" schema="school_management" session="Main" />
     </connection>
   </component>
@@ -22,19 +22,8 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
-  <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="cb1aff6d-5ab4-4f43-8ead-4acbfc15f423" dataset="public.advisor_teacher" active-filter-id="" />
-  </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
-  </component>
-  <component name="DBNavigator.Project.MethodExecutionManager">
-    <method-browser />
-    <execution-history>
-      <group-entries value="true" />
-      <execution-inputs />
-    </execution-history>
-    <argument-values-cache />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -42,10 +31,10 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="921787f7-8ac6-490a-95e1-bfe6908d9165" active="true" signed="true">
+      <connection id="480a7317-2128-4931-9ece-9ef593769cff" active="true" signed="true">
         <database>
           <name value="MOS" />
-          <description value="managementonschools.com" />
+          <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
           <database-version value="14.8" />
@@ -166,13 +155,13 @@
       </filters>
       <sorting>
         <object-type name="COLUMN" sorting-type="NAME" />
-        <object-type name="FUNCTİON" sorting-type="NAME" />
+        <object-type name="FUNCTION" sorting-type="NAME" />
         <object-type name="PROCEDURE" sorting-type="NAME" />
         <object-type name="ARGUMENT" sorting-type="POSITION" />
-        <object-type name="TYPE ATTRİBUTE" sorting-type="POSITION" />
+        <object-type name="TYPE ATTRIBUTE" sorting-type="POSITION" />
       </sorting>
       <default-editors>
-        <object-type name="VİEW" editor-type="SELECTION" />
+        <object-type name="VIEW" editor-type="SELECTION" />
         <object-type name="PACKAGE" editor-type="SELECTION" />
         <object-type name="TYPE" editor-type="SELECTION" />
       </default-editors>
@@ -183,24 +172,24 @@
           <object-type name="SCHEMA" enabled="true" />
           <object-type name="USER" enabled="false" />
           <object-type name="ROLE" enabled="false" />
-          <object-type name="PRİVİLEGE" enabled="false" />
+          <object-type name="PRIVILEGE" enabled="false" />
           <object-type name="CHARSET" enabled="false" />
           <object-type name="TABLE" enabled="true" />
-          <object-type name="VİEW" enabled="true" />
-          <object-type name="MATERİALİZED VİEW" enabled="true" />
-          <object-type name="İNDEX" enabled="true" />
-          <object-type name="CONSTRAİNT" enabled="true" />
-          <object-type name="DATASET TRİGGER" enabled="true" />
-          <object-type name="DATABASE TRİGGER" enabled="true" />
+          <object-type name="VIEW" enabled="true" />
+          <object-type name="MATERIALIZED VIEW" enabled="true" />
+          <object-type name="INDEX" enabled="true" />
+          <object-type name="CONSTRAINT" enabled="true" />
+          <object-type name="DATASET TRIGGER" enabled="true" />
+          <object-type name="DATABASE TRIGGER" enabled="true" />
           <object-type name="SYNONYM" enabled="false" />
           <object-type name="SEQUENCE" enabled="true" />
           <object-type name="PROCEDURE" enabled="true" />
-          <object-type name="FUNCTİON" enabled="true" />
+          <object-type name="FUNCTION" enabled="true" />
           <object-type name="PACKAGE" enabled="true" />
           <object-type name="TYPE" enabled="true" />
-          <object-type name="DİMENSİON" enabled="false" />
+          <object-type name="DIMENSION" enabled="false" />
           <object-type name="CLUSTER" enabled="false" />
-          <object-type name="DBLİNK" enabled="true" />
+          <object-type name="DBLINK" enabled="true" />
         </lookup-objects>
         <force-database-load value="false" />
         <prompt-connection-selection value="true" />

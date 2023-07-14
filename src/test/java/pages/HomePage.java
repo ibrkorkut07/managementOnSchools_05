@@ -17,11 +17,6 @@ public class HomePage {
     public WebElement loginHome;
     @FindBy(xpath = "//button[@aria-controls='offcanvasNavbar-expand-false']")
     public WebElement Menubutton;
-    @FindBy(xpath = "//a[text()='Guest User']")
-    public WebElement guestuserlink;
-
-    @FindBy(xpath = "//h5[text()='Guest User List']")
-    public WebElement guestlisttext;
 
 
 
