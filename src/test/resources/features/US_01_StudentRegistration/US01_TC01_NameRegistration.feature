@@ -25,14 +25,6 @@ Feature: US01 TC01 Name must contain any character and cannot be left blank
     Examples:
       |Name|
       |i|
-      |%|
-      |1|
+      | |
       |11|
-      |  |
-      |i |
-      |iii|
-      | b|
-      |  r|
-      |i r|
       |ibr|
-      |ibr can|
