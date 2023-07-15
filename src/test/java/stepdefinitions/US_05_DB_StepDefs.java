@@ -12,8 +12,8 @@ public class US_05_DB_StepDefs {
     Statement statement;
     ResultSet resultSet;
 
-    @Given("connect to database")
-    public void connect_to_database() throws SQLException {
+    @Given("connectt to database")
+    public void connectt_to_database() throws SQLException {
 
       //Create connection
         connection =  DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user","43w5ijfso");
@@ -21,15 +21,15 @@ public class US_05_DB_StepDefs {
         statement = connection.createStatement();
 
     }
-    @Then("get dean via name {string}")
-    public void get_dean_via_name(String name) throws SQLException {
+    @Then("gett dean via name {string}")
+    public void gett_dean_via_name(String name) throws SQLException {
     //Create ResultSet
         String sqlQuery = "SELECT * FROM \"public\".dean WHERE name = '"+name+"'";
         resultSet = statement.executeQuery(sqlQuery);
 
     }
-    @Then("body contains birth_day {string} , birth_place {string} , gender {string} , name {string}, phone_number {string}, ssn {string}, surname {string}, username {string}")
-    public void body_contains_birth_day_birth_place_gender_name_phone_number_ssn_surname_username(String birth_day, String birth_place, String gender, String name, String phone_number, String ssn, String surname, String username) throws SQLException {
+    @Then("bodyy contains birth_day {string} , birth_place {string} , gender {string} , name {string}, phone_number {string}, ssn {string}, surname {string}, username {string}")
+    public void bodyy_contains_birth_day_birth_place_gender_name_phone_number_ssn_surname_username(String birth_day, String birth_place, String gender, String name, String phone_number, String ssn, String surname, String username) throws SQLException {
         resultSet.next();
 
         String actBirth_day = resultSet.getString("birth_day");

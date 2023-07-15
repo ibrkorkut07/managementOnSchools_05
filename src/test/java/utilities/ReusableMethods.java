@@ -17,6 +17,7 @@ import java.util.Random;
 import java.util.function.Function;
 
 import static org.junit.Assert.assertTrue;
+import static utilities.Driver.driver;
 
 public class ReusableMethods {
     // GOES TO EXPECTED URL
@@ -271,6 +272,21 @@ public class ReusableMethods {
     }
 
 
+    //    ACTIONS_SCROLL_DOWN
+    public static void scrollDownActions(){
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        //Scroll down till the bottom of the page
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+        //new Actions(Driver.getDriver()).sendKeys(Keys.END).build().perform();
+        new Actions(Driver.getDriver()).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).perform();
+    }
 
-        }
+    public static void fullpageScreenshot() throws IOException {
+        TakesScreenshot tss = (TakesScreenshot) driver;
+        String date = new SimpleDateFormat("yyMMddhhmmss").format(new Date());
+        File fullPage = new File("target/screenShot/fullPage" + date + ".jpg");
+        File temporaryPicture = tss.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(temporaryPicture, fullPage);
 
+    }
+}

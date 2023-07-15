@@ -14,8 +14,8 @@ public class US_05_API_TC02_StepDefs extends ManagementonSchoolBaseUrl {
     Response response;
 
 
-    @Given("send request by {string}")
-    public void send_the_request_by(String id) {
+    @Given("send requestt by {string}")
+    public void send_the_requestt_by(String id) {
 
         //Set the url
         //https://managementonschools.com/app/dean/getAll
@@ -28,8 +28,8 @@ public class US_05_API_TC02_StepDefs extends ManagementonSchoolBaseUrl {
         response = given(spec).get("{first}/{second}/{third}");
         response.prettyPrint();
     }
-    @Given("body contains birth_day {string} , birth_place {string} , gender {string} , name {string}, phone_number {string}, ssn {string}, surname {string}")
-    public void body_should_contains_birth_day_birth_place_gender_name_phone_number_ssn_surname(String birth_day, String birth_place, String gender, String name, String phone_number, String ssn, String surname) {
+    @Given("body containss birth_day {string} , birth_place {string} , gender {string} , name {string}, phone_number {string}, ssn {string}, surname {string}")
+    public void body_should_containss_birth_day_birth_place_gender_name_phone_number_ssn_surname(String birth_day, String birth_place, String gender, String name, String phone_number, String ssn, String surname) {
 
         //Do assertion
 
