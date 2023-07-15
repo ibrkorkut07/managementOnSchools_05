@@ -22,8 +22,9 @@ import org.junit.runner.RunWith;
         // dryRun = false: RUN NORMAL. THIS IS DEFAULT VALUE
 
 
-        tags = "@US_05"
 
+
+        tags = "@US01_API"
 
 
 )
