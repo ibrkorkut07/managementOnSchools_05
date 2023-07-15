@@ -18,4 +18,4 @@ Feature: US01 TC01 Prospective students should be able to register in the system
 
     Examples:
       |Name|Surname|Birth Place|Phone       |month|day|year|Ssn        |User Name|Password|
-      |ibr |can    |UK         |(555)3331234|11   |11 |2011|187-65-4321|ibrcan   |ibrcan07|
+      |ibr7|can7   |UK         |(555)3777234|13   |13 |2013|187-33-4321|ibrhan   |ibrhan07|
