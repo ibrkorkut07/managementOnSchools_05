@@ -6,6 +6,8 @@ import utilities.Driver;
 
 public class HomePage {
 
+    public static WebElement ContactPage;
+
     public HomePage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
