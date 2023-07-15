@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import junit.framework.TestCase;
 
 import java.util.List;
 import java.util.Objects;
@@ -17,8 +18,8 @@ import static org.junit.Assert.assertTrue;
 public class US_01_API_RegistrationStepDefs {
     Response response;
 
-    @Given("send get request by {string}")
-    public void send_get_request_by(String username) {
+    @Given("Send get request by username {string}")
+    public void sendGetRequestByUsername(String username) {
         //Set the url
         //https://managementonschools.com/app/guestUser/getAll?size=10000
         spec.pathParams("first", "guestUser", "second", "getAll").queryParam("size", "10000");
@@ -30,10 +31,9 @@ public class US_01_API_RegistrationStepDefs {
         //response.prettyPrint();
     }
 
-
     @Then("body should contain birth_day {string}, birth_place {string}, gender {string}, name {string}, phone_number {string}, ssn {string}, surname {string}, username {string}")
     public void body_should_contain_birth_day_birth_place_gender_name_phone_number_ssn_surname_username(String birth_day, String birth_place, String gender, String name, String phone_number, String ssn, String surname, String username) {
-        //Do assertion
+        // Assert
         JsonPath jsonPath = response.jsonPath();
 
         String actBirthDay = jsonPath.getList("content.findAll{it.username=='" + username + "'}.birthDay").get(0).toString();
@@ -57,6 +57,9 @@ public class US_01_API_RegistrationStepDefs {
 
     }
 
-
-
+    @Then("Body must be empty with non-existing username {string}")
+    public void bodyMustBeEmptyWithNonExistingUsername(String username) {
+        List<Objects> dataList = response.jsonPath().getList("content.findAll{it.username=='" + username + "'}");
+        TestCase.assertTrue(dataList.isEmpty());
+    }
 }
