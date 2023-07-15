@@ -6,6 +6,7 @@ public class ConfigReader {
     //    This class will read configuration.properties file using JAVA
 //    create Properties object
     private static Properties properties;
+
     //    static block
     static {
         String path = "configuration.properties";
@@ -18,9 +19,13 @@ public class ConfigReader {
             throw new RuntimeException(e);
         }
     }
+
     //    Create method that accepts KEY and returns VALUE
-    public static String getProperty(String key){
+    public static String getProperty(String key) {
         String value = properties.getProperty(key);
         return value;
     }
+
 }
+
+

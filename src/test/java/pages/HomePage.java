@@ -17,7 +17,8 @@ public class HomePage {
     public WebElement registerHome;
     @FindBy(xpath = "//a[@href='/login']")
     public WebElement loginHome;
-
+    @FindBy(xpath = "//button[@aria-controls='offcanvasNavbar-expand-false']")
+    public WebElement Menubutton;
 
 
 
