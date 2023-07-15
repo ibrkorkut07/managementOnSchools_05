@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pages.ViceDeanMngPage;
@@ -18,13 +19,14 @@ public class US_12_ViceDeanAssignLessonToTeacher {
         ReusableMethods.waitForClickablility(viceDeanMngPage.lessonProgramId, 5);
         JSUtils.clickWithTimeoutByJS(viceDeanMngPage.lessonProgramId);
    //  ReusableMethods.scrollIntoView(viceDeanMngPage.chooseTeacher);
-    viceDeanMngPage.chooseTeacher.click();
+
      WaitUtils.waitFor(5);
     // WaitUtils.waitForClickablility(viceDeanMngPage.chooseTeacher,5);
 
     }
     @Given("vice dean select a teacher from available teachers")
     public void vice_dean_select_a_teacher_from_available_teachers() {
+        viceDeanMngPage.chooseTeacher.click();
     ReusableMethods.selectByValue(viceDeanMngPage.chooseTeacher,"33");
         WaitUtils.waitFor(2);
     }
@@ -71,7 +73,12 @@ public class US_12_ViceDeanAssignLessonToTeacher {
     public void vice_dean_select_multiple_lesson_in_conflict_times_to_assign() {
 
     }
-   // @Then("vice dean verify the error message should be displayed")
+
+    @And("vice dean do not select a lesson to assign")
+    public void viceDeanDoNotSelectALessonToAssign() {
+
+    }
+    // @Then("vice dean verify the error message should be displayed")
    // public void vice_dean_verify_the_error_message_should_be_displayed () {
 
 
