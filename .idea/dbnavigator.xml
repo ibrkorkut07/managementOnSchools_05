@@ -24,14 +24,12 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="false" />
+    <show-object-properties value="true" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="cb1aff6d-5ab4-4f43-8ead-4acbfc15f423">
-      <console name="Connection" type="STANDARD" schema="school_management" session="Main" />
-      <console name="Management On Schools" type="STANDARD" schema="school_management" session="Main" />
-      <console name="Management On Schools 1" type="STANDARD" schema="school_management" session="Main"><![CDATA[select name from admins;]]></console>
+    <connection id="480a7317-2128-4931-9ece-9ef593769cff">
+      <console name="MOS" type="STANDARD" schema="public" session="Main"><![CDATA[select * from "public".guest_user where username='ibrcan07';]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -40,11 +38,8 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
-  <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="cb1aff6d-5ab4-4f43-8ead-4acbfc15f423" />
-  </component>
-  <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="cb1aff6d-5ab4-4f43-8ead-4acbfc15f423" dataset="public.advisor_teacher" active-filter-id="" />
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -75,9 +70,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="cb1aff6d-5ab4-4f43-8ead-4acbfc15f423" active="true" signed="true">
+      <connection id="480a7317-2128-4931-9ece-9ef593769cff" active="true" signed="true">
         <database>
-          <name value="Managementon Schools" />
+          <name value="MOS" />
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
@@ -94,14 +89,14 @@
           <deprecated-pwd value="NDN3NWlqZnNv" />
         </database>
         <properties>
-          <auto-commit value="true" />
+          <auto-commit value="false" />
         </properties>
         <ssh-settings>
           <active value="false" />
-          <proxy-host value="managementonschools.com" />
+          <proxy-host value="" />
           <proxy-port value="22" />
-          <proxy-user value="select_user " />
-          <deprecated-proxy-pwd value="NDN3NWlqZnNv" />
+          <proxy-user value="" />
+          <deprecated-proxy-pwd value="" />
           <auth-type value="PASSWORD" />
           <key-file value="" />
           <key-passphrase value="" />
