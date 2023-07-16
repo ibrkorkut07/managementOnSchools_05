@@ -21,14 +21,15 @@ import static utilities.Driver.driver;
 
 public class ReusableMethods {
     // GOES TO EXPECTED URL
-    public static void goToURL(String URL){
-        try{
+    public static void goToURL(String URL) {
+        try {
             Driver.getDriver().get(ConfigReader.getProperty(URL));
         } catch (Exception e) {
             WaitUtils.waitFor(1);
 
         }
     }
+
     /*HOW DO YOU GET SCREENSHOT?
      * I use getScreenShotAs method to take a screenshot in selenium in my framework
      * I actually store the screenshot with unique name in my framework*/
@@ -49,6 +50,7 @@ public class ReusableMethods {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+
     //========Switching Window=====//
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.getDriver().getWindowHandle();
@@ -60,11 +62,13 @@ public class ReusableMethods {
         }
         Driver.getDriver().switchTo().window(origin);
     }
+
     //========Hover Over=====//
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(element).perform();
     }
+
     //==========Return a list of string given a list of Web Element====////
     public static List<String> getElementsText(List<WebElement> list) {
         List<String> elemTexts = new ArrayList<>();
@@ -111,25 +115,25 @@ public class ReusableMethods {
     }
 
     //    ACTIONS_SCROLL_RIGHT
-    public static void scrollRightActions(){
+    public static void scrollRightActions() {
         new Actions(Driver.getDriver()).sendKeys(Keys.ARROW_RIGHT).sendKeys(Keys.ARROW_RIGHT).perform();
     }
 
     //    ACTIONS_SCROLL_LEFT
-    public static void scrollLeftActions(){
+    public static void scrollLeftActions() {
         new Actions(Driver.getDriver()).sendKeys(Keys.ARROW_LEFT).sendKeys(Keys.ARROW_LEFT).perform();
     }
 
     //    ACTIONS_DRAG_AND_DROP
     public static void dragAndDropActions(WebElement source, WebElement target) {
         //        Actions actions = new Actions(driver);
-        new Actions(Driver.getDriver()).dragAndDrop(source,target).perform();
+        new Actions(Driver.getDriver()).dragAndDrop(source, target).perform();
     }
 
     //    ACTIONS_DRAG_AND_DROP_BY
     public static void dragAndDropActions(WebElement source, int x, int y) {
         //        Actions actions = new Actions(driver);
-        new Actions(Driver.getDriver()).dragAndDropBy(source,x,y).perform();
+        new Actions(Driver.getDriver()).dragAndDropBy(source, x, y).perform();
     }
 
     //   HARD WAIT WITH THREAD.SLEEP
@@ -147,18 +151,22 @@ public class ReusableMethods {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
     public static WebElement waitForClickablility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
     public static WebElement waitForClickablility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
     public static void clickWithTimeOut(WebElement element, int timeout) {
         for (int i = 0; i < timeout; i++) {
             try {
@@ -169,6 +177,7 @@ public class ReusableMethods {
             }
         }
     }
+
     public static void waitForPageToLoad(long timeout) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
@@ -198,13 +207,16 @@ public class ReusableMethods {
         });
         return element;
     }
+
     /**
      * Performs double click action on an element
+     *
      * @param element
      */
     public static void doubleClick(WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
     }
+
     /**
      * @param element
      * @param check
@@ -220,8 +232,10 @@ public class ReusableMethods {
             }
         }
     }
+
     /**
      * Selects a random value from a dropdown list and returns the selected Web Element
+     *
      * @param select
      * @return
      */
@@ -241,10 +255,11 @@ public class ReusableMethods {
             Assert.fail("Element is not found: " + element);
         }
     }
-    public static void selectByVisibleText(WebElement element, String text){
-        Select select =new Select(element);
-        for (int i =0;i<select.getOptions().size();i++){
-            if(select.getOptions().get(i).getText().equalsIgnoreCase(text)){
+
+    public static void selectByVisibleText(WebElement element, String text) {
+        Select select = new Select(element);
+        for (int i = 0; i < select.getOptions().size(); i++) {
+            if (select.getOptions().get(i).getText().equalsIgnoreCase(text)) {
                 select.getOptions().get(i).click();
                 break;
             }
@@ -255,6 +270,7 @@ public class ReusableMethods {
         Select objSelect = new Select(element);
         objSelect.selectByValue(value);
     }
+
 
     //    ACTIONS_SCROLL_DOWN
     public static void scrollDownActions(){

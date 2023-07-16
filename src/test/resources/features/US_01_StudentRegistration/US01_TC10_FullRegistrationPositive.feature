@@ -1,6 +1,6 @@
-Feature: US01 TC01 Prospective students should be able to register in the system with valid data
+Feature: US01 TC10 Prospective Students Should Be Able to Register in the System with Valid Data
 
-  Scenario Outline: Prospective students register in the system with valid data (Positive Scenario)
+  Scenario Outline: Prospective Students Register in the System with Valid Data (Positive Scenario)
     Given user goes to "MosUrl"
     When user clicks on "RegisterLink"
     And user enters "<Name>" as a name
