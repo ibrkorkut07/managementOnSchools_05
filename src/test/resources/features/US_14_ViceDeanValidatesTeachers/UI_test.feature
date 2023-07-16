@@ -12,12 +12,12 @@ Feature: US_14 Vice Dean should be able to see and update teachers
     Then User verifies that "Main Menu" title is displayed in new window
     When User clicks on the Vice Dean Management option from Main Menu window
     Then User verifies that "Vice Dean Management" title is displayed
-    And User enters valid data "Name" "Sure name", "Madrid", "Gender", "12/06/1990", "117-015-1944", "117-95-1940","MydeanQuyash10" and "12345678" to the vice dean list
+    And User enters valid data "Name" "Sure name", "Madrid", "Gender", "12/06/1990", "101-915-1534", "137-05-2240","MydeanQuyash91" and "12345678" to the vice dean list
     And User clicks on Submit button
     And User clicks on Menu button.
     And User clicks on Logout option
     And user clicks on Yes button
-    When User enters valid vice dean credentials "MydeanQuyash10" and "12345678"
+    When User enters valid vice dean credentials "MydeanQuyash91" and "12345678"
     And User clicks on Login button of vice dean home page.
     Then User verifies that "Education Term Management"  page is displayed
     And User clicks on Menu button of education term management page.

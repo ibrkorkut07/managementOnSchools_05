@@ -11,7 +11,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.WaitUtils;
 
-public class US_11_StepDefsViceDeanUpdateDelete {
+class US_11_StepDefsViceDeanUpdateDelete {
 
     LoginPage loginPage = new LoginPage();
     ViceDeanMngPage viceDeanMngPage = new ViceDeanMngPage();
