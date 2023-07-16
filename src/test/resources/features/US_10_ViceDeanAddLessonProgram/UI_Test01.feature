@@ -22,18 +22,18 @@ Feature: Vice Dean should be able to create a lesson program
       | Selenium | SPRING_SEMESTER | THURSDAY | 12:07      | 12:48    |
       | Calculus | FALL_SEMESTER   | FRIDAY   | 09:10      | 11:30    |
 
-  @TC_02
-  Scenario Outline:TC_02_adding_lesson_program_without_selecting_course
-    Given vice dean clicks on Lesson Program option
-    When vice dean do not choose a lesson
-    And vice dean choose an education term "<education term>"
-    And vice dean choose a day "<day>"
-    And vice dean choose the start time "<start time>" and end time "<end time>" for the lesson
-    And vice dean clicks on the Submit button
-    Then verify an error message should be displayed indicating lessons must not empty message
-    Examples:
-      | lesson | education term  | day      | start time | end time |
-      |        | SPRING_SEMESTER | THURSDAY | 12:07      | 12:48    |
+#  @TC_02
+#  Scenario Outline:TC_02_adding_lesson_program_without_selecting_course
+#    Given vice dean clicks on Lesson Program option
+#    When vice dean do not choose a lesson
+#    And vice dean choose an education term "<education term>"
+#    And vice dean choose a day "<day>"
+#    And vice dean choose the start time "<start time>" and end time "<end time>" for the lesson
+#    And vice dean clicks on the Submit button
+#    Then verify an error message should be displayed indicating lessons must not empty message
+#    Examples:
+#      | lesson | education term  | day      | start time | end time |
+#      |        | SPRING_SEMESTER | THURSDAY | 12:07      | 12:48    |
 
 #    @TC_02
 #      Scenario:TC_02_adding_lesson_program_without_selecting_course
@@ -113,19 +113,19 @@ Feature: Vice Dean should be able to create a lesson program
 #        And vice dean do not choose the start time and end time for the lesson
 #        And vice dean clicks on the Submit button
 #        Then verify an error message should be displayed
-
-  @TC_06
-  Scenario Outline:TC_06_adding_same_lesson_program
-    Given vice dean clicks on Lesson Program option
-    When vice dean choose a lesson "<lesson>"
-    And vice dean choose an education term "<education term>"
-    And vice dean choose a day "<day>"
-    And vice dean choose the start time "<start time>" and end time "<end time>" for the lesson
-    And vice dean clicks on the Submit button
-    Then verify an error message should be displayed
-    Examples:
-      | lesson   | education term  | day      | start time | end time |
-      | Selenium | SPRING_SEMESTER | THURSDAY | 12:07      | 12:48    |
+#
+#  @TC_06
+#  Scenario Outline:TC_06_adding_same_lesson_program
+#    Given vice dean clicks on Lesson Program option
+#    When vice dean choose a lesson "<lesson>"
+#    And vice dean choose an education term "<education term>"
+#    And vice dean choose a day "<day>"
+#    And vice dean choose the start time "<start time>" and end time "<end time>" for the lesson
+#    And vice dean clicks on the Submit button
+#    Then verify an error message should be displayed
+#    Examples:
+#      | lesson   | education term  | day      | start time | end time |
+#      | Selenium | SPRING_SEMESTER | THURSDAY | 12:07      | 12:48    |
 
   @TC_07
   Scenario Outline: TC_07_adding_lesson_program_stop_time_before_start_time

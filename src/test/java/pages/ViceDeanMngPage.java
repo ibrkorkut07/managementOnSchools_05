@@ -177,6 +177,11 @@ public class ViceDeanMngPage {
     @FindBy(xpath = "//input[@role='combobox']")
     public WebElement addTeacherSelectLesson;
 
+    @FindBy(xpath = "//button[.='Yes']")
+    public WebElement yesButton;
+    @FindBy(xpath = "//button[.='Login']")
+    public WebElement loginButton;
+
 
 
 
