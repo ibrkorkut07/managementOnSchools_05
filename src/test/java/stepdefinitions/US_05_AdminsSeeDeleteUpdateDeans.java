@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.poi.ss.formula.functions.Replace;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -104,7 +105,7 @@ public class US_05_AdminsSeeDeleteUpdateDeans {
     public void entersDifferentDataIntoNameFieldInTheEditWindow() {
 
         deanMngPage.firstNameToUpdate.click();
-        deanMngPage.firstNameToUpdate.sendKeys("xxxxx");
+        deanMngPage.firstNameToUpdate.sendKeys("Yunus","");
 
 
 
