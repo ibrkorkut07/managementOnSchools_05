@@ -181,6 +181,24 @@ public class ViceDeanMngPage {
     public WebElement yesButton;
     @FindBy(xpath = "//button[.='Login']")
     public WebElement loginButton;
+    @FindBy(id = "advisorTeacherId")
+    public WebElement advisorTeacherButton;
+    @FindBy(id = "fatherName")
+    public WebElement fatherName;
+    @FindBy(id = "motherName")
+    public WebElement motherName;
+    @FindBy(xpath = "//div[.='Student saved Successfully']")
+    public WebElement studentSavedMessage;
+    //    @FindBy(xpath = "//span[.='»']")
+//    public WebElement lastPageImage;
+    @FindBy(xpath = "(//ul//span[@aria-hidden='true'])[4]")
+    public WebElement lastPageImage;
+
+    //    @FindBy(xpath = "//table//tbody//tr//td[5]")
+//    public WebElement userNameTable;
+    @FindBy(xpath = "//button[.='Submit']")
+    public WebElement addStudentSubmitButton;
+
 
 
 
