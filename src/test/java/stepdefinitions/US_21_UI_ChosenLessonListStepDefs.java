@@ -8,7 +8,7 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class US_01_UI_ChosenLessonListStepDefs {
+public class US_21_UI_ChosenLessonListStepDefs {
 
     @Given("kullanici {string} sayfasina gider")
     public void kullaniciSayfasinaGider(String istenenUrl) {
@@ -27,6 +27,7 @@ public class US_01_UI_ChosenLessonListStepDefs {
         List<String> baslikStringListesi= ReusableMethods.getElementsText(baslikWebelementListesi);
 
         int istenenSutunIndexi=baslikStringListesi.indexOf(istenenBaslikStr);
+        // https://demo.guru99.com/test/web-table-element.php
 
         //     //tbody//tr//td[3]
 
