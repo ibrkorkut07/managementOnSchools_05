@@ -14,27 +14,6 @@ public class US_25_AdminCreatesStudentStepdefs {
 
     HomePage homePage = new HomePage();
 
-    @When("user clicks on login button")
-    public void userClicksOnLoginButton() {
-
-    homePage.loginHome.click();
-        WaitUtils.waitFor(1);
-    }
-
-    @And("user enters username {string}")
-    public void userEntersUsername(String arg0) {
-
- loginPage.userName.sendKeys("Project09Admin");
-        WaitUtils.waitFor(1);
-    }
-
-    @And("user clicks on login button for enter")
-    public void userClicksOnLoginButtonForEnter() {
-  loginPage.loginButton.click();
-
-    }
-
-
 
 
 
