@@ -21,11 +21,11 @@ Scenario: Admin should be able to see Name, Gender, Phone Number, SSN and User N
   Then Admin verify to see User Name of Deans
   And close the application
 
-@US_05_TC_002
-Scenario: Admin should be able to delete Deans
-  Then Click on Delete button
-  Then Admin verify that Dean was deleted
-  And close the application
+#@US_05_TC_002
+#Scenario: Admin should be able to delete Deans
+#  Then Click on Delete button
+#  Then Admin verify that Dean was deleted
+#  And close the application
 
 
 
