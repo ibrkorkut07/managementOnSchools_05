@@ -199,6 +199,8 @@ public class ViceDeanMngPage {
     @FindBy(xpath = "//button[.='Submit']")
     public WebElement addStudentSubmitButton;
 
+    @FindBy(partialLinkText = "Login")
+    public WebElement homeLoginLink;
 
 
 
