@@ -29,3 +29,26 @@ Feature: Vice Dean should be able to create student
       And admin do not choose gender
     And admin clicks on Submit button
     Then verify an error message is displayed
+
+
+  Scenario: TC_04_Admin_can_not_submit_student_without_choosing_advisor_teacher
+    And admin do not choose advisor teacher advisor teacher
+    And admin enters name "name",surname "surname",birthplace "birth place",email "email",phone "phone",dateofbirth "dateofbirth",ssn "ssn",username "username",fathername "fathername",mothername "mothername",password "password"
+    And admin choose gender
+    And admin clicks on Submit button
+    Then verify an error message is displayed indicating advisor teacher error
+    Then close the application
+
+  Scenario Outline: TC_05_Admin_can_not_submit_student_with_an_invalid_SSN_format
+    Given admin choose advisor teacher "advisor teacher"
+    And admin enters name "name",surname "surname",birthplace "birth place",email "email",phone "phone",dateofbirth "dateofbirth",username "username",fathername "fathername",mothername "mothername",password "password"
+    And admin choose gender
+    And admin enter ssn "<ssn>" with an invalid format
+    And admin clicks on Submit button
+    Then verify an error message indicating Please enter valid SSN number
+    Then close the application
+    Examples:
+      | ssn          |
+      | abc343535343 |
+      | abc-34-3434  |
+
