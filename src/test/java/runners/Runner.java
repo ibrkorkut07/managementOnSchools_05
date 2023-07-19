@@ -25,8 +25,6 @@ import org.junit.runner.RunWith;
 
 
 
-        tags = "@US01_API"
-
 
 )
 

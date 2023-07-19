@@ -26,6 +26,6 @@ Feature: US_04 Admin should be able to add Dean
     Then assert alert message
     And close the application
     Examples:
-      | name  | surname | birth place | date of birth | phone number | ssn         | username for dean | password |
-      | Alexs | Browns  | France      | 10111978      | 526-975-5854 | 531-45-8563 | DeanAlex          | 12345678 |
+      | name     | surname   | birth place | date of birth | phone number | ssn         | username for dean | password |
+      | Alexxsss | Brownnsss | England     | 10111968      | 501-905-5814 | 131-41-0569 | DeannnAlexxs      | 12345678 |
 
