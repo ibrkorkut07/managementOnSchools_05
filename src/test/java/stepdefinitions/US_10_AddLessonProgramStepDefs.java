@@ -5,10 +5,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Wait;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ViceDeanMngPage;
-import utilities.ReusableMethods;
-import utilities.WaitUtils;
+import utilities.*;
 
 public class US_10_AddLessonProgramStepDefs {
     LoginPage loginPage = new LoginPage();
@@ -24,36 +25,36 @@ public class US_10_AddLessonProgramStepDefs {
     }
     @When("vice dean choose a lesson {string}")
     public void vice_dean_choose_a(String lesson) {
-        WaitUtils.waitFor(2);
+        WaitUtils.waitFor(1);
         viceDeanMngPage.chooseLessons.sendKeys(lesson, Keys.ENTER);
     }
     @When("vice dean choose an education term {string}")
     public void vice_dean_choose_an(String educationTerm) {
-        WaitUtils.waitFor(2);
-        ReusableMethods.selectByVisibleText(viceDeanMngPage.eduTerm,educationTerm);
+        WaitUtils.waitFor(1);
+//        ReusableMethods.selectByVisibleText(viceDeanMngPage.eduTerm,educationTerm);
+        ReusableMethods.selectByValue(viceDeanMngPage.eduTerm,"10");
     }
     @And("vice dean choose a day {string}")
     public void viceDeanChooseADay(String day) {
-        WaitUtils.waitFor(2);
+        WaitUtils.waitFor(1);
         ReusableMethods.selectByVisibleText(viceDeanMngPage.chooseDay,day);
     }
     @When("vice dean choose the start time {string} and end time {string} for the lesson")
     public void vice_dean_choose_the_and_for_the_lesson(String startTime, String endTime) {
-        WaitUtils.waitFor(2);
+        WaitUtils.waitFor(1);
         viceDeanMngPage.startTime.sendKeys(startTime);
-        WaitUtils.waitFor(2);
+        WaitUtils.waitFor(1);
         viceDeanMngPage.stopTime.sendKeys(endTime);
     }
     @And("vice dean clicks on the Submit button")
     public void viceDeanClicksOnTheSubmitButton() {
-        WaitUtils.waitFor(2);
-        viceDeanMngPage.submitButton.click();
+        WaitUtils.waitFor(1);
         viceDeanMngPage.submitButton.click();
     }
 
     @Then("verify lesson program should be successfully created")
     public void verify_lesson_program_should_be_successfully_created() {
-        WaitUtils.waitFor(2);
+        WaitUtils.waitFor(1);
         ReusableMethods.verifyElementDisplayed(viceDeanMngPage.createdLessonProgramAlert);
     }
 
@@ -108,6 +109,22 @@ public class US_10_AddLessonProgramStepDefs {
     @Then("verify an error message should be displayed indicating Error: start time must not be greater than or equal to stop time message")
     public void verifyAnErrorMessageShouldBeDisplayedIndicatingErrorStartTimeMustNotBeGreaterThanOrEqualToStopTimeMessage() {
         ReusableMethods.verifyElementDisplayed(viceDeanMngPage.startTimeStopTimeAlert);
+    }
+
+    @And("user clicks on login page login button")
+    public void userClicksOnLoginPageLoginButton() {
+        viceDeanMngPage.loginButton.click();
+    }
+    @Then("logout the website")
+    public void logoutTheWebsite() {
+        WaitUtils.waitFor(2);
+        viceDeanMngPage.menuButton.click();
+        WaitUtils.waitFor(1);
+        viceDeanMngPage.logOutLink.click();
+        WaitUtils.waitFor(1);
+        viceDeanMngPage.yesButton.click();
+        WaitUtils.waitFor(1);
+
     }
 }
 

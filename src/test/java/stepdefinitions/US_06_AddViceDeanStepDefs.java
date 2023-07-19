@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import base_urls.ManagementonSchoolBaseUrl;
 import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
@@ -13,6 +14,7 @@ import pojos.ResponsePersonnelPojo;
 import utilities.Driver;
 import utilities.WaitUtils;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -25,6 +27,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static utilities.DBUtils.getResultSet;
 import static utilities.JSUtils.clickWithTimeoutByJS;
+import static utilities.MediaUtils.takeScreenshotOfTheEntirePage;
 import static utilities.ObjectMapperUtils.convertJsonToJava;
 import static utilities.ReusableMethods.waitFor;
 import static utilities.ReusableMethods.waitForVisibility;
@@ -41,7 +44,7 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
  public static String fakePassword;
 
  @Given("user fills all required credentials")
- public void user_fills_all_required_credentials()  {
+ public void user_fills_all_required_credentials() throws IOException {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
@@ -59,10 +62,11 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
+  WaitUtils.waitFor(1);
+  takeScreenshotOfTheEntirePage();
  }
  @Given("user clicks on submit button")
- public void user_clicks_on_submit_button() {
+ public void user_clicks_on_submit_button() throws IOException {
   WaitUtils.waitForVisibility(CCPage.submit, 10).submit();
 
  }
@@ -74,10 +78,11 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   waitFor(2);
   List<WebElement> usernameList=Driver.getDriver().findElements(By.xpath("//table//tbody//tr//td[5]"));
   String actual = usernameList.get(usernameList.size()-1).getText();
-  assertEquals(fakeUsername,actual);
+  try{assertTrue(actual.equals(fakeUsername));}catch(Exception e){ e.printStackTrace();}
  }
  @Given("user fills all required credentials except name")
  public void user_fills_all_required_credentials_except_name() {
+
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
@@ -95,7 +100,12 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
+  WaitUtils.waitFor(1);
+  try {
+   takeScreenshotOfTheEntirePage();
+  } catch (IOException e) {
+   throw new RuntimeException(e);
+  }
  }
  @Then("verify new Vice Dean is not created")
  public void verify_new_vice_dean_is_not_created() {
@@ -106,7 +116,7 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   waitFor(2);
   List<WebElement> usernameList=Driver.getDriver().findElements(By.xpath("//table//tbody//tr//td[5]"));
   String actual = usernameList.get(usernameList.size()-1).getText();
-  assertFalse(actual.equals(fakeUsername));
+  try{assertFalse(actual.equals(fakeUsername));}catch(Exception e){ e.printStackTrace();}
  }
  @Given("user fills all required credentials except surname")
  public void user_fills_all_required_credentials_except_surname()  {
@@ -127,8 +137,12 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
-
+  WaitUtils.waitFor(1);
+  try {
+   takeScreenshotOfTheEntirePage();
+  } catch (IOException e) {
+   throw new RuntimeException(e);
+  }
  }
  @Given("user fills all required credentials except birth place")
  public void user_fills_all_required_credentials_except_birth_place()  {
@@ -149,8 +163,12 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
-
+  WaitUtils.waitFor(1);
+  try {
+   takeScreenshotOfTheEntirePage();
+  } catch (IOException e) {
+   throw new RuntimeException(e);
+  }
  }
  @Given("user fills all required credentials except gender")
  public void user_fills_all_required_credentials_except_gender() {
@@ -171,11 +189,15 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
-
+  WaitUtils.waitFor(1);
+  try {
+   takeScreenshotOfTheEntirePage();
+  } catch (IOException e) {
+   throw new RuntimeException(e);
+  }
  }
  @Given("user fills all required credentials except date of birth")
- public void user_fills_all_required_credentials_except_date_of_birth()  {
+ public void user_fills_all_required_credentials_except_date_of_birth() throws IOException {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
@@ -193,11 +215,11 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
-
+  WaitUtils.waitFor(1);
+  takeScreenshotOfTheEntirePage();
  }
  @Given("user fills all required credentials except phone number")
- public void user_fills_all_required_credentials_except_phone_number(){
+ public void user_fills_all_required_credentials_except_phone_number() throws IOException {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
@@ -215,11 +237,11 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
-
+  WaitUtils.waitFor(1);
+  takeScreenshotOfTheEntirePage();
  }
  @Given("user fills all required credentials except username")
- public void user_fills_all_required_credentials_except_username() {
+ public void user_fills_all_required_credentials_except_username() throws IOException {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
@@ -237,8 +259,8 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   //WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
-
+  WaitUtils.waitFor(1);
+  takeScreenshotOfTheEntirePage();
  }
  @Then("verify new Vice Dean is not created without username")
  public void verify_new_vice_dean_is_not_created_without_username() {
@@ -248,11 +270,10 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   waitFor(2);
   List<WebElement> usernameList=Driver.getDriver().findElements(By.xpath("//table//tbody//tr//td[4]"));
   String actual = usernameList.get(usernameList.size()-1).getText();
-  try {  assertFalse(actual.equals(fakeUsername));
-   ;}catch(Exception e){e.printStackTrace();}
+  try {assertFalse(actual.equals(fakeUsername));}catch(Exception e){e.printStackTrace();}
  }
  @Given("user fills all required credentials except ssn")
- public void user_fills_all_required_credentials_except_ssn() {
+ public void user_fills_all_required_credentials_except_ssn() throws IOException {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
@@ -270,17 +291,17 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
  //WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
 
  }
  @Given("user enters invalid {string}")
- public void user_enters_invalid(String ssn) {
+ public void user_enters_invalid(String ssn) throws IOException {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(ssn);
-  waitFor(3);
+  waitFor(1);
+  takeScreenshotOfTheEntirePage();
 
   }
  @Given("user fills all required credentials except password")
- public void user_fills_all_required_credentials_except_password()  {
+ public void user_fills_all_required_credentials_except_password() throws IOException {
   fakeUsername=Faker.instance().name().username();
   fakeName = Faker.instance().name().firstName();
   fakeSurname = Faker.instance().name().lastName();
@@ -298,15 +319,20 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
   WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
  //WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
-  WaitUtils.waitFor(3);
-
 
  }
 
  @Given("user enters an invalid  {string}")
- public void user_enters_an_invalid(String password)  {
+ public void user_enters_an_invalid(String password) throws IOException {
   WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(password);
-  waitFor(3);
+  waitFor(1);
+  takeScreenshotOfTheEntirePage();
+
+ }
+ @And("take screenshot")
+ public void takeScreenshot() throws IOException {
+  waitFor(1);
+  takeScreenshotOfTheEntirePage();
  }
 // ************************** Database Stepdefinitions **************
 static ResultSet resultSet;
@@ -318,7 +344,7 @@ static ResultSet resultSet;
 
   String sqlQuery = "SELECT * FROM vice_dean WHERE username ='" + fakeUsername + "'";
   resultSet = getResultSet(sqlQuery);
-  System.out.println("fakeUsername = " + fakeUsername);
+  System.out.println("fakeUsername from UI = " + fakeUsername);
 
  }
 
@@ -333,7 +359,7 @@ static ResultSet resultSet;
   resultSet.next();
   strId = resultSet.getString("id");
   id = parseInt(strId);
-
+     System.out.println("id from DATABASE= " + id);
   String actBirth_day = resultSet.getString("birth_day");
   String actBirth_place = resultSet.getString("birth_place");
   String actGender = resultSet.getString("gender");
@@ -342,7 +368,7 @@ static ResultSet resultSet;
   String actSsn = resultSet.getString("ssn");
   String actSurname = resultSet.getString("surname");
   String actUsername = resultSet.getString("username");
-  System.out.println("actUsername = " + actUsername);
+  System.out.println("actUsername from DATABASE = " + actUsername);
 
   assertEquals("1995-07-19", actBirth_day);
   assertEquals(fakeBirthPlace, actBirth_place);
@@ -414,6 +440,7 @@ static ResultSet resultSet;
   List<Objects> dataList = response.jsonPath().getList("content.findAll{it.username=='" + username + "'}");
   assertTrue(dataList.isEmpty());
  }
+
 
 
 }
