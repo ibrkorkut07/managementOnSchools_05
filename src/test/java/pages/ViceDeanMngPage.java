@@ -202,6 +202,14 @@ public class ViceDeanMngPage {
     @FindBy(partialLinkText = "Login")
     public WebElement homeLoginLink;
 
+    @FindBy(xpath = "//div[contains(text(),'You have entered invalid value.')]")
+    public WebElement errorMessageForGender;
+
+
+
+
+
+
 
 
 

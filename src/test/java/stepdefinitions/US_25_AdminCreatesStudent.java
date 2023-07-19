@@ -3,9 +3,11 @@ package stepdefinitions;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.LoginPage;
 import pages.ViceDeanMngPage;
+import utilities.JSUtils;
 import utilities.ReusableMethods;
 import utilities.WaitUtils;
 
@@ -61,4 +63,35 @@ public class US_25_AdminCreatesStudent {
 
     }
 
+    @And("admin choose gender")
+    public void adminChooseGender() {
+
+    viceDeanMngPage.addTeacherGenderFemale.click();
+
+    }
+
+    @Then("admin clicks on Submit button")
+    public void adminClicksOnSubmitButton() {
+
+        WaitUtils.waitFor(1);
+        JSUtils.clickWithTimeoutByJS(viceDeanMngPage.addTeacherSubmitButton);
+    //    viceDeanMngPage.addStudentSubmitButton.click();
+
+
+    }
+
+    @And("admin do not choose gender")
+    public void adminDoNotChooseGender() {
+
+   WaitUtils.waitFor(1);
+
+    }
+
+    @Then("verify an error message is displayed")
+    public void verifyAnErrorMessageIsDisplayed() {
+
+  //  ReusableMethods.waitForVisibility(viceDeanMngPage.errorMessageForGender,1);
+   viceDeanMngPage.errorMessageForGender.isDisplayed();
+
+    }
 }
