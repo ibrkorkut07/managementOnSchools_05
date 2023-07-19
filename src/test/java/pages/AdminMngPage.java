@@ -22,6 +22,10 @@ public class AdminMngPage {
     @FindBy(xpath = "//a[text()='Dean Management']")
     public WebElement deanManagementLink;
 
+    @FindBy(xpath = "//a[.='Admin Management']")
+    public WebElement adminManagementLink;
+
+
     @FindBy(xpath = "//button[text()='Submit']")
     public WebElement submitButton;
 
@@ -30,5 +34,6 @@ public class AdminMngPage {
 
     @FindBy(xpath = "//div[@role='alert']")
     public WebElement alert;
+
 
 }
