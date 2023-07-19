@@ -1,4 +1,4 @@
-package stepdefinitions;
+/*package stepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -53,6 +53,7 @@ public class US_04_AddDeanStepDefs {
 
     @Given("user clicks on menu")
     public void user_clicks_on_menu() {
+
 
         adminMngPage.menuLink.click();
 
@@ -143,4 +144,8 @@ public class US_04_AddDeanStepDefs {
 
     }
 
+=
 }
+*/
+
+

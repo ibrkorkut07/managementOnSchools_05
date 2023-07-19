@@ -1,6 +1,6 @@
-Feature: US01 TC04 The user should be able to enter their phone number
+Feature: US01 TC04 User Should Be Able to Enter Their Phone Number
 
-  Background: user goes to Managementonschools web page
+  Background: User Goes to Managementonschools Webpage
     Given user goes to "MosUrl"
     When user clicks on "RegisterLink"
     And user scrolls down to Date of Birth box
@@ -12,12 +12,12 @@ Feature: US01 TC04 The user should be able to enter their phone number
     Then the Required text under the Phone box is NOT displayed
     # Then Minimum_12_Character text under the Phone box is NOT displayed
 
-  Scenario: TC_004 User leaves phone number blank Negative Senario 1
+  Scenario: TC_004 User Leaves Phone Number Blank Negative Senario 1
 
     And user clicks somewhere out of any Box
     Then the Required text under the Phone box is displayed
 
-  Scenario: TC_004 User enters a less than 12-digit invalid phone number  Negative Senario 2
+  Scenario: TC_004 User Enters a Less Than 12-digit Invalid Phone Number Negative Senario 2
 
     And user enters a less than 12-character invalid phone number
     And user clicks somewhere out of any Box

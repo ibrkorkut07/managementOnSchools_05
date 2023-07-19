@@ -11,6 +11,8 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.WaitUtils;
 
+import java.io.IOException;
+
 import static junit.framework.TestCase.assertEquals;
 
 public class US_01_UI_RegistrationStepDefs {
@@ -67,8 +69,10 @@ public class US_01_UI_RegistrationStepDefs {
     }
 
     @Then("the Required text under the Name box is NOT displayed")
-    public void theRequiredTextUnderTheNameBoxIsNOTDisplayed() {
+    public void theRequiredTextUnderTheNameBoxIsNOTDisplayed() throws IOException {
         Assert.assertFalse(regPage.nameBoxRequiredText.isDisplayed());
+        ReusableMethods.waitFor(1);
+        ReusableMethods.fullpageScreenshot();
     }
 
     @And("user clicks on Surname box")
@@ -157,7 +161,9 @@ public class US_01_UI_RegistrationStepDefs {
 
     @And("user scrolls into User Name box")
     public void userScrollsIntoUserNameBox() {
+
         ReusableMethods.scrollIntoView(regPage.usernameBox);
+        ReusableMethods.waitFor(1);
     }
 
     @And("user enters a User Name")
@@ -212,12 +218,16 @@ public class US_01_UI_RegistrationStepDefs {
 
     @And("user clicks on Phone box")
     public void userClicksOnPhoneBox() {
+
         regPage.phoneBox.click();
+        ReusableMethods.scrollDownActions();
     }
 
     @And("user enters a valid {int}-character phone number")
     public void userEntersAValidCharacterPhoneNumber(int arg0) {
+
         regPage.phoneBox.sendKeys("123456789012");
+        ReusableMethods.scrollDownActions();
     }
 
 
@@ -273,11 +283,11 @@ public class US_01_UI_RegistrationStepDefs {
 
     @And("user scrolls down to Date of Birth box")
     public void userScrollsDownToDateOfBirthBox() {
-        // ReusableMethods.scrollIntoView(regPage.birthdayBox);
-        ReusableMethods.scrollDownActions();
-        ReusableMethods.scrollDownActions();
-        ReusableMethods.scrollDownActions();
-        ReusableMethods.scrollDownActions();
+        ReusableMethods.scrollIntoView(regPage.birthdayBox);
+//        ReusableMethods.scrollDownActions();
+//        ReusableMethods.scrollDownActions();
+//        ReusableMethods.scrollDownActions();
+//        ReusableMethods.scrollDownActions();
         ReusableMethods.waitFor(1);
 
     }
@@ -290,7 +300,7 @@ public class US_01_UI_RegistrationStepDefs {
     @And("user enters {string}, {string}, {string}  as a birth date")
     public void userEntersAsABirthDate(String mm, String dd, String yyyy) {
         regPage.birthdayBox.sendKeys(mm + dd + Keys.ARROW_RIGHT + yyyy);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
 
     }
 
@@ -328,7 +338,11 @@ public class US_01_UI_RegistrationStepDefs {
 
     @And("user enters {string}  as a phone number")
     public void userEntersAsAPhoneNumber(String phone) {
+
         regPage.phoneBox.sendKeys(phone);
+        ReusableMethods.waitFor(1);
+        ReusableMethods.scrollDownActions();
+
     }
 
 
@@ -339,12 +353,22 @@ public class US_01_UI_RegistrationStepDefs {
 
     @And("user enters a {string} as a password")
     public void userEntersAAsAPassword(String password) {
+
         regPage.passwordBox.sendKeys(password);
+        ReusableMethods.scrollDownActions();
     }
 
     @And("user clicks on Register button")
-    public void userClicksOnRegisterButton() {
+    public void userClicksOnRegisterButton() throws IOException {
         regPage.registerBox.click();
+        ReusableMethods.waitFor(1);
+        ReusableMethods.fullpageScreenshot();
+
     }
 
+    @Then("user scrolls into Gender radio button")
+    public void userScrollsIntoGenderRadioButton() {
+        ReusableMethods.scrollIntoView(regPage.maleRadioButton);
+        ReusableMethods.waitFor(1);
+    }
 }

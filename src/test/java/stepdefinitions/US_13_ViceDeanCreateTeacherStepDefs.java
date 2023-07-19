@@ -92,23 +92,43 @@ public class US_13_ViceDeanCreateTeacherStepDefs {
     @When("vice dean click on the Submit button")
     public void vice_dean_click_on_the_submit_button() {
 
-        WaitUtils.waitFor(3);
-   viceDeanMngPage.addTeacherSubmitButton.click();
+    ReusableMethods.waitForClickablility(viceDeanMngPage.addTeacherSubmitButton,1);
 
     }
 
     @Then("verify teacher saved successfully")
     public void verify_teacher_saved_successfully() {
 
-        WaitUtils.waitFor(1);
-        ReusableMethods.verifyElementDisplayed(viceDeanMngPage.SuccessfullSaving);
+
+      //  ReusableMethods.verifyElementDisplayed(viceDeanMngPage.SuccessfullSaving);
+
+        viceDeanMngPage.SuccessfullSaving.isDisplayed();
 
 
     }
 
 
-    @Then("verify required message is displayed")
-    public void verifyRequiredMessageIsDisplayed() {
+
+    @And("vice dean verify the required texts displayed")
+    public void viceDeanVerifyTheRequiredTextsDisplayed() {
+
+    viceDeanMngPage.RequiredTextforName.isDisplayed();
+    viceDeanMngPage.RequiredTextforSurname.isDisplayed();
+    viceDeanMngPage.RequiredTextforEmail.isDisplayed();
+    viceDeanMngPage.RequiredTextforBirthPlace.isDisplayed();
+    viceDeanMngPage.RequiredTextforPhoneNumber.isDisplayed();
+    viceDeanMngPage.RequiredTextforSsn.isDisplayed();
+    viceDeanMngPage.RequiredTextforDateofBirth.isDisplayed();
+    viceDeanMngPage.RequiredTextforUsername.isDisplayed();
+    viceDeanMngPage.RequiredTextforPassword.isDisplayed();
+
+
+    }
+
+    @And("vice dean click on the submitt button")
+    public void viceDeanClickOnTheSubmittButton() {
+        WaitUtils.waitFor(1);
+        viceDeanMngPage.addTeacherSubmitButton.click();
 
     }
 }

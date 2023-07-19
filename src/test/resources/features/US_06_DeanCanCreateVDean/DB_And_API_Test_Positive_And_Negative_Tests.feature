@@ -1,4 +1,4 @@
-@US_06_DB_API
+@US_06_DB_API  @end_to_end
 Feature: US_06 Dean should be able to create Vice Dean
 
   Scenario: US_06_UI User logins as a Dean and Creates A Vice Dean
