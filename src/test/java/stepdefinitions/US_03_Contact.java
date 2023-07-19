@@ -39,11 +39,11 @@ public class US_03_Contact {
 
 
 
-    @Given("user goes to {string}")
-    public void user_goes_to(String string) {
-        Driver.getDriver().get(ConfigReader.getProperty("MosUrl"));
-
-    }
+//    @Given("user goes to {string}")
+//    public void user_goes_to(String string) {
+//        Driver.getDriver().get(ConfigReader.getProperty("MosUrl"));
+//
+//    }
 
 
         @When("user clicks on Contact button")
@@ -65,12 +65,12 @@ public class US_03_Contact {
 
     }
 
-    @Then("close the application")
-    public void close_the_application() {
-        Driver.closeDriver();
-        WaitUtils.waitFor(3);
+//    @Then("close the application")
+//    public void close_the_application() {
+//        Driver.closeDriver();
+//        WaitUtils.waitFor(3);
 
-    }
+//    }
 
     @Then("user click your email")
     public void user_click_your_email() {
