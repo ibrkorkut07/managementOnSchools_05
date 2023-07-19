@@ -222,6 +222,14 @@ public class ViceDeanMngPage {
     @FindBy(xpath = "//*[@fill='currentColor']")
     public WebElement alertImage;
 
+    @FindBy(xpath = "//div[contains(text(),'You have entered invalid value.')]")
+    public WebElement errorMessageForGender;
+
+
+
+
+
+
 
 
 
