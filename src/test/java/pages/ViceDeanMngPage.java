@@ -201,6 +201,26 @@ public class ViceDeanMngPage {
 
     @FindBy(partialLinkText = "Login")
     public WebElement homeLoginLink;
+    @FindBy(xpath = "//div[.='Please select advisor teacher']")
+    public WebElement advisorTeacherError;
+    @FindBy(xpath = "//div[.='You have entered an invalid value. Valid values are: MALE, FEMALE']")
+    public WebElement invalidValueError;
+    @FindBy(xpath = "(//div[.='Error: User with ssn 123-45-6789 already register'])[2]")
+    public WebElement registeredSsnError;
+    @FindBy(xpath = "//div[.='Please enter valid SSN number']")
+    public WebElement validSsnError;
+    @FindBy(xpath = "//div[.='Error: User with username sdfsd already register']")
+    public WebElement existUserNameError;
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement jsonalert;
+    @FindBy(xpath = "//div[.='must be a past date']")
+    public WebElement futureBirthDayError;
+    @FindBy(xpath = "//div[.='Please enter valid email']")
+    public WebElement validEmailError;
+    @FindBy(xpath = "//*[contains(text(),'JSON parse error')]")
+    public WebElement jsonParseError;
+    @FindBy(xpath = "//*[@fill='currentColor']")
+    public WebElement alertImage;
 
 
 
