@@ -1,14 +1,16 @@
 @US_22
 Feature: US_22 Add Admin
 
+
   Background:
     Given user goes to "MosUrl"
     When user clicks on login button
     Then user enters username "Project09Admin"
     Then user enters admin password "12345678"
-    Then user clicks on login button for enter
+    Then user clicks on login button to enter
     Then user clicks on menu
     Then user clicks on admin management option
+
 
   Scenario: TC_001 Name must contain any character and cannot be left blank
     Then click the name box
