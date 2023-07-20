@@ -39,7 +39,7 @@ public class US_08_StepDefs {
     }
     @Then("Vice Deans input lesson name")
     public void vice_deans_input_lesson_name() {
-        String lesson=faker.bothify("?????-###");
+        String lesson=faker.nation().language();
         lessonMngPage.lessonNameInput.sendKeys(lesson);
     }
     @Then("Vice Deans selected Compulsory")

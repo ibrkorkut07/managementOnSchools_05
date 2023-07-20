@@ -59,6 +59,8 @@ public class LessonMngPage {
     public WebElement nullOfCreditScore;
     @FindBy(xpath = "//div[contains(text(),'Lesson Created')]")
     public WebElement createdLessonAlert;
+    @FindBy(xpath = "//div[contains(text(),'already reg')]")
+    public WebElement dublicatedLessonName;
 }
 
 
