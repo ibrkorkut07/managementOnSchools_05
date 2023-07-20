@@ -10,5 +10,5 @@ Feature: US_16 The Vice Dean should be able to view the messages sent by users
     And User clicks on Menu button of education term management page.
     And User clicks on the Contact Get All  option from Main Menu window
     Then User verifies that "Contact Message" title is displayed and can view "Name", "Email", "Date", "Subject" and "Message" information.
-
+    And User close the application page.
 

@@ -37,5 +37,10 @@ public class US_16UIStepDefs {
         Assert.assertEquals(expectedSentSubject,us14ViceDeanHomePage.actualSentSubject.getText());
         Assert.assertEquals(expectedSentMessage,us14ViceDeanHomePage.actualSentMessage.getText());
     }
+
+    @And("User close the application page.")
+    public void userCloseTheApplicationPage() {
+        Driver.getDriver().close();
+    }
 }
 
