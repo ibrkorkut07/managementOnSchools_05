@@ -25,6 +25,8 @@ public class ViceDeanMngPage {
     public WebElement studentManagementLink;
     @FindBy(xpath = "//a[.='Contact Get All']")
     public WebElement contactGetAllLink;
+
+
     @FindBy(xpath = "//a[.='Logout']")
     public WebElement logOutLink;
     @FindBy(id = "controlled-tab-example-tab-educationTerm")

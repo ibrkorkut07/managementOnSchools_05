@@ -21,13 +21,7 @@ import org.junit.runner.RunWith;
         dryRun = false , //dryRun = true : RUNS AND GENERATES ONLY MISSING STEP DEFS.
         // dryRun = false: RUN NORMAL. THIS IS DEFAULT VALUE
 
-
-
-        tags = "@US_22"
-
-
-
-
+        tags = "@my_test16"
 
 
 )
