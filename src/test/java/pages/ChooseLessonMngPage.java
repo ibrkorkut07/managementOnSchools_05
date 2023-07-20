@@ -81,18 +81,18 @@ public class ChooseLessonMngPage {
     @FindBy(xpath = "(//tbody[@class='table-group-divider'])[2]")
     public WebElement lessonProgramListTableBody;
 
+    @FindBy(xpath = "(//a[@tabindex='0'])[7]")
+    public WebElement StudentGradesAndAnnouncementButton;
 
+    @FindBy(xpath = "((//tbody)[1]//tr//td)[3]")
+    public WebElement StudentMidtermExamGrade;
 
+    @FindBy(xpath = "((//tbody)[1]//tr//td)[4]")
+    public WebElement StudentFinalExamGrade;
 
+    @FindBy(xpath = "((//tbody)[2]//tr)[1]")
+    public WebElement StudentMeetListFirstMeet;
 
-
-
-
-
-
-
-
-// (//table)[2]//tbody//tr/td
 
 
 }
