@@ -44,7 +44,7 @@ public class ReusableMethods {
         TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
         File source = ts.getScreenshotAs(OutputType.FILE);
         // full path to the screenshot location
-        String target = System.getProperty("user.dir") + "/test-output/Screenshots/" + name + date + ".png";
+        String target = System.getProperty("C:\\Users\\ibrko\\IdeaProjects\\managementOnSchools_05\\test-output\\Screenshots" + name + date + ".png");
         File finalDestination = new File(target);
         // save the screenshot to the path given
         FileUtils.copyFile(source, finalDestination);
@@ -97,7 +97,7 @@ public class ReusableMethods {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         //Scroll the page till the element is found
         js.executeScript("arguments[0].scrollIntoView();", Element);
-        new Actions(Driver.getDriver()).sendKeys(Keys.END).build().perform();
+        // new Actions(Driver.getDriver()).sendKeys(Keys.END).build().perform();
     }
 
     //    ACTIONS_SCROLL_PAGE_END
@@ -288,5 +288,12 @@ public class ReusableMethods {
         File temporaryPicture = tss.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(temporaryPicture, fullPage);
 
+    }
+
+    public static void scrollIntoView2(WebElement Element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        //Scroll the page till the element is found
+        js.executeScript("arguments[0].scrollIntoView();", Element);
+        // new Actions(Driver.getDriver()).sendKeys(Keys.END).build().perform();
     }
 }
