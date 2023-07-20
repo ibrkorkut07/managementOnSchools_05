@@ -135,4 +135,27 @@ public class US_21_UI_ChosenLessonStepDefs {
         Assert.assertTrue(chooseLessonMngPage.getFirstRegisteredDayWebelement.isSelected());
 
     }
+
+    @Then("Clicks on Grades and Announcement")
+    public void clicksOnGradesAndAnnouncement() {
+        chooseLessonMngPage.StudentGradesAndAnnouncementButton.click();
+    }
+
+    @Then("Student sees Midterm Exam Grade")
+    public void studentSeesMidtermExamGrade() {
+        Assert.assertTrue(chooseLessonMngPage.StudentMidtermExamGrade.isDisplayed());
+        System.out.println(chooseLessonMngPage.StudentMidtermExamGrade.getText());
+    }
+
+    @And("Student sees Final Exam Grade")
+    public void studentSeesFinalExamGrade() {
+        Assert.assertTrue(chooseLessonMngPage.StudentFinalExamGrade.isDisplayed());
+        System.out.println(chooseLessonMngPage.StudentFinalExamGrade.getText());
+    }
+
+    @Then("Student sees their meetings")
+    public void studentSeesTheirMeetings() {
+        Assert.assertTrue(chooseLessonMngPage.StudentMeetListFirstMeet.isDisplayed());
+        System.out.println(chooseLessonMngPage.StudentMeetListFirstMeet.getText());
+    }
 }
