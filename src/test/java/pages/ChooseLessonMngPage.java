@@ -36,11 +36,63 @@ public class ChooseLessonMngPage {
     @FindBy(xpath = "//div[@id='root']")
     public WebElement chooseLessonpage;
 
+    @FindBy(xpath = "//input[@value='1222']")
+    public WebElement mondayJavaCheckbox;
+
+    @FindBy(xpath = "//input[@value='6']")
+    public WebElement mondayCalculusCheckbox;
+
+    @FindBy(xpath = "(//button[@type='button'])[5]")
+    public WebElement chosenLessonSubmitButton;
+
+    @FindBy(xpath = "(//h5[@class='fw-bold p-3 card-header'])[2]")
+    public WebElement chosenLessonprogramListTitle;
+
+    @FindBy(xpath = "//input[@value='4']")
+    public WebElement thursdayPythonCheckbox;
+
+    @FindBy(xpath = "(((//table)[1]//tbody//tr)[1]//td)[2]")
+    public WebElement getFirstChosenLessonWebelement;
+
+    @FindBy(xpath = "(((//table)[1]//tbody//tr)[1]//td)[4]")
+    public WebElement getFirstChosenDayWebelement;
+
+    @FindBy(xpath = "(((//table)[1]//tbody//tr)[1]//td)[5]")
+    public WebElement getFirstChosenStarttimeWebelement;
+
+    @FindBy(xpath = "(((//table)[1]//tbody//tr)[1]//td)[6]")
+    public WebElement getFirstChosenStoptimeWebelement;
+
+    @FindBy(xpath = "(((//table)[2]//tbody//tr)[1]//td)[1]")
+    public WebElement getFirstRegisteredLessonWebelement;
+
+    @FindBy(xpath = "(((//table)[2]//tbody//tr)[1]//td)[2]")
+    public WebElement getFirstRegisteredDayWebelement;
+
+    @FindBy(xpath = "(((//table)[2]//tbody//tr)[1]//td)[3]")
+    public WebElement getFirstRegisteredStarttimeWebelement;
+
+    @FindBy(xpath = "(((//table)[2]//tbody//tr)[1]//td)[4]")
+    public WebElement getFirstRegisteredStoptimeWebelement;
+
+    @FindBy(xpath = "((//table)[2]//tbody//tr)[1]")
+    public WebElement firstCRegisteredLessonWebelement;
+
+    @FindBy(xpath = "(//tbody[@class='table-group-divider'])[2]")
+    public WebElement lessonProgramListTableBody;
 
 
 
 
 
+
+
+
+
+
+
+
+// (//table)[2]//tbody//tr/td
 
 
 }
