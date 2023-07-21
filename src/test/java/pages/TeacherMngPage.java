@@ -57,5 +57,25 @@ public class TeacherMngPage {
     @FindBy(xpath = "//button[text()='Submit']")
     public WebElement submitTeacher;
 
+    @FindBy(xpath = "//div[text()='Teacher saved successfully']")
+    public WebElement teacherSavedText;
+
+    @FindBy(id = "isAdvisorTeacher")
+    public WebElement advisorTeacher;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[4]")
+    public WebElement RequiredTextEmail;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[8]")
+    public WebElement RequiredTextUsername;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[7]")
+    public WebElement RequiredTextSsn;
+
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[6]")
+    public WebElement RequiredTextDateofBirth;
+
+
 
 }
