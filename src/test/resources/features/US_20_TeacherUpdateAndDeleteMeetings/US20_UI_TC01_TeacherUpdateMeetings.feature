@@ -20,6 +20,6 @@ Feature: Feature: US_20 The teacher should be able to view meeting lists and mak
     Given Teacher adds a new meeting
     #And Teacher deletes the added meeting.
 
- # Scenario: US_09 TC_003 Vive Deans should be able to update the lesson information.
-  #  And YSA is able to update the lesson information
+ # Scenario: US_20 TC_003 The teacher should be able to update the meeting.
+  #  And Teacher is able to update the meeting
 
