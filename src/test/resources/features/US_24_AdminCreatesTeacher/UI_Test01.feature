@@ -16,9 +16,10 @@ Feature: Admin should be able to create teacher
     And admin enter "<birthplace>" , "<email>" , "<phonenumber>"
     And admin choose a gender
     And admin enter "<dateofbirth>", "<ssn>", "<username>" and "<password>"
-    And admin click on the submitt button
+    And admin able to choose adviser teacher
+    And admin click on the submit button
     Then verify new teacher saved successfully
     Then close application
     Examples:
-      | lesson | name | surname | birthplace | email            | phonenumber  | dateofbirth | ssn         | username   | password  |
-      | Java   | mert | eko     | London     | london@gmail.com | 123-456-7890 | 01.07.2023  | 012-34-5678 | londonmate | 123456789 |
+      | lesson | name | surname | birthplace | email           | phonenumber  | dateofbirth | ssn         | username | password  |
+      | Java   | issy | kont    | kenya      | herae@gmail.com | 238-712-2089 | 01.07.2023  | 362-11-6896 | koksal   | 123457789 |
