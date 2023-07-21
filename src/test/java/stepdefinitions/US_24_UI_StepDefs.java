@@ -6,6 +6,7 @@ import org.apache.logging.log4j.message.ReusableMessage;
 import org.openqa.selenium.Keys;
 import pages.HomePage;
 import pages.TeacherMngPage;
+import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.WaitUtils;
 
@@ -26,7 +27,11 @@ public class US_24_UI_StepDefs {
     @When("admin enter {string}")
     public void admin_enter(String lesson) {
         WaitUtils.waitFor(1);
-        teacherMngPage.Lesson.sendKeys(lesson, Keys.ENTER);
+        teacherMngPage.Lesson.click();
+        WaitUtils.waitFor(1);
+        teacherMngPage.Lesson.sendKeys(lesson,Keys.ENTER);
+        WaitUtils.waitFor(1);
+        teacherMngPage.Lesson.click();
 
     }
     @When("admin enter {string},{string}")
@@ -64,21 +69,38 @@ public class US_24_UI_StepDefs {
         WaitUtils.waitFor(1);
         teacherMngPage.passwordTeacher.sendKeys(password);
         WaitUtils.waitFor(1);
-
     }
-    @When("admin click on the submitt button")
-    public void admin_click_on_the_submitt_button() {
+    @And("admin able to choose adviser teacher")
+    public void adminAbleToChooseAdviserTeacher() {
+        teacherMngPage.advisorTeacher.click();
+        WaitUtils.waitFor(1);
+    }
+
+    @When("admin click on the submit button")
+    public void admin_click_on_the_submit_button() {
         WaitUtils.waitFor(1);
         teacherMngPage.submitTeacher.click();
         WaitUtils.waitFor(1);
-
     }
+
     @Then("verify new teacher saved successfully")
     public void verify_new_teacher_saved_successfully() {
-
+        teacherMngPage.teacherSavedText.isDisplayed();
+        WaitUtils.waitFor(1);
     }
+
     @Then("close application")
     public void close_application() {
+
+        Driver.closeDriver();
+    }
+
+    @And("admin verify the required texts displayed")
+    public void adminVerifyTheRequiredTextsDisplayed() {
+        teacherMngPage.RequiredTextUsername.isDisplayed();
+        teacherMngPage.RequiredTextDateofBirth.isDisplayed();
+        teacherMngPage.RequiredTextEmail.isDisplayed();
+        teacherMngPage.RequiredTextSsn.isDisplayed();
 
     }
 }
