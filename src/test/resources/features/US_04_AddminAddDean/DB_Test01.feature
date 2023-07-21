@@ -1,5 +1,9 @@
 
+
+@US04_Database_Test
+
 @US_05_DB_TC01
+
 Feature: Admin should be able to add Dean
   Scenario Outline: US_05_Create_Dean
 
