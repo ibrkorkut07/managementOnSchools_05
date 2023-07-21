@@ -11,10 +11,7 @@ public class TeacherMngPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    /*  -- sample --
-    @FindBy(partialLinkText = "Login")
-    public WebElement homeLoginLink;
-     */
+
     @FindBy (xpath = "//a[.='Teacher Management']")
     public WebElement TeacherMng;
 
