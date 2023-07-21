@@ -17,12 +17,12 @@ public class MeetMngPage {
     @FindBy(xpath = "//input[@id=\"date\"]")
     public WebElement dateOfMeet;
 
-    @FindBy(id = "id=\"startTime\"")
+    @FindBy(xpath = "id=\"startTime\"")
     public WebElement startTime;
-    @FindBy(id = "id=\"stopTime\"")
+    @FindBy(xpath = "id=\"stopTime\"")
     public WebElement stopTime;
 
-    @FindBy(id = "id=\"description\"")
+    @FindBy(xpath = "id=\"description\"")
     public WebElement description;
 
     @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary btn-lg']")
