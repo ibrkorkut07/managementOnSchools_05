@@ -11,11 +11,11 @@ public class MenuPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    /*  -- sample --
-    @FindBy(partialLinkText = "Login")
-    public WebElement homeLoginLink;
-     */
 
+
+
+    @FindBy(xpath = "(//a[@role='button'])[12]")
+    public WebElement viceDeanManagement;
 
 
 }
