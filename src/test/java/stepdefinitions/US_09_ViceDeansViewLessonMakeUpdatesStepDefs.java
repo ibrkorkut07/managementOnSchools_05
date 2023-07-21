@@ -6,14 +6,13 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Wait;
 import pages.LessonMngPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.JSUtils;
 import utilities.WaitUtils;
 
-public class US_09_stepDefs {
+public class US_09_ViceDeansViewLessonMakeUpdatesStepDefs {
     LessonMngPage lessonMngPage = new LessonMngPage();
     Actions actions = new Actions(Driver.getDriver());
 
@@ -40,7 +39,7 @@ public class US_09_stepDefs {
     @Given("YSA adds a new lesson")
     public void ysaAddsANewLesson() {
 
-        String expectedLesson = "Patates";
+        String expectedLesson = "LearnJavaEarnBug";
         WaitUtils.waitFor(5);
         lessonMngPage.lessonNameInput.sendKeys(expectedLesson);
 
