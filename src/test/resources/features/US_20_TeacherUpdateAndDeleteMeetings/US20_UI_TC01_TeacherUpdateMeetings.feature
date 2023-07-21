@@ -1,34 +1,25 @@
-@US21
-Feature: US_09  Teacher should be able to view the meeting list and make updates
+@US20
+Feature: Feature: US_20 The teacher should be able to view meeting lists and make updates
 
-  Background: Teacher signs in and clicks on Choose Lesson
+  Background:
     Given user goes to "MosUrl"
-    When user clicks on "LoginLink"
-    And Student signs in as a student
-    And Clicks on Menu
-    Then Clicks on Choose Lesson
+    When user clicks on login button
+    Then user enters username "OmerRahsan"
+    Then user enters admin password "12345678"
+    Then user clicks on login button to enter
+    Then Teacher clicks on menu button
+    Then Teacher clicks on Meet Management option
 
-  Scenario: TC01 Student sees Teacher, Day, Start Time and Stop Time
-    Then Student sees Teacher
-    Then Student sees Day
-    Then Student sees Start Time
-    Then Student sees Stop Time
 
-  Scenario: TC02 Student Adds two Lessons
-    Given Choose two lessons
-    And Clicks on Submit
-    # And Sees “Lesson added to student” popup text
-    Then Student sees added lesson in Lesson Program List
+  Scenario: US_20 TC_001 The teacher should be able to view meeting lists and make updates
 
-  Scenario: TC03 Student canNOT Add two Coinciding Lessons
-    Given Choose two coinciding lessons
-    And Clicks on Submit
-    And Sees “Error” popup text
+    Then Teacher verifies the Date, Start Time, Stop Time and Description are visible created.
+    Then close the application
+  @US20_1
+ Scenario: US_20 TC_002 The teacher should be able to delete the meeting.
+    Given Teacher adds a new meeting
+    #And Teacher deletes the added meeting.
 
-  Scenario: TC04 Student can delete a lesson in Lesson they have selected Program List
-    Given Go to first registered lesson
-    And Delete if it is selectable
+ # Scenario: US_09 TC_003 Vive Deans should be able to update the lesson information.
+  #  And YSA is able to update the lesson information
 
-  Scenario: TC05 Student Can See Selected Lessons Under Lesson Program List
-    Given Go to first registered lesson
-    And Student sees added lesson in Lesson Program List
