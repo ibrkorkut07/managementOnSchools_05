@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -43,6 +44,15 @@ public class AddAdminPage {
 
     @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary btn-lg']")
     public WebElement SubmitButtonOnAddadmin;
+
+
+
+
+    @FindBy(xpath = "//button[@class='fw-semibold text-white bg-primary navbar-toggler collapsed']")
+    public WebElement MenuTab;
+
+    @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary']")
+    public WebElement LoginButtonToEnter;
 
 
 
