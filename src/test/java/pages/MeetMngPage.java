@@ -19,6 +19,7 @@ public class MeetMngPage {
 
     @FindBy(xpath = "id=\"startTime\"")
     public WebElement startTime;
+    
     @FindBy(xpath = "id=\"stopTime\"")
     public WebElement stopTime;
 
@@ -28,7 +29,16 @@ public class MeetMngPage {
     @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary btn-lg']")
     public WebElement submit;
 
-
-
+     @FindBy(xpath = "//tbody/tr[1]/td[1]")
+    public List<WebElement> allDate;
+    
+    @FindBy(xpath = "//tbody/tr[1]/td[2]")
+    public List<WebElement> allStartTime;
+    
+    @FindBy(xpath = "//tbody/tr[1]/td[3]")
+    public List<WebElement> allStopTime;
+    
+    @FindBy(xpath = "//tbody/tr[1]/td[4]")
+    public List<WebElement> allDescription;
 
 }
