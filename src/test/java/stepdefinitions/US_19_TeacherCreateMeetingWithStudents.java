@@ -14,13 +14,12 @@ import utilities.WaitUtils;
 public class US_19_TeacherCreateMeetingWithStudents {
     LoginPage loginPage = new LoginPage();
     MenuPage menuPage = new MenuPage();
-    HomePage homePage = new HomePage();
     MeetMngPage meetMngPage = new MeetMngPage();
 
     @Then("Teacher clicks on menu button")
     public void teacher_clicks_on_menu_button() {
 
-        JSUtils.clickWithTimeoutByJS(menuPage.menuButton);
+        menuPage.menuButton.click();
         WaitUtils.waitFor(1);
     }
     @Then("Teacher clicks on Meet Management option")

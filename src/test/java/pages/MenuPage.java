@@ -16,7 +16,7 @@ public class MenuPage {
     public WebElement homeLoginLink;
      */
 
-    @FindBy(xpath = "//button[@class='fw-semibold text-white bg-primary navbar-toggler']")
+    @FindBy(xpath = "//button[@class='fw-semibold text-white bg-primary navbar-toggler collapsed']")
     public WebElement menuButton;
     @FindBy(xpath = "//a[.='Meet Management']")
     public WebElement meetManagement;
