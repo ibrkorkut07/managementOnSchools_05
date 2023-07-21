@@ -2,17 +2,15 @@ package stepdefinitions;
 
 import base_urls.ManagementonSchoolBaseUrl;
 import com.github.javafaker.Faker;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import io.cucumber.java.en.*;
 import io.restassured.response.Response;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import pages.CommonCredentialsPage;
+import pages.MenuPage;
 import pojos.ObjectPojo;
 import pojos.ResponsePersonnelPojo;
-import utilities.Driver;
-import utilities.WaitUtils;
+import utilities.*;
+
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -20,20 +18,21 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 
+
 import static io.restassured.RestAssured.given;
 import static java.lang.Integer.parseInt;
+import static java.text.DateFormat.getDateInstance;
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 import static utilities.DBUtils.getResultSet;
 import static utilities.JSUtils.clickWithTimeoutByJS;
-import static utilities.MediaUtils.takeScreenshotOfTheEntirePage;
+import static utilities.MediaUtils.*;
 import static utilities.ObjectMapperUtils.convertJsonToJava;
-import static utilities.ReusableMethods.waitFor;
-import static utilities.ReusableMethods.waitForVisibility;
+import static utilities.ReusableMethods.*;
 
-public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
+public class US_06_23_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
  CommonCredentialsPage CCPage = new CommonCredentialsPage();
+ MenuPage menuPage = new MenuPage();
  public static String fakeUsername ;
  public static String fakeSsn ;
  public static String fakeName ;
@@ -53,27 +52,28 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
-  WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
-  WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
-  WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
-  WaitUtils.waitForVisibility(CCPage.genderFemale,10).click();
-  WaitUtils.waitForVisibility(CCPage.dateOfBirth,10).sendKeys(fakeDateOfBirth);
-  WaitUtils.waitForVisibility(CCPage.phoneNumber,10).sendKeys(fakePhoneNumber);
-  WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
-  WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
-  WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
+  waitFor(3);
+  WaitUtils.waitForVisibility(CCPage.name,30).sendKeys(fakeName);
+  WaitUtils.waitForVisibility(CCPage.surname,30).sendKeys(fakeSurname);
+  WaitUtils.waitForVisibility(CCPage.birthPlace,30).sendKeys(fakeBirthPlace);
+  WaitUtils.waitForVisibility(CCPage.genderFemale,30).click();
+  WaitUtils.waitForVisibility(CCPage.dateOfBirth,30).sendKeys(fakeDateOfBirth);
+  WaitUtils.waitForVisibility(CCPage.phoneNumber,30).sendKeys(fakePhoneNumber);
+  WaitUtils.waitForVisibility(CCPage.ssn,30).sendKeys(fakeSsn);
+  WaitUtils.waitForVisibility(CCPage.username,30).sendKeys(fakeUsername);
+  WaitUtils.waitForVisibility(CCPage.password,30).sendKeys(fakePassword);
   WaitUtils.waitFor(1);
   takeScreenshotOfTheEntirePage();
  }
  @Given("user clicks on submit button")
  public void user_clicks_on_submit_button() throws IOException {
-  WaitUtils.waitForVisibility(CCPage.submit, 10).submit();
+  WaitUtils.waitForVisibility(CCPage.submit, 30).submit();
 
  }
  @Then("verify new Vice Dean is created")
  public void verify_new_vice_dean_is_created() {
   waitFor(1);
-  WebElement lastPageLink=waitForVisibility(Driver.getDriver().findElement(By.xpath("(//*[@class='page-link'])[5]")),10);
+  WebElement lastPageLink=waitForVisibility(Driver.getDriver().findElement(By.xpath("(//*[@class='page-link'])[5]")),30);
   clickWithTimeoutByJS(lastPageLink);
   waitFor(2);
   List<WebElement> usernameList=Driver.getDriver().findElements(By.xpath("//table//tbody//tr//td[5]"));
@@ -92,14 +92,14 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
   // WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
-  WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
-  WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
-  WaitUtils.waitForVisibility(CCPage.genderFemale,10).click();
-  WaitUtils.waitForVisibility(CCPage.dateOfBirth,10).sendKeys(fakeDateOfBirth);
-  WaitUtils.waitForVisibility(CCPage.phoneNumber,10).sendKeys(fakePhoneNumber);
-  WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
-  WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
-  WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
+  WaitUtils.waitForVisibility(CCPage.surname,30).sendKeys(fakeSurname);
+  WaitUtils.waitForVisibility(CCPage.birthPlace,30).sendKeys(fakeBirthPlace);
+  WaitUtils.waitForVisibility(CCPage.genderFemale,30).click();
+  WaitUtils.waitForVisibility(CCPage.dateOfBirth,30).sendKeys(fakeDateOfBirth);
+  WaitUtils.waitForVisibility(CCPage.phoneNumber,30).sendKeys(fakePhoneNumber);
+  WaitUtils.waitForVisibility(CCPage.ssn,30).sendKeys(fakeSsn);
+  WaitUtils.waitForVisibility(CCPage.username,30).sendKeys(fakeUsername);
+  WaitUtils.waitForVisibility(CCPage.password,30).sendKeys(fakePassword);
   WaitUtils.waitFor(1);
   try {
    takeScreenshotOfTheEntirePage();
@@ -111,7 +111,7 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
  public void verify_new_vice_dean_is_not_created() {
 
   waitFor(1);
-  WebElement lastPageLink=waitForVisibility(Driver.getDriver().findElement(By.xpath("(//*[@class='page-link'])[5]")),10);
+  WebElement lastPageLink=waitForVisibility(Driver.getDriver().findElement(By.xpath("(//*[@class='page-link'])[5]")),30);
   clickWithTimeoutByJS(lastPageLink);
   waitFor(2);
   List<WebElement> usernameList=Driver.getDriver().findElements(By.xpath("//table//tbody//tr//td[5]"));
@@ -128,15 +128,16 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
-  WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
+  waitFor(3);
+  WaitUtils.waitForVisibility(CCPage.name,30).sendKeys(fakeName);
   //WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
-  WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
-  WaitUtils.waitForVisibility(CCPage.genderFemale,10).click();
-  WaitUtils.waitForVisibility(CCPage.dateOfBirth,10).sendKeys(fakeDateOfBirth);
-  WaitUtils.waitForVisibility(CCPage.phoneNumber,10).sendKeys(fakePhoneNumber);
-  WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
-  WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
-  WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
+  WaitUtils.waitForVisibility(CCPage.birthPlace,30).sendKeys(fakeBirthPlace);
+  WaitUtils.waitForVisibility(CCPage.genderFemale,30).click();
+  WaitUtils.waitForVisibility(CCPage.dateOfBirth,30).sendKeys(fakeDateOfBirth);
+  WaitUtils.waitForVisibility(CCPage.phoneNumber,30).sendKeys(fakePhoneNumber);
+  WaitUtils.waitForVisibility(CCPage.ssn,30).sendKeys(fakeSsn);
+  WaitUtils.waitForVisibility(CCPage.username,30).sendKeys(fakeUsername);
+  WaitUtils.waitForVisibility(CCPage.password,30).sendKeys(fakePassword);
   WaitUtils.waitFor(1);
   try {
    takeScreenshotOfTheEntirePage();
@@ -154,15 +155,16 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
-  WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
-  WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
+  waitFor(3);
+  WaitUtils.waitForVisibility(CCPage.name,30).sendKeys(fakeName);
+  WaitUtils.waitForVisibility(CCPage.surname,30).sendKeys(fakeSurname);
   //WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
-  WaitUtils.waitForVisibility(CCPage.genderFemale,10).click();
-  WaitUtils.waitForVisibility(CCPage.dateOfBirth,10).sendKeys(fakeDateOfBirth);
-  WaitUtils.waitForVisibility(CCPage.phoneNumber,10).sendKeys(fakePhoneNumber);
-  WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
-  WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
-  WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
+  WaitUtils.waitForVisibility(CCPage.genderFemale,30).click();
+  WaitUtils.waitForVisibility(CCPage.dateOfBirth,30).sendKeys(fakeDateOfBirth);
+  WaitUtils.waitForVisibility(CCPage.phoneNumber,30).sendKeys(fakePhoneNumber);
+  WaitUtils.waitForVisibility(CCPage.ssn,30).sendKeys(fakeSsn);
+  WaitUtils.waitForVisibility(CCPage.username,30).sendKeys(fakeUsername);
+  WaitUtils.waitForVisibility(CCPage.password,30).sendKeys(fakePassword);
   WaitUtils.waitFor(1);
   try {
    takeScreenshotOfTheEntirePage();
@@ -180,15 +182,16 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
-  WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
-  WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
-  WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
+  waitFor(3);
+  WaitUtils.waitForVisibility(CCPage.name,30).sendKeys(fakeName);
+  WaitUtils.waitForVisibility(CCPage.surname,30).sendKeys(fakeSurname);
+  WaitUtils.waitForVisibility(CCPage.birthPlace,30).sendKeys(fakeBirthPlace);
   //WaitUtils.waitForVisibility(CCPage.genderFemale,10).click();
-  WaitUtils.waitForVisibility(CCPage.dateOfBirth,10).sendKeys(fakeDateOfBirth);
-  WaitUtils.waitForVisibility(CCPage.phoneNumber,10).sendKeys(fakePhoneNumber);
-  WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
-  WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
-  WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
+  WaitUtils.waitForVisibility(CCPage.dateOfBirth,30).sendKeys(fakeDateOfBirth);
+  WaitUtils.waitForVisibility(CCPage.phoneNumber,30).sendKeys(fakePhoneNumber);
+  WaitUtils.waitForVisibility(CCPage.ssn,30).sendKeys(fakeSsn);
+  WaitUtils.waitForVisibility(CCPage.username,30).sendKeys(fakeUsername);
+  WaitUtils.waitForVisibility(CCPage.password,30).sendKeys(fakePassword);
   WaitUtils.waitFor(1);
   try {
    takeScreenshotOfTheEntirePage();
@@ -206,15 +209,16 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
-  WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
-  WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
-  WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
-  WaitUtils.waitForVisibility(CCPage.genderFemale,10).click();
+  waitFor(3);
+  WaitUtils.waitForVisibility(CCPage.name,30).sendKeys(fakeName);
+  WaitUtils.waitForVisibility(CCPage.surname,30).sendKeys(fakeSurname);
+  WaitUtils.waitForVisibility(CCPage.birthPlace,30).sendKeys(fakeBirthPlace);
+  WaitUtils.waitForVisibility(CCPage.genderFemale,30).click();
   //WaitUtils.waitForVisibility(CCPage.dateOfBirth,10).sendKeys(fakeDateOfBirth);
-  WaitUtils.waitForVisibility(CCPage.phoneNumber,10).sendKeys(fakePhoneNumber);
-  WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
-  WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
-  WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
+  WaitUtils.waitForVisibility(CCPage.phoneNumber,30).sendKeys(fakePhoneNumber);
+  WaitUtils.waitForVisibility(CCPage.ssn,30).sendKeys(fakeSsn);
+  WaitUtils.waitForVisibility(CCPage.username,30).sendKeys(fakeUsername);
+  WaitUtils.waitForVisibility(CCPage.password,30).sendKeys(fakePassword);
   WaitUtils.waitFor(1);
   takeScreenshotOfTheEntirePage();
  }
@@ -228,15 +232,16 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
-  WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
-  WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
-  WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
-  WaitUtils.waitForVisibility(CCPage.genderFemale,10).click();
-  WaitUtils.waitForVisibility(CCPage.dateOfBirth,10).sendKeys(fakeDateOfBirth);
+  waitFor(3);
+  WaitUtils.waitForVisibility(CCPage.name,30).sendKeys(fakeName);
+  WaitUtils.waitForVisibility(CCPage.surname,30).sendKeys(fakeSurname);
+  WaitUtils.waitForVisibility(CCPage.birthPlace,30).sendKeys(fakeBirthPlace);
+  WaitUtils.waitForVisibility(CCPage.genderFemale,30).click();
+  WaitUtils.waitForVisibility(CCPage.dateOfBirth,30).sendKeys(fakeDateOfBirth);
   //WaitUtils.waitForVisibility(CCPage.phoneNumber,10).sendKeys(fakePhoneNumber);
-  WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
-  WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
-  WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
+  WaitUtils.waitForVisibility(CCPage.ssn,30).sendKeys(fakeSsn);
+  WaitUtils.waitForVisibility(CCPage.username,30).sendKeys(fakeUsername);
+  WaitUtils.waitForVisibility(CCPage.password,30).sendKeys(fakePassword);
   WaitUtils.waitFor(1);
   takeScreenshotOfTheEntirePage();
  }
@@ -250,6 +255,7 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
+  waitFor(3);
   WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
   WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
   WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
@@ -265,7 +271,7 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
  @Then("verify new Vice Dean is not created without username")
  public void verify_new_vice_dean_is_not_created_without_username() {
   waitFor(1);
-  WebElement lastPageLink=waitForVisibility(Driver.getDriver().findElement(By.xpath("(//*[@class='page-link'])[5]")),10);
+  WebElement lastPageLink=waitForVisibility(Driver.getDriver().findElement(By.xpath("(//*[@class='page-link'])[5]")),30);
   clickWithTimeoutByJS(lastPageLink);
   waitFor(2);
   List<WebElement> usernameList=Driver.getDriver().findElements(By.xpath("//table//tbody//tr//td[4]"));
@@ -282,20 +288,21 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
-  WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
-  WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
-  WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
-  WaitUtils.waitForVisibility(CCPage.genderFemale,10).click();
-  WaitUtils.waitForVisibility(CCPage.dateOfBirth,10).sendKeys(fakeDateOfBirth);
-  WaitUtils.waitForVisibility(CCPage.phoneNumber,10).sendKeys(fakePhoneNumber);
+  waitFor(3);
+  WaitUtils.waitForVisibility(CCPage.name,30).sendKeys(fakeName);
+  WaitUtils.waitForVisibility(CCPage.surname,30).sendKeys(fakeSurname);
+  WaitUtils.waitForVisibility(CCPage.birthPlace,30).sendKeys(fakeBirthPlace);
+  WaitUtils.waitForVisibility(CCPage.genderFemale,30).click();
+  WaitUtils.waitForVisibility(CCPage.dateOfBirth,30).sendKeys(fakeDateOfBirth);
+  WaitUtils.waitForVisibility(CCPage.phoneNumber,30).sendKeys(fakePhoneNumber);
  //WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
-  WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
-  WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
+  WaitUtils.waitForVisibility(CCPage.username,30).sendKeys(fakeUsername);
+  WaitUtils.waitForVisibility(CCPage.password,30).sendKeys(fakePassword);
 
  }
  @Given("user enters invalid {string}")
  public void user_enters_invalid(String ssn) throws IOException {
-  WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(ssn);
+  WaitUtils.waitForVisibility(CCPage.ssn,30).sendKeys(ssn);
   waitFor(1);
   takeScreenshotOfTheEntirePage();
 
@@ -310,21 +317,22 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
   fakePhoneNumber = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(4);
   fakeSsn = Faker.instance().number().digits(3)+"-"+Faker.instance().number().digits(2)+"-"+Faker.instance().number().digits(4);
   fakePassword = "Qa"+Faker.instance().number().digits(6);
-  WaitUtils.waitForVisibility(CCPage.name,10).sendKeys(fakeName);
-  WaitUtils.waitForVisibility(CCPage.surname,10).sendKeys(fakeSurname);
-  WaitUtils.waitForVisibility(CCPage.birthPlace,10).sendKeys(fakeBirthPlace);
-  WaitUtils.waitForVisibility(CCPage.genderFemale,10).click();
-  WaitUtils.waitForVisibility(CCPage.dateOfBirth,10).sendKeys(fakeDateOfBirth);
-  WaitUtils.waitForVisibility(CCPage.phoneNumber,10).sendKeys(fakePhoneNumber);
-  WaitUtils.waitForVisibility(CCPage.ssn,10).sendKeys(fakeSsn);
-  WaitUtils.waitForVisibility(CCPage.username,10).sendKeys(fakeUsername);
+  waitFor(3);
+  WaitUtils.waitForVisibility(CCPage.name,30).sendKeys(fakeName);
+  WaitUtils.waitForVisibility(CCPage.surname,30).sendKeys(fakeSurname);
+  WaitUtils.waitForVisibility(CCPage.birthPlace,30).sendKeys(fakeBirthPlace);
+  WaitUtils.waitForVisibility(CCPage.genderFemale,30).click();
+  WaitUtils.waitForVisibility(CCPage.dateOfBirth,30).sendKeys(fakeDateOfBirth);
+  WaitUtils.waitForVisibility(CCPage.phoneNumber,30).sendKeys(fakePhoneNumber);
+  WaitUtils.waitForVisibility(CCPage.ssn,30).sendKeys(fakeSsn);
+  WaitUtils.waitForVisibility(CCPage.username,30).sendKeys(fakeUsername);
  //WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(fakePassword);
 
  }
 
  @Given("user enters an invalid  {string}")
  public void user_enters_an_invalid(String password) throws IOException {
-  WaitUtils.waitForVisibility(CCPage.password,10).sendKeys(password);
+  WaitUtils.waitForVisibility(CCPage.password,30).sendKeys(password);
   waitFor(1);
   takeScreenshotOfTheEntirePage();
 
@@ -333,6 +341,10 @@ public class US_06_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
  public void takeScreenshot() throws IOException {
   waitFor(1);
   takeScreenshotOfTheEntirePage();
+ }
+ @Then("user clicks on vice dean management option")
+ public void user_clicks_on_vice_dean_management_option() {
+   waitForVisibility(menuPage.viceDeanManagement,30).click();
  }
 // ************************** Database Stepdefinitions **************
 static ResultSet resultSet;
