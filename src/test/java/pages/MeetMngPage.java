@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class MeetMngPage {
 
     public MeetMngPage() {
@@ -13,6 +15,11 @@ public class MeetMngPage {
 
     @FindBy(xpath = "//div[@class=\" css-19bb58m\"]")
     public WebElement selectStudent;
+
+    @FindBy(xpath = "//div[@aria-hidden='true']")
+    public WebElement selectStudent2;
+    //   //input[@id='react-select-2-input']
+    //div[@aria-hidden='true']
 
     @FindBy(xpath = "//input[@id=\"date\"]")
     public WebElement dateOfMeet;
