@@ -84,6 +84,20 @@ public class US_21_DB_RegistrationStepDefs {
         String actlesson_name = resultSet2.getString("lesson_name");
         assertEquals(lesson_name,actlesson_name);
     }
+
+    @Then("get advisor_teacher_id via username {string}")
+    public void getAdvisor_teacher_idViaUsername(String arg0) {
+        
+    }
+
+    @Then("get student meeting info via advisor_teacher_id {string}")
+    public void getStudentMeetingInfoViaAdvisor_teacher_id(String arg0) {
+        
+    }
+
+    @And("the body contains date {string} , start_time {string} , stop_time {string} , description {string}")
+    public void theBodyContainsDateStart_timeStop_timeDescription(String arg0, String arg1, String arg2, String arg3) {
+    }
 }
 
 // select lesson_name from "public".lesson where lesson.lesson_id = '2';
