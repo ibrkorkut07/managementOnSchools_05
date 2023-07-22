@@ -34,8 +34,17 @@
 Find advisor teacher id ((1582) via student username (cramer07)
 SELECT advisor_teacher_id FROM "public".student WHERE username = 'cramer07';
 
+Find advisor teacher id ((1582) via student username (cramer07)
+SELECT advisor_teacher_id FROM "public".student WHERE username = 'cramer07';
+
 *** Find student id / student number (1165) via student username (cramer07)
 SELECT id FROM "public".student WHERE username = 'cramer07';
+
+*** Find meet_id via student_id / student number (1165)
+SELECT meet_id FROM "public".meet_student_table WHERE student_id = (SELECT id FROM "public".student WHERE username = 'cramer07');
+
+Find meet info by username
+select * from "public".meet where id = (SELECT meet_id FROM "public".meet_student_table WHERE student_id = (SELECT id FROM "public".student WHERE username = 'cramer07'));
 
 select * from "public".student_info where id = '780';
 select lesson_lesson_id from "public".student_info where id = '780';

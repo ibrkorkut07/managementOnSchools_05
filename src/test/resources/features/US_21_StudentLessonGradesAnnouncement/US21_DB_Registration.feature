@@ -18,12 +18,15 @@ Feature: Students, choose lesson, grades and announcement (DB)
 
   Scenario Outline: Get Student's Meeting Announcement
 
-    Then get advisor_teacher_id via username "<username>"
-    Then get student meeting info via advisor_teacher_id "<advisor_teacher_id>"
+    # Then get meet_id "<meet_id>" via username "<username>"
+    # Then get meet info by meet_id "<meet_id>"
+    And get meet info by username "<username>"
     And the body contains date "<date>" , start_time "<start_time>" , stop_time "<stop_time>" , description "<description>"
     Examples:
-      | date                     | start_time                | stop_time               | description |
-      | Nov 9, 2024, 12:00:00 AM | Jan 1, 1970, 10:43:00 AM  | Jan 1, 1970, 1:00:00 PM | Graduation  |
+      | username | meet_id | date       | start_time | stop_time  | description |
+      | cramer07 | 750     | 2024-11-09 | 10:43:00   | 13:00:00   | Graduation  |
+
+    # Date	Start Time	Stop Time	Description
 
   Scenario Outline: Get Student's Chosen Lessons
 

@@ -85,19 +85,52 @@ public class US_21_DB_RegistrationStepDefs {
         assertEquals(lesson_name,actlesson_name);
     }
 
-    @Then("get advisor_teacher_id via username {string}")
-    public void getAdvisor_teacher_idViaUsername(String arg0) {
-        
+    @Then("Find student id {string} via student username {string}")
+    public void findStudentIdViaStudentUsername(String arg0, String arg1) {
+
     }
 
-    @Then("get student meeting info via advisor_teacher_id {string}")
-    public void getStudentMeetingInfoViaAdvisor_teacher_id(String arg0) {
-        
+    @Then("get meet_id {string} via username {string}")
+    public void meet_idViaStudent_id(String meet_id, String username) throws SQLException {
+        //Create ResultSet
+        String SqlQuery = "SELECT meet_id FROM \"public\".meet_student_table WHERE student_id = (SELECT id FROM \"public\".student WHERE username = '"+username+"')";
+        resultSet = statement.executeQuery(SqlQuery);
+
+        //    SELECT meet_id FROM "public".meet_student_table WHERE student_id = (SELECT id FROM "public".student WHERE username = 'cramer07');
     }
+
+    @Then("get meet info by meet_id {string}")
+    public void meetInfoByMeet_id(String meet_id) throws SQLException {
+        //Create ResultSet
+        String SqlQuery = "select * from \"public\".meet where id = (SELECT " +meet_id+" FROM \"public\".meet_student_table WHERE student_id = (SELECT id FROM \"public\".student WHERE username = 'cramer07'));";
+        resultSet = statement.executeQuery(SqlQuery);
+
+        //    SELECT meet_id FROM "public".meet_student_table WHERE student_id = (SELECT id FROM "public".student WHERE username = 'cramer07');
+    }
+
+    @And("get meet info by username {string}")
+    public void meetInfoByUsername(String username) throws SQLException {
+        //Create ResultSet
+        String SqlQuery = "select * from \"public\".meet where id = (SELECT meet_id FROM \"public\".meet_student_table WHERE student_id = (SELECT id FROM \"public\".student WHERE username = '"+username+"'));";
+        resultSet = statement.executeQuery(SqlQuery);
+
+        //    select * from "public".meet where id = (SELECT meet_id FROM "public".meet_student_table WHERE student_id = (SELECT id FROM "public".student WHERE username = 'cramer07'));
+        }
 
     @And("the body contains date {string} , start_time {string} , stop_time {string} , description {string}")
-    public void theBodyContainsDateStart_timeStop_timeDescription(String arg0, String arg1, String arg2, String arg3) {
-    }
-}
+    public void theBodyContainsDateStart_timeStop_timeDescription(String date, String start_time, String stop_time, String description) throws SQLException {
 
-// select lesson_name from "public".lesson where lesson.lesson_id = '2';
+        resultSet.next();
+
+        String actDate = resultSet.getString("date");
+        String actStart_time = resultSet.getString("start_time");
+        String actStop_time = resultSet.getString("stop_time");
+        String actDescription = resultSet.getString("description");
+
+        assertEquals(date,actDate);
+        assertEquals(start_time,actStart_time);
+        assertEquals(stop_time,actStop_time);
+        assertEquals(description,actDescription);
+    }
+
+}
