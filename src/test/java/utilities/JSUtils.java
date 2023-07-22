@@ -55,7 +55,7 @@ public class JSUtils {
         js.executeScript("arguments[0].setAttribute('value','"+text+"')",inputElement);
     }
     /*
-    param : Id of the the element
+    param : id of to the element
      */
     public static String getValueByJS(String idOfElement){
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();

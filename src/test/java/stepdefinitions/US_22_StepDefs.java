@@ -21,11 +21,31 @@ public class US_22_StepDefs {
     AddAdminPage addAdminPage=new AddAdminPage();
    Faker faker=Faker.instance();
 
+ @Then("user clicks on login button to enter")
+ public void user_clicks_on_login_button_to_enter() {
+addAdminPage.LoginButtonToEnter.click();
+
+
+ }
+
+
+ @Then("user clicks on menu tab")
+ public void user_clicks_on_menu_tab() throws InterruptedException {
+  addAdminPage.MenuTab.click();
+  WaitUtils.waitFor(3);
+ }
+
+
+
+
+
     @Then("user clicks on admin management option")
     public void user_clicks_on_admin_management_option() throws InterruptedException {
     adminMngPage.adminManagementLink.click();
     WaitUtils.waitFor(3);
     }
+
+
     @Then("click the name box")
     public void click_the_name_box() throws InterruptedException {
 
