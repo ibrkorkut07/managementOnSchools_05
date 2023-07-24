@@ -107,7 +107,7 @@ public class US_21_DB_RegistrationStepDefs {
         resultSet = statement.executeQuery(SqlQuery);
 
         //    select * from "public".meet where id = (SELECT meet_id FROM "public".meet_student_table WHERE student_id = (SELECT id FROM "public".student WHERE username = 'cramer07'));
-        }
+    }
 
     @And("the body contains date {string} , start_time {string} , stop_time {string} , description {string}")
     public void theBodyContainsDateStart_timeStop_timeDescription(String date, String start_time, String stop_time, String description) throws SQLException {
