@@ -13,38 +13,37 @@ public class MeetMngPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//div[@class=\" css-19bb58m\"]")
+    @FindBy(xpath = "//input[@id='react-select-2-input']")
     public WebElement selectStudent;
 
-    @FindBy(xpath = "//div[@aria-hidden='true']")
-    public WebElement selectStudent2;
-    //   //input[@id='react-select-2-input']
-    //div[@aria-hidden='true']
-
-    @FindBy(xpath = "//input[@id=\"date\"]")
+    @FindBy(id="date")
     public WebElement dateOfMeet;
 
-    @FindBy(xpath = "id=\"startTime\"")
+
+    @FindBy(id = "startTime")
     public WebElement startTime;
-    
-    @FindBy(xpath = "id=\"stopTime\"")
+
+    @FindBy(id = "stopTime")
     public WebElement stopTime;
 
-    @FindBy(xpath = "id=\"description\"")
+    @FindBy(id = "description")
     public WebElement description;
 
     @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary btn-lg']")
     public WebElement submit;
 
-     @FindBy(xpath = "//tbody/tr[1]/td[1]")
+    @FindBy(xpath = "//div[.='Meet Saved Successfully']")
+    public WebElement successAlertMessage;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[1]")
     public List<WebElement> allDate;
-    
+
     @FindBy(xpath = "//tbody/tr[1]/td[2]")
     public List<WebElement> allStartTime;
-    
+
     @FindBy(xpath = "//tbody/tr[1]/td[3]")
     public List<WebElement> allStopTime;
-    
+
     @FindBy(xpath = "//tbody/tr[1]/td[4]")
     public List<WebElement> allDescription;
 

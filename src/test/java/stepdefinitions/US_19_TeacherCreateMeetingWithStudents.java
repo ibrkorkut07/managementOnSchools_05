@@ -4,38 +4,32 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import pages.*;
-import utilities.*;
+import utilities.ConfigReader;
+import utilities.Driver;
+import utilities.JSUtils;
+import utilities.WaitUtils;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class US_19_TeacherCreateMeetingWithStudents {
     LoginPage loginPage = new LoginPage();
     MenuPage menuPage = new MenuPage();
     MeetMngPage meetMngPage = new MeetMngPage();
-    Select select = new Select(meetMngPage.selectStudent2);
 
     @Then("Teacher clicks on menu button")
     public void teacher_clicks_on_menu_button() {
 
-        menuPage.menuButton.click();
-        WaitUtils.waitFor(1);
+
     }
     @Then("Teacher clicks on Meet Management option")
     public void teacher_clicks_on_meet_management_option() {
-        menuPage.meetManagement.click();
-        WaitUtils.waitFor(1);
+
     }
     @Then("Teacher clicks on select students button")
     public void teacher_clicks_on_select_students_button() {
-        ReusableMethods.waitFor(1);
-        select.selectByIndex(0);
-        meetMngPage.selectStudent.click();
-        ReusableMethods.waitFor(1);
-
-//        meetMngPage.selectStudent.sendKeys("Brad Marks");
-//        WaitUtils.waitFor(1);
-//        meetMngPage.selectStudent.click();
 
     }
     @Then("Teacher fill out the Date Of Meet")
@@ -57,5 +51,10 @@ public class US_19_TeacherCreateMeetingWithStudents {
     @Then("click the submit button")
     public void click_the_submit_button() {
 
+    }
+
+    @When("validate alert {string} message")
+    public void validateAlertMessage(String message) {
+        assertEquals(message,meetMngPage.successAlertMessage.getText());
     }
 }
