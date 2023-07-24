@@ -75,11 +75,18 @@ SELECT * FROM "public".student_lessonprogram WHERE student_lessonprogram.student
 Find registered lesson program id by student id (1222, 5, 4, 7, 15, 14, 1709)
 SELECT lesson_program_id FROM "public".student_lessonprogram WHERE student_lessonprogram.student_id = '1165';
 
-# find registered lessons
-SELECT lesson_program_id FROM "public".student_lessonprogram where student_lessonprogram.student_id = '1165';
+# Find (registered/chosen) lesson_program_id via username
+SELECT lesson_program_id FROM "public".student_lessonprogram where student_lessonprogram.student_id = (SELECT id FROM "public".student WHERE username = 'cramer07');
+
+# Find (registered/chosen) lesson_lesson_id via lesson_program_id
+SELECT lesson_lesson_id FROM "public".lesson_program_lesson where lesson_program_id = (SELECT lesson_program_id FROM "public".student_lessonprogram where student_lessonprogram.student_id = (SELECT id FROM "public".student WHERE username = 'cramer07'));
 
 SELECT * FROM "public".lesson_program where lesson_program.id = '1222';
-SELECT * FROM "public".lesson;]]></console>
+SELECT * FROM "public".lesson;
+
+Find registered lesson program via username
+SELECT * FROM "public".lesson_program WHERE lesson_program.id = (SELECT lesson_program_id FROM "public".student_lessonprogram where student_lessonprogram.student_id = (SELECT id FROM "public".student WHERE username = 'cramer07')));
+SELECT * FROM "public".lesson_program WHERE lesson_program.id = (SELECT lesson_program_id FROM "public".student_lessonprogram where student_lessonprogram.student_id = (SELECT id FROM "public".student WHERE username = 'cramer07')));]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -98,6 +105,9 @@ SELECT * FROM "public".lesson;]]></console>
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/src/test/resources/features/US_21_StudentLessonGradesAnnouncement/MOS US21DB.sql" connection-id="480a7317-2128-4931-9ece-9ef593769cff" session-id="MAIN" current-schema="school_management" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
