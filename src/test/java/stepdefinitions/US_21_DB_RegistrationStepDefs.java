@@ -5,6 +5,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 import java.sql.*;
+import java.util.Collections;
+import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -31,16 +33,6 @@ public class US_21_DB_RegistrationStepDefs {
         String SqlQuery = "SELECT id FROM \"public\".student WHERE username = '"+username+"'";
         resultSet = statement.executeQuery(SqlQuery);
     }
-
-//    @Then("get guest_user via name {string}")
-//    public void get_dean_via_name(String name) throws SQLException {
-//
-//        //Create ResultSet
-//        String sqlQuery = "SELECT * FROM \"public\".guest_user WHERE name = '"+name+"'";
-//        resultSet = statement.executeQuery(sqlQuery);
-//
-//
-//    }
 
     @Then("get student_info via username {string}")
     public void getStudent_infoViaStudent_id(String username) throws SQLException {
@@ -133,4 +125,51 @@ public class US_21_DB_RegistrationStepDefs {
         assertEquals(description,actDescription);
     }
 
+    @And("get Lesson Program List via lesson_program_id {string}")
+    public void getLessonProgramListViaLessonProgramId(String lesson_program_id) throws SQLException {
+        //Create ResultSet
+        String SqlQuery = "SELECT * FROM \"public\".lesson_program where lesson_program.id = '"+lesson_program_id+"';";
+        resultSet = statement.executeQuery(SqlQuery);
+
+    }
+
+    @Then("get chosen lesson_program_id {string} via student_id {string}")
+    public void getChosenLesson_program_idViaStudent_id(String lesson_program_id, String student_id) throws SQLException {
+        //Create ResultSet
+        String SqlQuery = "SELECT lesson_program_id FROM \"public\".student_lessonprogram WHERE student_lessonprogram.student_id = '"+student_id+"';";
+        resultSet = statement.executeQuery(SqlQuery.toString());
+
+    }
+
+    @Then("get chosen lesson {string} via chosen lesson_program_id {string}")
+    public void getChosenLessonViaChosenLesson_program_id(String lesson, String lesson_program_id) throws SQLException {
+        //Create ResultSet
+        String SqlQuery = "SELECT lesson_program_id FROM \"public\".student_lessonprogram where student_lessonprogram.student_id = (SELECT id FROM \"public\".student WHERE username = '" +lesson_program_id+"')";
+        resultSet = statement.executeQuery(SqlQuery);
+
+    }
+
+    @And("the body contains lesson {string}, day {string}, start_time {string}, stop_time {string}")
+    public void theBodyContainsLessonDayStart_timeStop_time(String lesson, String day, String start_time, String stop_time) throws SQLException {
+
+        resultSet.next();
+
+        // String actLesson = resultSet.getString("lesson");
+        String actDay = resultSet.getString("day");
+        String actStart_time = resultSet.getString("start_time");
+        String actStop_time = resultSet.getString("stop_time");
+
+        // assertEquals(lesson,actLesson);
+        assertEquals(start_time,actStart_time);
+        assertEquals(stop_time,actStop_time);
+        assertEquals(day,actDay);
+    }
+
+
+    @Then("Get lesson_program_id via student_id {string}")
+    public void getLesson_program_idViaStudent_id(String student_id) throws SQLException {
+        //Create ResultSet
+        String SqlQuery = "SELECT lesson_program_id FROM \"public\".student_lessonprogram WHERE student_lessonprogram.student_id = '"+student_id+"';";
+        resultSet = statement.executeQuery(SqlQuery);
+    }
 }
