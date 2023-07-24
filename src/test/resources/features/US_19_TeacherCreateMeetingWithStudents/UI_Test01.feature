@@ -19,4 +19,5 @@ Feature: US_19 The teacher should be able to create meetings with students.(Add 
     Then Teacher fill out the Stop Time
     Then Teacher fill out the Description
     Then click the submit button
+    When validate alert "Meet Saved Successfully" message
     And close the applications

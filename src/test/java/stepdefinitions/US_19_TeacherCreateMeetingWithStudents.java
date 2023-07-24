@@ -3,15 +3,16 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import pages.*;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.JSUtils;
 import utilities.WaitUtils;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class US_19_TeacherCreateMeetingWithStudents {
     LoginPage loginPage = new LoginPage();
@@ -21,19 +22,15 @@ public class US_19_TeacherCreateMeetingWithStudents {
     @Then("Teacher clicks on menu button")
     public void teacher_clicks_on_menu_button() {
 
-        menuPage.menuButton.click();
-        WaitUtils.waitFor(1);
+
     }
     @Then("Teacher clicks on Meet Management option")
     public void teacher_clicks_on_meet_management_option() {
-        menuPage.meetManagement.click();
-        WaitUtils.waitFor(1);
+
     }
     @Then("Teacher clicks on select students button")
     public void teacher_clicks_on_select_students_button() {
-        Actions actions = new Actions(Driver.getDriver());
-        actions.click(meetMngPage.selectStudent).sendKeys("Brad Marks").sendKeys(Keys.ENTER).perform();
-        // WaitUtils.waitFor(2);
+
     }
     @Then("Teacher fill out the Date Of Meet")
     public void teacher_fill_out_the_date_of_meet() {
@@ -54,5 +51,10 @@ public class US_19_TeacherCreateMeetingWithStudents {
     @Then("click the submit button")
     public void click_the_submit_button() {
 
+    }
+
+    @When("validate alert {string} message")
+    public void validateAlertMessage(String message) {
+        assertEquals(message,meetMngPage.successAlertMessage.getText());
     }
 }
