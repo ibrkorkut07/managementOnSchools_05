@@ -16,6 +16,8 @@ public class TablesPage {
 
     @FindBy(xpath = "//table//tbody//tr//td[5]")
     public static List<WebElement> UsernameList;
+    @FindBy(xpath = "//tr//td[1]")
+    public static List<WebElement> studentNameList;
 
 
 }
