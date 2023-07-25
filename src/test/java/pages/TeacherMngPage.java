@@ -54,6 +54,10 @@ public class TeacherMngPage {
     @FindBy(xpath = "//button[text()='Submit']")
     public WebElement submitTeacher;
 
+
+    @FindBy(xpath = "//button[.='Login']")
+    public WebElement LoginAsTeacherButton;
+
     @FindBy(xpath = "//div[text()='Teacher saved successfully']")
     public WebElement teacherSavedText;
 
@@ -72,6 +76,7 @@ public class TeacherMngPage {
 
     @FindBy(xpath = "(//div[@class='invalid-feedback'])[6]")
     public WebElement RequiredTextDateofBirth;
+
 
 
 

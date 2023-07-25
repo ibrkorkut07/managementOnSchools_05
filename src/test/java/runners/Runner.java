@@ -23,6 +23,10 @@ import org.junit.runner.RunWith;
         tags = "@US19"
 
 
+        tags = "@US18_TC01_ApiTest"
+
+
+
 
 )
 
