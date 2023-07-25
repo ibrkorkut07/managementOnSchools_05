@@ -16,6 +16,14 @@ public class Authentication {
         Response response =  given().contentType(ContentType.JSON).accept("application/json").accept("*/*").body("{\"password\": \"12345678\",\"username\": \"mrsnice\"}").post("https://managementonschools.com/app/auth/login");
         return response.jsonPath().getString("token");
     }
+    public static String generateTokenAdmin()  {
+
+     Response response = given().contentType(ContentType.JSON).accept("application/json").accept("*/*").body("{\"password\": \"12345678\",\"username\": \"Project09Admin\"}").post("https://managementonschools.com/app/auth/login");
+        return response.jsonPath().getString("token");
+
+
+    }
+
 
 
 }
