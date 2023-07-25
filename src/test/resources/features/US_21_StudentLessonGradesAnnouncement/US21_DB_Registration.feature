@@ -1,10 +1,10 @@
 @US21_DB
-Feature: Students, choose lesson, grades and announcement (DB)
+Feature: US21 Students, choose lesson, grades and announcement (DB)
 
   Background: connect to the database
     Given connect to school database
 
-  Scenario Outline: Get Student's Grades
+  Scenario Outline: US21 TC01 Get Student's Grades
 
     Then get student_id via username "<username>"
     Then get student_info via username "<username>"
@@ -16,7 +16,7 @@ Feature: Students, choose lesson, grades and announcement (DB)
 
     # Lesson Name	 Absentee   Midterm Exam   Final Exam   Note   Info Note   Average
 
-  Scenario Outline: Get Student's Meeting Announcement
+  Scenario Outline: US21 TC02 Get Student's Meeting Announcement
 
     # Then get meet_id "<meet_id>" via username "<username>"
     # Then get meet info by meet_id "<meet_id>"
@@ -28,7 +28,7 @@ Feature: Students, choose lesson, grades and announcement (DB)
 
     # Date   Start Time   Stop Time   Description
 
-  Scenario Outline: Get Student's Chosen Lessons
+  Scenario Outline: US21 TC03 Get Student's Chosen Lessons
 
     Then Get lesson_program_id via student_id "<student_id>"
     Then get chosen lesson_program_id "<lesson_program_id>" via student_id "<student_id>"
