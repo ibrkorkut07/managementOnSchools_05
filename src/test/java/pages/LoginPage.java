@@ -19,7 +19,7 @@ public class LoginPage {
     public WebElement userName;
 @FindBy(id="password")
     public WebElement password;
-@FindBy(xpath = "//div//a[@class='header_link ms-2']")
+@FindBy(xpath = "(//*[@type='button'])[3]")
     public WebElement loginButton;
 
 

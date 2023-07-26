@@ -24,6 +24,7 @@ import static java.lang.Integer.parseInt;
 import static java.text.DateFormat.getDateInstance;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.*;
+import static utilities.DBUtils.closeConnection;
 import static utilities.DBUtils.getResultSet;
 import static utilities.JSUtils.clickWithTimeoutByJS;
 import static utilities.MediaUtils.*;
@@ -401,7 +402,7 @@ static ResultSet resultSet;
   } catch (SQLException e) {
    throw new RuntimeException(e);
   }
-
+   closeConnection();
  }
 
 
@@ -451,6 +452,7 @@ static ResultSet resultSet;
 
   List<Objects> dataList = response.jsonPath().getList("content.findAll{it.username=='" + username + "'}");
   assertTrue(dataList.isEmpty());
+  Driver.closeDriver();
  }
 
 
