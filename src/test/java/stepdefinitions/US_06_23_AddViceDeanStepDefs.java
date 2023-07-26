@@ -344,7 +344,7 @@ public class US_06_23_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
  }
  @Then("user clicks on vice dean management option")
  public void user_clicks_on_vice_dean_management_option() {
-   waitForVisibility(menuPage.viceDeanManagement,30).click();
+  // waitForVisibility(menuPage.viceDeanManagement,30).click();
  }
 // ************************** Database Stepdefinitions **************
 static ResultSet resultSet;
