@@ -9,7 +9,7 @@ import utilities.WaitUtils;
 
 import static org.junit.Assert.assertTrue;
 
-public class US_22__UI_StepDefs {
+public class US_22_UI_StepDefs {
 
  AdminMngPage adminMngPage = new AdminMngPage();
  AddAdminPage addAdminPage = new AddAdminPage();
