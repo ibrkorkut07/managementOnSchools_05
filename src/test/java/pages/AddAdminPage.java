@@ -14,6 +14,7 @@ public class AddAdminPage {
     @FindBy(xpath = "//a[.='Admin Management']")
     public WebElement AdminManagementButton;
 
+
     @FindBy(xpath = "//input[@id='name']")
     public WebElement NameBoxOnAddadmin;
 
