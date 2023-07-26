@@ -345,7 +345,7 @@ public class US_06_23_AddViceDeanStepDefs extends ManagementonSchoolBaseUrl {
  }
  @Then("user clicks on vice dean management option")
  public void user_clicks_on_vice_dean_management_option() {
-  // waitForVisibility(menuPage.viceDeanManagement,30).click();
+   waitForVisibility(menuPage.viceDeanManagement,30).click();
  }
 // ************************** Database Stepdefinitions **************
 static ResultSet resultSet;
@@ -373,24 +373,24 @@ static ResultSet resultSet;
   strId = resultSet.getString("id");
   id = parseInt(strId);
      System.out.println("id from DATABASE= " + id);
-  String actBirth_day = resultSet.getString("birth_day");
-  String actBirth_place = resultSet.getString("birth_place");
-  String actGender = resultSet.getString("gender");
-  String actName = resultSet.getString("name");
-  String actPhone_number = resultSet.getString("phone_number");
-  String actSsn = resultSet.getString("ssn");
-  String actSurname = resultSet.getString("surname");
-  String actUsername = resultSet.getString("username");
-  System.out.println("actUsername from DATABASE = " + actUsername);
+  String actualBirth_day = resultSet.getString("birth_day");
+  String actualBirth_place = resultSet.getString("birth_place");
+  String actualGender = resultSet.getString("gender");
+  String actualName = resultSet.getString("name");
+  String actualPhone_number = resultSet.getString("phone_number");
+  String actualSsn = resultSet.getString("ssn");
+  String actualSurname = resultSet.getString("surname");
+  String actualUsername = resultSet.getString("username");
+  System.out.println("actualUsername from DATABASE = " + actualUsername);
 
-  assertEquals("1995-07-19", actBirth_day);
-  assertEquals(fakeBirthPlace, actBirth_place);
-  assertEquals("1", actGender);
-  assertEquals(fakeName, actName);
-  assertEquals(fakePhoneNumber, actPhone_number);
-  assertEquals(fakeSsn, actSsn);
-  assertEquals(fakeSurname, actSurname);
-  assertEquals(fakeUsername, actUsername);
+  assertEquals("1995-07-19", actualBirth_day);
+  assertEquals(fakeBirthPlace, actualBirth_place);
+  assertEquals("1", actualGender);
+  assertEquals(fakeName, actualName);
+  assertEquals(fakePhoneNumber, actualPhone_number);
+  assertEquals(fakeSsn, actualSsn);
+  assertEquals(fakeSurname, actualSurname);
+  assertEquals(fakeUsername, actualUsername);
 
  }
 
