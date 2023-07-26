@@ -19,5 +19,6 @@ public class MenuPage {
     public WebElement menuButton;
     @FindBy(xpath = "//a[.='Meet Management']")
     public WebElement meetManagement;
-
+    @FindBy(xpath = "(//a[@role='button'])[12]")
+    public WebElement viceDeanManagement;
 }
