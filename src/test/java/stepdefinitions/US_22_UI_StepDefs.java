@@ -2,20 +2,14 @@ package stepdefinitions;
 
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import pages.*;
-import utilities.ConfigReader;
-import utilities.Driver;
 import utilities.WaitUtils;
 
 
 
 import static org.junit.Assert.assertTrue;
 
-public class US_22_StepDefs {
+public class US_22_UI_StepDefs {
 
  AdminMngPage adminMngPage = new AdminMngPage();
  AddAdminPage addAdminPage = new AddAdminPage();
