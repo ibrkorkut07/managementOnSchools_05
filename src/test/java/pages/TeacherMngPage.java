@@ -11,10 +11,7 @@ public class TeacherMngPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    /*  -- sample --
-    @FindBy(partialLinkText = "Login")
-    public WebElement homeLoginLink;
-     */
+
     @FindBy (xpath = "//a[.='Teacher Management']")
     public WebElement TeacherMng;
 
@@ -56,6 +53,31 @@ public class TeacherMngPage {
 
     @FindBy(xpath = "//button[text()='Submit']")
     public WebElement submitTeacher;
+
+
+    @FindBy(xpath = "//button[.='Login']")
+    public WebElement LoginAsTeacherButton;
+
+    @FindBy(xpath = "//div[text()='Teacher saved successfully']")
+    public WebElement teacherSavedText;
+
+    @FindBy(id = "isAdvisorTeacher")
+    public WebElement advisorTeacher;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[4]")
+    public WebElement RequiredTextEmail;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[8]")
+    public WebElement RequiredTextUsername;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[7]")
+    public WebElement RequiredTextSsn;
+
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[6]")
+    public WebElement RequiredTextDateofBirth;
+
+
 
 
 }

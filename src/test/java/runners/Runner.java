@@ -17,11 +17,15 @@ import org.junit.runner.RunWith;
         monochrome = true,
 
         features = "./src/test/resources/features",//PATH OF FEATURES FOLDER
-        glue = {"stepdefinitions","hooks"}, //PATH OF STEPDEFINITIONS FOLDER
+        glue = {"stepdefinitions","hooks"}, //PATH OF STEP-DEFINITIONS FOLDER
         dryRun = false , //dryRun = true : RUNS AND GENERATES ONLY MISSING STEP DEFS.
         // dryRun = false: RUN NORMAL. THIS IS DEFAULT VALUE
+        //tags = "@US19"
 
-        tags = "@my_test16"
+
+        tags = "@US18_TC01_ApiTest"
+
+
 
 
 )

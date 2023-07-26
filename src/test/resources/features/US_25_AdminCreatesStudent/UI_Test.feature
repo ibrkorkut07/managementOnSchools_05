@@ -1,7 +1,7 @@
 @US_25_UI
-Feature: Vice Dean should be able to create student
+Feature: Admin should be able to create student
 
-  Background: Sign in as vice dean
+  Background: Sign in as admin
     Given user goes to "MosUrl"
     When user clicks on login button
     And user enters username "Project09Admin"
@@ -50,5 +50,7 @@ Feature: Vice Dean should be able to create student
     Examples:
       | ssn          |
       | abc343535343 |
-      | abc-34-3434  |
+      | .bc-34-3434  |
+
+
 
