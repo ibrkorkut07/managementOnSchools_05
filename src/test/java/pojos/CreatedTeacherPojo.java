@@ -7,11 +7,13 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class CreatedTeacherPojo {
     public Integer userId;
     public String username;
+    public String password;
+    public String lessonsIdList;
     public String name;
     public String surname;
     public String birthDay;
     public String ssn;
-    public  String birthPlace;
+    public String birthPlace;
     public String phoneNumber;
     public String gender;
     public String email;
@@ -19,9 +21,11 @@ public class CreatedTeacherPojo {
     public CreatedTeacherPojo() {
     }
 
-    public CreatedTeacherPojo(Integer userId, String username, String name, String surname, String birthDay, String ssn, String birthPlace, String phoneNumber, String gender,String email) {
+    public CreatedTeacherPojo(Integer userId, String username, String password, String lessonsIdList, String name, String surname, String birthDay, String ssn, String birthPlace, String phoneNumber, String gender, String email) {
         this.userId = userId;
         this.username = username;
+        this.password = password;
+        this.lessonsIdList = lessonsIdList;
         this.name = name;
         this.surname = surname;
         this.birthDay = birthDay;
@@ -46,6 +50,22 @@ public class CreatedTeacherPojo {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getLessonsIdList() {
+        return lessonsIdList;
+    }
+
+    public void setLessonsIdList(String lessonsIdList) {
+        this.lessonsIdList = lessonsIdList;
     }
 
     public String getName() {
@@ -117,6 +137,8 @@ public class CreatedTeacherPojo {
         return "CreatedTeacherPojo{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", lessonsIdList='" + lessonsIdList + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", birthDay='" + birthDay + '\'' +
@@ -128,4 +150,5 @@ public class CreatedTeacherPojo {
                 '}';
     }
 }
+
 

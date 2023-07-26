@@ -23,3 +23,10 @@ Feature: US_14 Vice Dean should be able to see and update teachers
     And User clicks on Menu button of education term management page.
     And User clicks on the Teacher Management option from Main Menu window
     Then User verifies that "Teacher Management" title is displayed.
+
+
+
+
+
+
+

@@ -21,7 +21,8 @@ public class US_14_StepDefs {
 
 
     @When("User clicks on login button")
-    public void user_clicks_on_login_button() {
+    public void user_clicks_on_login_button()
+    {
         loginPage.loginButton.click();
     }
     @When("User enters valid admin credentials Username {string} and password {string}")

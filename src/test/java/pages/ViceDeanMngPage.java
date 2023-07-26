@@ -29,18 +29,25 @@ public class ViceDeanMngPage {
 
     @FindBy(xpath = "//a[.='Logout']")
     public WebElement logOutLink;
+
     @FindBy(id = "controlled-tab-example-tab-educationTerm")
     public WebElement educationTerm;
+
     @FindBy(id = "controlled-tab-example-tab-lessonsList")
     public WebElement lessonsList;
+
     @FindBy(id = "lessonName")
     public WebElement lessonName;
+
     @FindBy(id = "compulsory")
     public WebElement compulsoryCheckBox;
+
     @FindBy(id = "creditScore")
     public WebElement creditScore;
+
     @FindBy(xpath = "(//button[.='Submit'])[2]")
     public WebElement AddLessonSubmitButton;
+
     @FindBy(id = "controlled-tab-example-tab-lessonProgram")
     public WebElement lessonProgram;
     @FindBy(id = "react-select-2-input")
