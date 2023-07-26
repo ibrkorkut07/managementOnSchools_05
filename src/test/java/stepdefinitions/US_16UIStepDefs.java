@@ -10,6 +10,10 @@ import pages.us14.US14AdminHomePage;
 import pages.us14.US14LoginPage;
 import pages.us14.US14ViceDeanHomePage;
 import utilities.Driver;
+import utilities.ReusableMethods;
+
+import java.io.IOException;
+
 public class US_16UIStepDefs {
 
     LoginPage loginPage=new LoginPage();
@@ -27,15 +31,25 @@ public class US_16UIStepDefs {
 
 
     @Then("User verifies that {string} title is displayed and can view {string}, {string}, {string}, {string} and {string} information.")
-    public void userVerifiesThatTitleIsDisplayedAndCanViewAndInformation(String expectedContactGetAllTitle, String expectedAuthorName, String expectedAuthorEmail, String expectedSentEmailDate, String expectedSentSubject, String expectedSentMessage) throws InterruptedException {
+    public void userVerifiesThatTitleIsDisplayedAndCanViewAndInformation(String expectedContactMessageTitle, String expectedAuthorName, String expectedAuthorEmail, String expectedSentEmailDate, String expectedSentSubject, String expectedSentMessage) throws InterruptedException {
         Thread.sleep(3000);
-        Assert.assertEquals(expectedContactGetAllTitle,us14ViceDeanHomePage.actualContactMessageTitle.getText());
+        Assert.assertEquals(expectedContactMessageTitle,us14ViceDeanHomePage.actualContactMessageTitle.getText());
 
         Assert.assertEquals(expectedAuthorName,us14ViceDeanHomePage.actualAuthorName.getText());
         Assert.assertEquals(expectedAuthorEmail,us14ViceDeanHomePage.actualAuthorEmail.getText());
         Assert.assertEquals(expectedSentEmailDate,us14ViceDeanHomePage.actualSentEmailDate.getText());
         Assert.assertEquals(expectedSentSubject,us14ViceDeanHomePage.actualSentSubject.getText());
         Assert.assertEquals(expectedSentMessage,us14ViceDeanHomePage.actualSentMessage.getText());
+    }
+
+    @Then("User verifies that contact message page title {string} is displayed")
+    public void userVerifiesThatContactMessagePageTitleIsDisplayed(String expectedContactMessageTitle) {
+        Assert.assertEquals(expectedContactMessageTitle, us14ViceDeanHomePage.actualContactMessageTitle.getText());
+    }
+
+    @Then("user verifies that there is no Delete button in contact message page by getting screenshot.")
+    public void userVerifiesThatThereIsNoDeleteButtonInContactMessagePageByGettingScreenshot() throws IOException {
+        ReusableMethods.getScreenshot("contactMessagePage");
     }
 
     @And("User close the application page.")
