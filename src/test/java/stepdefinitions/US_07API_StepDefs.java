@@ -8,7 +8,7 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 import static junit.framework.TestCase.assertEquals;
-import base_urls.ManagementonSchoolBaseUrl;
+
 
 public class US_07API_StepDefs extends ManagementonSchoolBaseUrl {
     Response response;
