@@ -13,13 +13,14 @@ import java.util.Objects;
 import static io.restassured.RestAssured.given;
 
 public class US_25_API_StepDefinitions extends ManagementonSchoolBaseUrl {
+
   Response response;
 
     @Given("user should send the get request by name {string}")
     public void userShouldSendTheGetRequestByName(String name) {
-        // Set the url
+        // Set the url...
 
-        //https://managementonschools.com/app/students/getStudentByName?name=Sharmaine
+        //https://managementonschools.com/app/students/getStudentByName?name=Sharmaine     endpoint
 
         setUpAdmin();
 
