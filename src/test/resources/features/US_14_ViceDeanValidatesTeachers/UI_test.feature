@@ -2,9 +2,10 @@ Feature: US_14 Vice Dean should be able to see and update teachers
 
   Background: user goes to Managementonschools web page
     Given user goes to "MosUrl"
+    When user clicks on "LoginLink"
   @my_test
   Scenario: TC_01 Validate that the information of the created teacher should be visible for Vice Dean
-    When User clicks on login button
+    #When User clicks on login button
     And User enters valid admin credentials Username "Project09Admin" and password "12345678"
     When User clicks on login button.
     Then User verifies that "Admin Management" title is displayed on the admin home page

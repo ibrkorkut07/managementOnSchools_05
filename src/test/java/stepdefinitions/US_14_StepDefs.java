@@ -9,6 +9,7 @@ import pages.LoginPage;
 import pages.us14.US14AdminHomePage;
 import pages.us14.US14LoginPage;
 import pages.us14.US14ViceDeanHomePage;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US_14_StepDefs {
@@ -19,12 +20,13 @@ public class US_14_StepDefs {
     Faker faker = new Faker();
     US14ViceDeanHomePage us14ViceDeanHomePage = new US14ViceDeanHomePage();
 
+   // @When("User clicks on login button")
+   // public void user_clicks_on_login_button()
+    //{
+      //  loginPage.loginButton.click();
+    //}
 
-    @When("User clicks on login button")
-    public void user_clicks_on_login_button()
-    {
-        loginPage.loginButton.click();
-    }
+
     @When("User enters valid admin credentials Username {string} and password {string}")
     public void user_enters_valid_admin_credentials_username_and_password(String UserName, String Password) {
         loginPage.userName.sendKeys(UserName);

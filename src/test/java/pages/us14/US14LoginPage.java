@@ -13,5 +13,8 @@ public class US14LoginPage {
     @FindBy(xpath = "//div//button[@class='fw-semibold btn btn-primary']")
     public WebElement loginButton;
 
+    @FindBy(partialLinkText = "Login")
+    public WebElement homeLoginLink;
+
 
 }
