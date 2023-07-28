@@ -67,4 +67,41 @@ public class StudentInfoManagementPage {
 
     @FindBy(xpath = "(//div[@class='card-body'])[2]") //for make scroll down
     public WebElement studentInfoList;
+
+
+
+    @FindBy(id = "username")
+    public WebElement username;
+
+    @FindBy(id = "password")
+    public WebElement password;
+
+    @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary']")
+    public WebElement login;
+
+    @FindBy(xpath = "//*[text()='Menu']")
+    public WebElement menu;
+
+    @FindBy(xpath = "//a[text()='Student Info Management']")
+    public WebElement studentInfoManagement;
+
+    @FindBy(xpath = "//*[@class='fw-bold p-3 card-header']")
+    public WebElement addInfoManagementText;
+    @FindBy(id = "absentee")
+    public WebElement absentee;
+    @FindBy(xpath = "//*[@class='fw-semibold btn btn-primary btn-lg']")
+    public WebElement submitButton;
+
+    @FindBy(xpath = "(//*[@class='form-select'])[4]")
+    public WebElement selectLesson;
+
+    @FindBy(xpath = "(//*[@class='form-select'])[5]")
+    public WebElement educationTerm;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[4]")
+    public WebElement infoNoteRequiredText;
+
+    @FindBy(xpath = "//*[text()='Student Info updated Successfully']")
+    public WebElement successfullymessage;
+
 }

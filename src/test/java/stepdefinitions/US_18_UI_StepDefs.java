@@ -42,7 +42,7 @@ public class US_18_UI_StepDefs {
     @And("user clicks on login button for enter as teacher")
     public void userClicksOnLoginButtonForEnterAsTeacher() {
 
-       ReusableMethods.waitForVisibility(studentInfoManagementPage.loginButton,30).click();
+        ReusableMethods.waitForVisibility(studentInfoManagementPage.loginButton,30).click();
 
     }
 
@@ -50,7 +50,7 @@ public class US_18_UI_StepDefs {
     @When("user clicks on edit")
     public void user_clicks_on_edit() {
 
-       JSUtils.clickWithTimeoutByJS(studentInfoManagementPage.editLink);
+        JSUtils.clickWithTimeoutByJS(studentInfoManagementPage.editLink);
         //studentInfoManagementPage.editLink.click();
 
     }
