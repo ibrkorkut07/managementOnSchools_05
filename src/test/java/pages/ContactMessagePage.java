@@ -38,8 +38,6 @@ public class ContactMessagePage {
     public WebElement loginPassword;
 
 
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> a9ea6fe019e0e5f66224f259acc30c13566d7312
+
