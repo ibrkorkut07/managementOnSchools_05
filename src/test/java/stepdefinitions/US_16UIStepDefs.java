@@ -42,19 +42,19 @@ public class US_16UIStepDefs {
         Assert.assertEquals(expectedSentMessage,us14ViceDeanHomePage.actualSentMessage.getText());
     }
 
-    @Then("User verifies that contact message page title {string} is displayed")
-    public void userVerifiesThatContactMessagePageTitleIsDisplayed(String expectedContactMessageTitle) {
-        Assert.assertEquals(expectedContactMessageTitle, us14ViceDeanHomePage.actualContactMessageTitle.getText());
-    }
+   // @Then("User verifies that contact message page title {string} is displayed")
+  //  public void userVerifiesThatContactMessagePageTitleIsDisplayed(String expectedContactMessageTitle) {
+    //    Assert.assertEquals(expectedContactMessageTitle, us14ViceDeanHomePage.actualContactMessageTitle.getText());
+   // }
 
-    @Then("user verifies that there is no Delete button in contact message page by getting screenshot.")
-    public void userVerifiesThatThereIsNoDeleteButtonInContactMessagePageByGettingScreenshot() throws IOException {
-        ReusableMethods.getScreenshot("contactMessagePage");
-    }
+   // @Then("user verifies that there is no Delete button in contact message page by getting screenshot.")
+  //  public void userVerifiesThatThereIsNoDeleteButtonInContactMessagePageByGettingScreenshot() throws IOException {
+       // ReusableMethods.getScreenshot("contactMessagePage");
+   // }
 
-    @And("User close the application page.")
-    public void userCloseTheApplicationPage() {
-        Driver.getDriver().close();
-    }
+   // @And("User close the application page.")
+  //  public void userCloseTheApplicationPage() {
+      //  Driver.getDriver().close();
+  //  }
 }
 

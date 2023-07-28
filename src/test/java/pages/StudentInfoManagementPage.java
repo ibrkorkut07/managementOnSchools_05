@@ -104,4 +104,8 @@ public class StudentInfoManagementPage {
     @FindBy(xpath = "//*[text()='Student Info updated Successfully']")
     public WebElement successfullymessage;
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a9ea6fe019e0e5f66224f259acc30c13566d7312

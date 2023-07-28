@@ -15,7 +15,11 @@ Feature: US_16 The Vice Dean should be able to view the messages sent by users
   #  Then User verifies that contact message page title "Contact Message" is displayed
 
   Scenario: TC_02 Validate that the The Vice Dean should be able to view the messages, their authors, emails, sending date and subject information
+<<<<<<< HEAD
   // When User clicks on login button
+=======
+   // When User clicks on login button
+>>>>>>> a9ea6fe019e0e5f66224f259acc30c13566d7312
     And User enters valid vice dean credentials "MydeanQuyash10" and "12345678"
     And User clicks on Login button of vice dean home page.
     And User clicks on Menu button of education term management page.

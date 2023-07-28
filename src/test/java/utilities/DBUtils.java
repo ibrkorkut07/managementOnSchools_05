@@ -13,13 +13,14 @@ public class DBUtils {
     private static Statement statement;
     //    resultSet : used to perform DB actions such as going to specific rows, get data as string, get data as object
     private static ResultSet resultSet;
+
     /**
      * DBUtils.createConnection(); -> to connect to teh database
      */
     public static void createConnection() {
         String url = "jdbc:postgresql://managementonschools.com:5432/school_management";
-        String username="select_user";
-        String password="43w5ijfso";
+        String username = "select_user";
+        String password = "43w5ijfso";
         try {
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
@@ -27,6 +28,7 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+
     /**
      * DBUtils.executeQuery(String query); -> Execute the query and store is the result set object
      * STATEMENT : is used to write query
@@ -46,6 +48,7 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+
     //    used to close the connectivity
     public static void closeConnection() {
         try {
@@ -73,6 +76,7 @@ public class DBUtils {
         }
         return statement;
     }
+
     //Use this to get the ResutSet object
     public static ResultSet getResultset() {
         try {
@@ -83,39 +87,44 @@ public class DBUtils {
         }
         return resultSet;
     }
+
     // This method returns the number of row in a table in the database
     public static int getRowCount() throws Exception {
         resultSet.last();
         int rowCount = resultSet.getRow();
         return rowCount;
     }
+
     /**
      * @return returns a single cell value. If the results in multiple rows and/or
-     *         columns of data, only first column of the first row will be returned.
-     *         The rest of the data will be ignored
+     * columns of data, only first column of the first row will be returned.
+     * The rest of the data will be ignored
      */
     public static Object getCellValue(String query) {
         return getQueryResultList(query).get(0).get(0);
     }
+
     /**
      * @return returns a list of Strings which represent a row of data. If the query
-     *         results in multiple rows and/or columns of data, only first row will
-     *         be returned. The rest of the data will be ignored
+     * results in multiple rows and/or columns of data, only first row will
+     * be returned. The rest of the data will be ignored
      */
     public static List<Object> getRowList(String query) {
         return getQueryResultList(query).get(0);
     }
+
     /**
      * @return returns a map which represent a row of data where key is the column
-     *         name. If the query results in multiple rows and/or columns of data,
-     *         only first row will be returned. The rest of the data will be ignored
+     * name. If the query results in multiple rows and/or columns of data,
+     * only first row will be returned. The rest of the data will be ignored
      */
     public static Map<String, Object> getRowMap(String query) {
         return getQueryResultMap(query).get(0);
     }
+
     /**
      * @return returns query result in a list of lists where outer list represents
-     *         collection of rows and inner lists represent a single row
+     * collection of rows and inner lists represent a single row
      */
     public static List<List<Object>> getQueryResultList(String query) {
         executeQuery(query);
@@ -136,6 +145,7 @@ public class DBUtils {
         }
         return rowList;
     }
+
     /**
      * @return list of values of a single column from the result set
      */
@@ -154,10 +164,11 @@ public class DBUtils {
         }
         return rowList;
     }
+
     /**
      * @return returns query result in a list of maps where the list represents
-     *         collection of rows and a map represents represent a single row with
-     *         key being the column name
+     * collection of rows and a map represents represent a single row with
+     * key being the column name
      */
     public static List<Map<String, Object>> getQueryResultMap(String query) {
         executeQuery(query);
@@ -178,6 +189,7 @@ public class DBUtils {
         }
         return rowList;
     }
+
     /*
      * @return List of columns returned in result set
      */
@@ -207,7 +219,8 @@ public class DBUtils {
         }
 
     }
-    public static ResultSet getResultSet(String sqlQuery){
+
+    public static ResultSet getResultSet(String sqlQuery) {
         //Create connection
         Connection connection;
         //Create Statement
@@ -215,7 +228,8 @@ public class DBUtils {
 
         try {
             connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
-            statement = connection.createStatement();} catch (SQLException e) {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
@@ -224,7 +238,9 @@ public class DBUtils {
             return statement.executeQuery(sqlQuery);
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
-    }
 
+
+        }
+
+    }
 }

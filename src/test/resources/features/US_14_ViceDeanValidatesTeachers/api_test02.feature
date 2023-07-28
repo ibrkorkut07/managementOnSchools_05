@@ -8,4 +8,10 @@ Feature: Vice Dean should be able to see and update teachers
     Examples:
       | name  | username  | surname | birthDay   | birthPlace  | phoneNumber  | gender | email                    | ssn         |
       | Ahmad | loan.feil | Quitzon | 1984-06-22 | Carrollside | 883-935-4045 | MALE   | ollie.conroy@hotmail.com | 350-20-9168 |
+<<<<<<< HEAD
     #And user sends put request with id 290 to get response
+=======
+    #And user sends put request with id 290 to get response
+
+
+>>>>>>> a9ea6fe019e0e5f66224f259acc30c13566d7312
