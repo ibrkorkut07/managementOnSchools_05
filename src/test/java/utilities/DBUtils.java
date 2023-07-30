@@ -1,10 +1,7 @@
 package utilities;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DBUtils {
     //    connection : used to connect to DB
@@ -225,6 +222,34 @@ public class DBUtils {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static Statement createStatement(){
+
+
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return statement;
+    }
+
+    public static List<String> convertObjectListToStringList(List<List<List<Object>>> objectList) {
+        List<String> stringList = new ArrayList<>();
+        for (List<List<Object>> nestedList : objectList) {
+            for (List<Object> innerList : nestedList) {
+                for (Object obj : innerList) {
+                    stringList.add(obj.toString());
+                }
+            }
+        }
+        return stringList;
+    }
+
+    public static List<String> getQueryResultListToStringList(String query) {
+        return convertObjectListToStringList(Collections.singletonList(getQueryResultList(query)));
     }
 
 }
