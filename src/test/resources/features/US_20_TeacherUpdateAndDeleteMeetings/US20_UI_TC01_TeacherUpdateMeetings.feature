@@ -18,8 +18,8 @@ Feature: Feature: US_20 The teacher should be able to view meeting lists and mak
   @US20_1
  Scenario: US_20 TC_002 The teacher should be able to delete the meeting.
     Given Teacher adds a new meeting
-    #And Teacher deletes the added meeting.
+    And Teacher is able to update the meeting
 
  # Scenario: US_20 TC_003 The teacher should be able to update the meeting.
-  #  And Teacher is able to update the meeting
+  #  And Teacher deletes the added meeting.
 
