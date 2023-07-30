@@ -6,8 +6,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.it.Date;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import pages.LoginPage;
 import pages.MeetMngPage;
 import pages.MenuPage;
@@ -43,10 +46,8 @@ public class US_20_UI_TeacherUpdateMeetings {
 
     @Given("Teacher adds a new meeting")
     public void teacher_adds_a_new_meeting() {
-
-        meetMngPage.selectStudent.click();
-        //meetMngPage.selectStudent.sendKeys("Deneme");
-        Driver.selectAnItemFromDropdown(meetMngPage.selectStudent, "1");
+        Actions actions=new Actions(Driver.getDriver());
+        actions.click(meetMngPage.selectStudent).sendKeys("Arzu Atabey").sendKeys(Keys.ENTER).perform();
         LocalDate randomDate=generateRandomDate();
         String formattedDate = formatDate(randomDate, "dd/MM/yyyy");
         meetMngPage.dateOfMeet.sendKeys(formattedDate);
@@ -56,6 +57,22 @@ public class US_20_UI_TeacherUpdateMeetings {
         meetMngPage.stopTime.sendKeys("1100");
         meetMngPage.description.sendKeys(faker.lorem().characters(2, 16));
 
+    }
+    @Given("Teacher is able to update the meeting")
+    public void teacher_is_able_to_update_the_meeting() {
+        meetMngPage.updateButton.click();
+        ReusableMethods.switchToWindow("editMeet");
+        Actions actions=new Actions(Driver.getDriver());
+        actions.click(meetMngPage.childSelectStudent).sendKeys("Arzu Atabey").sendKeys(Keys.ENTER).perform();
+        /*LocalDate randomDate=generateRandomDate();
+        String formattedDate = formatDate(randomDate, "dd/MM/yyyy");
+        meetMngPage.childDate.sendKeys(formattedDate);
+        meetMngPage.childStartTime.click();
+        meetMngPage.childStartTime.sendKeys("1100");
+        meetMngPage.childStopTime.click();
+        meetMngPage.childStopTime.sendKeys("1200");
+        meetMngPage.childDescription.sendKeys(faker.lorem().characters(2, 16));
+*/
     }
 
 
