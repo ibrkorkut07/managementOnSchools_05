@@ -46,5 +46,19 @@ public class MeetMngPage {
 
     @FindBy(xpath = "//tbody/tr[1]/td[4]")
     public List<WebElement> allDescription;
+    @FindBy(xpath = "//tbody/tr[1]/td[5]/span[1]/button[1]")
+    public WebElement updateButton;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div[1]/div/div/form/div/div[1]/div/div/div[1]/div[2]")
+    public WebElement childSelectStudent;
+    @FindBy(id = "date")
+    public WebElement childDate;
+    @FindBy(id = "startTime")
+    public WebElement childStartTime;
+    @FindBy(id = "stopTime")
+    public WebElement childStopTime;
+    @FindBy(id = "description")
+    public WebElement childDescription;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div[2]/button")
+    public WebElement childSubmit;
 
 }
